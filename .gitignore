@@ -53,3 +53,9 @@ test/coverage/
 modules/public/
 modules/views/
 /public/build/
+
+# --------------------
+# Sublime Files
+# --------------------
+*.sublime-project
+*.sublime-workspace
