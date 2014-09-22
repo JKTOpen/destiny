@@ -137,4 +137,5 @@ To simply run tests
   * [The AngularJs Controller](packages/articles/public/controllers/articles.js) - Where we take care of  our frontend logic.
   * [The AngularJs Views Folder](packages/articles/public/views) - Where we keep our CRUD views.
 
-###You may start working on product package. You can find it at packages/custom/product. For working example checkout this; http://localhost:3000/#!/product/help
+###You may start working on product package.
+You can find it at packages/custom/product. For working example checkout this; http://localhost:3000/#!/product/help
