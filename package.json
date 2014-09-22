@@ -78,7 +78,14 @@
     "serve-favicon": "^2.0.0",
     "swig": "^1.3.2",
     "time-grunt": "^0.3.1",
-    "view-helpers": "^0.1.4"
+    "view-helpers": "^0.1.4",
+    "mean-admin": "linnovate/mean-admin",
+    "tokens": "git://git.mean.io/ellman/tokens.git#master",
+    "ga": "git://git.mean.io/ellman/ga.git#master",
+    "translate": "git://git.mean.io/ellman/translate.git#master",
+    "upload": "git://git.mean.io/orit/upload.git#master",
+    "socket": "git://git.mean.io/linnovate/socket.git#master",
+    "comments": "git://git.mean.io/pratik/comments.git#4e97fd9a8900a0e771bf36fa82aad28cf272bac1"
   },
   "devDependencies": {
     "grunt-karma": "^0.8.2",

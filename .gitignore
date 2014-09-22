@@ -59,3 +59,8 @@ modules/views/
 # --------------------
 *.sublime-project
 *.sublime-workspace
+
+# --------------------
+# Upload Files
+# --------------------
+/files/
