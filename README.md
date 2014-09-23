@@ -15,11 +15,11 @@ $ npm install -g grunt-cli
   The quickest way to get started with DESTINY is to install the `meanio` package from NPM.
 
   Install MEAN CLI, clone destiny repo & install dependency:
-    ```
-    $ npm install -g mean-cli
-    $ git clone https://github.com/plannifnminus1fails/destiny.git
-    $ cd destiny && npm install
-    ```
+  ```
+  $ npm install -g mean-cli
+  $ git clone https://github.com/plannifnminus1fails/destiny.git
+  $ cd destiny && npm install
+  ```
   We recommend using [Grunt](https://github.com/gruntjs/grunt-cli) to start the server:
 
     $ grunt
