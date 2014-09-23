@@ -1,0 +1,253 @@
+    "mean-admin": "linnovate/mean-admin",
+    "tokens": "git://git.mean.io/ellman/tokens.git#master",
+    "ga": "git://git.mean.io/ellman/ga.git#master",
+    "upload": "git://git.mean.io/orit/upload.git#master",
+    "socket": "git://git.mean.io/linnovate/socket.git#master",
+    "comments": "git://git.mean.io/pratik/comments.git#4e97fd9a8900a0e771bf36fa82aad28cf272bac1"
+
+
+    "mean-admin": "plannifnminus1fails/mean-admin",
+    "tokens": "plannifnminus1fails/tokens",
+    "ga": "plannifnminus1fails/ga",
+    "upload": "plannifnminus1fails/upload",
+    "socket": "plannifnminus1fails/socket",
+    "comments": "git://github.com/plannifnminus1fails/comments.git#4e97fd9a8900a0e771bf36fa82aad28cf272bac1"
+
+
+
+
+#Setup destiny development repo:
+
+  Fork destiny repo at https://github.com/plannifnminus1fails/destiny.git
+
+  Go into user's Home directory
+    cd /home/$USER/
+  
+  Clone destiny repo
+
+    git clone https://github.com/<YOUR-GITHUB-USERNAME>/destiny.git
+    cd destiny
+
+  Setup remote
+
+    While you clone destiny, It will set a remote with name origin;
+    
+     git remote -v
+     
+     origin	https://github.com/<YOUR-GITHUB-USERNAME>/destiny.git (fetch)
+     origin	https://github.com/<YOUR-GITHUB-USERNAME>/destiny.git (push)
+
+    You need to add a remote with name upstream with this cmd;
+
+     git remote add upstream https://github.com/plannifnminus1fails/destiny.git
+     git remote -v
+
+     upstream	https://github.com/plannifnminus1fails/destiny.git (fetch)
+     upstream	https://github.com/plannifnminus1fails/destiny.git (push)
+
+
+    If you already have upstream set to something else then you need to execute this cmd
+     
+     git remote set-url upstream https://github.com/plannifnminus1fails/destiny.git
+     git remote -v
+
+     upstream	https://github.com/plannifnminus1fails/destiny.git (fetch)
+     upstream	https://github.com/plannifnminus1fails/destiny.git (push)
+
+
+
+
+#Setup mean development repo
+
+  Fork mean repo at https://github.com/plannifnminus1fails/mean.git
+
+  Go into user's Home directory
+    cd /home/$USER/
+  
+  Clone mean repo
+
+    git clone https://github.com/<YOUR-GITHUB-USERNAME>/mean.git
+    cd mean
+
+  Setup remote 
+
+    While you clone mean, It will set a remote with name origin;
+    
+     git remote -v
+     
+     origin	https://github.com/<YOUR-GITHUB-USERNAME>/mean.git (fetch)
+     origin	https://github.com/<YOUR-GITHUB-USERNAME>/mean.git (push)
+
+    You need to add a remote with name upstream with this cmd;
+
+     git remote add upstream https://github.com/plannifnminus1fails/mean.git
+     git remote -v
+
+     upstream	https://github.com/plannifnminus1fails/mean.git (fetch)
+     upstream	https://github.com/plannifnminus1fails/mean.git (push)
+
+
+
+
+
+#Setup tokens development repo
+
+  Fork tokens repo at https://github.com/plannifnminus1fails/tokens.git
+
+  Go into user's Home directory
+    cd /home/$USER/
+  
+  Clone tokens repo
+
+    git clone https://github.com/<YOUR-GITHUB-USERNAME>/tokens.git
+    cd tokens
+
+  Setup remote
+
+    While you clone tokens, It will set a remote with name origin;
+    
+     git remote -v
+     
+     origin	https://github.com/<YOUR-GITHUB-USERNAME>/tokens.git (fetch)
+     origin	https://github.com/<YOUR-GITHUB-USERNAME>/tokens.git (push)
+
+    You need to add a remote with name upstream with this cmd;
+
+     git remote add upstream https://github.com/plannifnminus1fails/tokens.git
+     git remote -v
+
+	 upstream	https://github.com/plannifnminus1fails/tokens.git (fetch)
+	 upstream	https://github.com/plannifnminus1fails/tokens.git (push)
+
+
+
+
+
+#Setup ga development repo
+
+  Fork ga repo at https://github.com/plannifnminus1fails/ga.git
+
+  Go into user's Home directory
+    cd /home/$USER/
+  
+  Clone ga repo
+
+    git clone https://github.com/<YOUR-GITHUB-USERNAME>/ga.git
+    cd ga
+
+  Setup remote
+
+    While you clone ga, It will set a remote with name origin;
+    
+     git remote -v
+     
+     origin	https://github.com/<YOUR-GITHUB-USERNAME>/ga.git (fetch)
+     origin	https://github.com/<YOUR-GITHUB-USERNAME>/ga.git (push)
+
+    You need to add a remote with name upstream with this cmd;
+
+     git remote add upstream https://github.com/plannifnminus1fails/ga.git
+     git remote -v
+
+	 upstream	https://github.com/plannifnminus1fails/ga.git (fetch)
+	 upstream	https://github.com/plannifnminus1fails/ga.git (push)
+
+
+
+
+
+#Setup upload development repo
+
+  Fork upload repo at https://github.com/plannifnminus1fails/upload.git
+
+  Go into user's Home directory
+    cd /home/$USER/
+  
+  Clone upload repo
+
+    git clone https://github.com/<YOUR-GITHUB-USERNAME>/upload.git
+    cd upload
+
+  Setup remote
+
+    While you clone upload, It will set a remote with name origin;
+  
+     git remote -v
+     
+     origin	https://github.com/<YOUR-GITHUB-USERNAME>/upload.git (fetch)
+     origin	https://github.com/<YOUR-GITHUB-USERNAME>/upload.git (push)
+
+    You need to add a remote with name upstream with this cmd;
+
+     git remote add upstream https://github.com/plannifnminus1fails/upload.git
+     git remote -v
+
+	 upstream	https://github.com/plannifnminus1fails/upload.git (fetch)
+	 upstream	https://github.com/plannifnminus1fails/upload.git (push)
+    
+
+
+
+
+#Setup socket development repo
+
+  Fork upload repo at https://github.com/plannifnminus1fails/socket.git
+
+  Go into user's Home directory
+    cd /home/$USER/
+  
+  Clone socket repo
+
+    git clone https://github.com/<YOUR-GITHUB-USERNAME>/socket.git
+    cd socket
+
+  Setup remote
+
+    While you clone socket, It will set a remote with name origin;
+  
+     git remote -v
+     
+     origin	https://github.com/<YOUR-GITHUB-USERNAME>/socket.git (fetch)
+     origin	https://github.com/<YOUR-GITHUB-USERNAME>/socket.git (push)
+
+    You need to add a remote with name upstream with this cmd;
+
+     git remote add upstream https://github.com/plannifnminus1fails/socket.git
+     git remote -v
+
+	 upstream	https://github.com/plannifnminus1fails/socket.git (fetch)
+	 upstream	https://github.com/plannifnminus1fails/socket.git (push)
+
+
+
+
+#Setup comments development repo
+
+  Fork upload repo at https://github.com/plannifnminus1fails/comments.git
+
+  Go into user's Home directory
+    cd /home/$USER/
+  
+  Clone comments repo
+
+    git clone https://github.com/<YOUR-GITHUB-USERNAME>/comments.git
+    cd comments
+
+  Setup remote
+
+    While you clone comments, It will set a remote with name origin;
+  
+     git remote -v
+     
+     origin	https://github.com/<YOUR-GITHUB-USERNAME>/comments.git (fetch)
+     origin	https://github.com/<YOUR-GITHUB-USERNAME>/comments.git (push)
+
+    You need to add a remote with name upstream with this cmd;
+
+     git remote add upstream https://github.com/plannifnminus1fails/comments.git
+     git remote -v
+
+	 upstream	https://github.com/plannifnminus1fails/comments.git (fetch)
+	 upstream	https://github.com/plannifnminus1fails/comments.git (push)
+
+
