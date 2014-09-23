@@ -14,7 +14,8 @@
           </a>
         </span>
       </h2>
-      <div>{{article.content}}</div>
+      <div>{{article.content}}<div ng-if="article !== undefined" ng-include="'comments/views/index.html'" data-ng-controller="CommentsController" data-ng-init="findComments(article, 2)"/>
+      <!-- Voila, you are done. Were you expecting some more steps? :-) --></div>
     </li>
   </ul>
   <h1 data-ng-hide="!articles || articles.length">No articles yet. <br> Why don't you <a href="/#!/articles/create">Create One</a>?</h1>

@@ -10,5 +10,6 @@
       <i class="glyphicon glyphicon-trash"></i>
     </a>
   </div>
-  <div>{{article.content}}</div>
+  <div>{{article.content}}<div ng-if="article !== undefined" ng-include="'comments/views/index.html'" data-ng-controller="CommentsController" data-ng-init="findComments(article, 2)"/>
+      <!-- Voila, you are done. Were you expecting some more steps? :-) --></div>
 </section>
