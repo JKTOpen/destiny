@@ -22,7 +22,7 @@
 
   Go into user's Home directory
     cd /home/$USER/
-  
+
   Clone destiny repo
 
     git clone https://github.com/<YOUR-GITHUB-USERNAME>/destiny.git
@@ -31,9 +31,9 @@
   Setup remote
 
     While you clone destiny, It will set a remote with name origin;
-    
+
      git remote -v
-     
+
      origin	https://github.com/<YOUR-GITHUB-USERNAME>/destiny.git (fetch)
      origin	https://github.com/<YOUR-GITHUB-USERNAME>/destiny.git (push)
 
@@ -47,14 +47,20 @@
 
 
     If you already have upstream set to something else then you need to execute this cmd
-     
+
      git remote set-url upstream https://github.com/plannifnminus1fails/destiny.git
      git remote -v
 
      upstream	https://github.com/plannifnminus1fails/destiny.git (fetch)
      upstream	https://github.com/plannifnminus1fails/destiny.git (push)
 
+  Install latest dependency
 
+    npm install
+
+  Install latest dependency update
+
+    npm update
 
 
 #Setup mean development repo
@@ -63,18 +69,18 @@
 
   Go into user's Home directory
     cd /home/$USER/
-  
+
   Clone mean repo
 
     git clone https://github.com/<YOUR-GITHUB-USERNAME>/mean.git
     cd mean
 
-  Setup remote 
+  Setup remote
 
     While you clone mean, It will set a remote with name origin;
-    
+
      git remote -v
-     
+
      origin	https://github.com/<YOUR-GITHUB-USERNAME>/mean.git (fetch)
      origin	https://github.com/<YOUR-GITHUB-USERNAME>/mean.git (push)
 
@@ -96,7 +102,7 @@
 
   Go into user's Home directory
     cd /home/$USER/
-  
+
   Clone tokens repo
 
     git clone https://github.com/<YOUR-GITHUB-USERNAME>/tokens.git
@@ -105,9 +111,9 @@
   Setup remote
 
     While you clone tokens, It will set a remote with name origin;
-    
+
      git remote -v
-     
+
      origin	https://github.com/<YOUR-GITHUB-USERNAME>/tokens.git (fetch)
      origin	https://github.com/<YOUR-GITHUB-USERNAME>/tokens.git (push)
 
@@ -129,7 +135,7 @@
 
   Go into user's Home directory
     cd /home/$USER/
-  
+
   Clone ga repo
 
     git clone https://github.com/<YOUR-GITHUB-USERNAME>/ga.git
@@ -138,9 +144,9 @@
   Setup remote
 
     While you clone ga, It will set a remote with name origin;
-    
+
      git remote -v
-     
+
      origin	https://github.com/<YOUR-GITHUB-USERNAME>/ga.git (fetch)
      origin	https://github.com/<YOUR-GITHUB-USERNAME>/ga.git (push)
 
@@ -162,7 +168,7 @@
 
   Go into user's Home directory
     cd /home/$USER/
-  
+
   Clone upload repo
 
     git clone https://github.com/<YOUR-GITHUB-USERNAME>/upload.git
@@ -171,9 +177,9 @@
   Setup remote
 
     While you clone upload, It will set a remote with name origin;
-  
+
      git remote -v
-     
+
      origin	https://github.com/<YOUR-GITHUB-USERNAME>/upload.git (fetch)
      origin	https://github.com/<YOUR-GITHUB-USERNAME>/upload.git (push)
 
@@ -184,7 +190,7 @@
 
 	 upstream	https://github.com/plannifnminus1fails/upload.git (fetch)
 	 upstream	https://github.com/plannifnminus1fails/upload.git (push)
-    
+
 
 
 
@@ -195,7 +201,7 @@
 
   Go into user's Home directory
     cd /home/$USER/
-  
+
   Clone socket repo
 
     git clone https://github.com/<YOUR-GITHUB-USERNAME>/socket.git
@@ -204,9 +210,9 @@
   Setup remote
 
     While you clone socket, It will set a remote with name origin;
-  
+
      git remote -v
-     
+
      origin	https://github.com/<YOUR-GITHUB-USERNAME>/socket.git (fetch)
      origin	https://github.com/<YOUR-GITHUB-USERNAME>/socket.git (push)
 
@@ -227,7 +233,7 @@
 
   Go into user's Home directory
     cd /home/$USER/
-  
+
   Clone comments repo
 
     git clone https://github.com/<YOUR-GITHUB-USERNAME>/comments.git
@@ -236,9 +242,9 @@
   Setup remote
 
     While you clone comments, It will set a remote with name origin;
-  
+
      git remote -v
-     
+
      origin	https://github.com/<YOUR-GITHUB-USERNAME>/comments.git (fetch)
      origin	https://github.com/<YOUR-GITHUB-USERNAME>/comments.git (push)
 
