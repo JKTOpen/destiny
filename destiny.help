@@ -58,10 +58,6 @@
 
     npm install
 
-  Install latest dependency update
-
-    npm update
-
 
 #Setup mean development repo
 
