@@ -1,4 +1,4 @@
-HI There,
+HI There ,
 
 DESTINY is a Full-stack javascript ecommerce application built with mean.io framework.
 
