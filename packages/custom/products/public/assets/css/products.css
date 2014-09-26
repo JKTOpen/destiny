@@ -1,0 +1,6 @@
+h1 {
+	text-align: center
+}
+ul.products li:not(:last-child) {
+	border-bottom: 1px solid #ccc
+}
