@@ -14,7 +14,10 @@
           </a>
         </span>
       </h2>
-      <div>{{product.content}}</div>
+      <div>
+        {{product.content}}
+        <div ng-if="product !== undefined" ng-include="'comments/views/index.html'" data-ng-controller="CommentsController" data-ng-init="findComments(product, 2)"/>        
+      </div>
     </li>
   </ul>
   <h1 data-ng-hide="!products || products.length">No products yet. <br> Why don't you <a href="/#!/products/create">Create One</a>?</h1>

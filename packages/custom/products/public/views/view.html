@@ -10,5 +10,8 @@
       <i class="glyphicon glyphicon-trash"></i>
     </a>
   </div>
-  <div>{{product.content}}</div>
+  <div>
+    {{product.content}}
+    <div ng-if="product !== undefined" ng-include="'comments/views/index.html'" data-ng-controller="CommentsController" data-ng-init="findComments(product, 2)"/>
+  </div>
 </section>
