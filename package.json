@@ -84,7 +84,7 @@
     "ga": "plannifnminus1fails/ga",
     "upload": "plannifnminus1fails/upload",
     "socket": "plannifnminus1fails/socket",
-    "comments": "git://github.com/plannifnminus1fails/comments.git#4e97fd9a8900a0e771bf36fa82aad28cf272bac1"
+    "comments": "plannifnminus1fails/comments"
   },
   "devDependencies": {
     "grunt-karma": "^0.8.2",
