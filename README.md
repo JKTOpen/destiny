@@ -1,4 +1,5 @@
 DESTINY is a Full-stack javascript ecommerce application built with mean.io framework.
+[![Build Status](http://192.168.205.184:8080/job/DestinyIndia/badge/icon)](http://localhost:8080/job/DestinyIndia/) 
 
 ## Prerequisites
 * Node.js - Download and Install [Node.js](http://www.nodejs.org/download/). You can also follow [this gist](https://gist.github.com/isaacs/579814) for a quick and easy way to install Node.js and npm
