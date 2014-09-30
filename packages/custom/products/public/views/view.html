@@ -11,7 +11,7 @@
     </a>
   </div>
   <div>
-    {{product.content}}
+    {{product.description}}
     <div ng-if="product !== undefined" ng-include="'comments/views/index.html'" data-ng-controller="CommentsController" data-ng-init="findComments(product, 2)"/>
   </div>
 </section>

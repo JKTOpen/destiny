@@ -13,14 +13,14 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$st
       if (isValid) {
         var product = new Products({
           title: this.title,
-          content: this.content
+          description: this.description
         });
         product.$save(function(response) {
           $location.path('products/' + response._id);
         });
 
         this.title = '';
-        this.content = '';
+        this.description = '';
       } else {
         $scope.submitted = true;
       }
