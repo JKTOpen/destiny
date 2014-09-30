@@ -25,6 +25,11 @@ var ProductSchema = new Schema({
     required: true,
     trim: true
   },
+  tag: {
+    type: String,
+    required: false,
+    trim: true
+  },
   user: {
     type: Schema.ObjectId,
     ref: 'User'
