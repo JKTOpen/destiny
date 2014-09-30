@@ -55,7 +55,7 @@
           // test expected GET request
           $httpBackend.expectGET('products').respond([{
             title: 'An Product about MEAN',
-            content: 'MEAN rocks!'
+            description: 'MEAN rocks!'
           }]);
 
           // run controller
@@ -65,7 +65,7 @@
           // test scope value
           expect(scope.products).toEqualData([{
             title: 'An Product about MEAN',
-            content: 'MEAN rocks!'
+            description: 'MEAN rocks!'
           }]);
 
         });
@@ -79,7 +79,7 @@
           var testProductData = function() {
             return {
               title: 'An Product about MEAN',
-              content: 'MEAN rocks!'
+              description: 'MEAN rocks!'
             };
           };
 
@@ -103,7 +103,7 @@
           var postProductData = function() {
             return {
               title: 'An Product about MEAN',
-              content: 'MEAN rocks!'
+              description: 'MEAN rocks!'
             };
           };
 
@@ -112,13 +112,13 @@
             return {
               _id: '525cf20451979dea2c000001',
               title: 'An Product about MEAN',
-              content: 'MEAN rocks!'
+              description: 'MEAN rocks!'
             };
           };
 
           // fixture mock form input values
           scope.title = 'An Product about MEAN';
-          scope.content = 'MEAN rocks!';
+          scope.description = 'MEAN rocks!';
 
           // test post request is sent
           $httpBackend.expectPOST('products', postProductData()).respond(responseProductData());
@@ -129,7 +129,7 @@
 
           // test form input(s) are reset
           expect(scope.title).toEqual('');
-          expect(scope.content).toEqual('');
+          expect(scope.description).toEqual('');
 
           // test URL location to new object
           expect($location.path()).toBe('/products/' + responseProductData()._id);
