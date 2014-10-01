@@ -14,8 +14,8 @@
           </a>
         </span>
       </h2>
+      <div>{{product.description}} <br /><br /></div>
       <div>
-        {{product.description}}
         <div ng-if="product !== undefined" ng-include="'comments/views/index.html'" data-ng-controller="CommentsController" data-ng-init="findComments(product, 2)"/>
       </div>
     </li>

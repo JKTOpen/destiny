@@ -13,7 +13,8 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$st
       if (isValid) {
         var product = new Products({
           title: this.title,
-          description: this.description
+          description: this.description,
+          tag: this.tag
         });
         product.$save(function(response) {
           $location.path('products/' + response._id);
@@ -21,6 +22,7 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$st
 
         this.title = '';
         this.description = '';
+        this.tag = '';
       } else {
         $scope.submitted = true;
       }
