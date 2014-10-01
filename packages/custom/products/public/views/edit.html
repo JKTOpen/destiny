@@ -8,8 +8,8 @@
           <p ng-show="productForm.title.$error.required">Title is required</p>
         </div>
       </div>
-
     </div>
+
     <div class="form-group" ng-class="{ 'has-error' : submitted && productForm.description.$invalid }">
       <label mean-token="'edit-description'" for="description" class="col-md-2 control-label">Description</label>
       <div class="col-md-10">
@@ -19,6 +19,14 @@
         </div>
       </div>
     </div>
+
+    <div class="form-group">
+      <label mean-token="'edit-tag'" for="tag" class="col-md-2">Tag</label>
+      <div class="col-md-10">
+        <input name="tag" type="text" class="form-control" data-ng-model="product.tag" id="tag" placeholder="Tag">
+      </div>
+    </div>
+
     <div class="form-group">
       <div class="col-md-offset-2 col-md-10">
         <button mean-token="'edit-submit'" type="submit" class="btn btn-default">Submit</button>

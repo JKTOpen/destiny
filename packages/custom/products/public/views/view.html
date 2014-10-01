@@ -10,8 +10,12 @@
       <i class="glyphicon glyphicon-trash"></i>
     </a>
   </div>
+  <div>{{product.description}}<br></div>
+  <div ng-if="product.tag !== undefined">
+    <span class="glyphicon glyphicon-tag"></span> {{product.tag}}
+  </div>
   <div>
-    {{product.description}}
+    <br />
     <div ng-if="product !== undefined" ng-include="'comments/views/index.html'" data-ng-controller="CommentsController" data-ng-init="findComments(product, 2)"/>
   </div>
 </section>
