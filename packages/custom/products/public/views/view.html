@@ -1,21 +1,30 @@
 <section data-ng-controller="ProductsController" data-ng-init="findOne()">
   <span>{{product.created | date:'medium'}}</span> /
   <span>{{product.user.name}}</span>
-  <h2>{{product.title}}</h2>
-  <div data-ng-if="hasAuthorization(product)">
-    <a class="btn" href="/#!/products/{{product._id}}/edit">
-      <i class="glyphicon glyphicon-edit"></i>
-    </a>
-    <a class="btn" data-ng-click="remove(product);">
-      <i class="glyphicon glyphicon-trash"></i>
-    </a>
+  <h2>
+    {{product.title}}
+    <span data-ng-if="hasAuthorization(product)">
+      <a class="btn" href="/#!/products/{{product._id}}/edit">
+        <i class="glyphicon glyphicon-edit"></i>
+      </a>
+      <a class="btn" data-ng-click="remove(product);">
+        <i class="glyphicon glyphicon-trash"></i>
+      </a>
+    </span>
+  </h2>
+  <div><p>{{product.description}}</p></div>
+  <div ng-if="product.color !== undefined">
+    <b><label mean-token="'show-color'" for="color" class="col-md-1">Color</label></b>
+    <div class="col-md-11"><p>{{product.color}}</p></div>
   </div>
-  <div>{{product.description}}<br></div>
+  <div ng-if="product.category !== undefined">
+    <label mean-token="'show-category'" for="category" class="col-md-1">Category</label>
+    <div class="col-md-11"><p>{{product.category}}</p></div>
+  </div>
   <div ng-if="product.tag !== undefined">
-    <span class="glyphicon glyphicon-tag"></span> {{product.tag}}
+    <span class="glyphicon glyphicon-tag col-md-1"> {{product.tag}}<br><br></span>
   </div>
-  <div>
-    <br />
+  <div class="col-md-12">
     <div ng-if="product !== undefined" ng-include="'comments/views/index.html'" data-ng-controller="CommentsController" data-ng-init="findComments(product, 2)"/>
   </div>
 </section>
