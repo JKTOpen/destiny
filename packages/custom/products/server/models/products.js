@@ -30,6 +30,16 @@ var ProductSchema = new Schema({
     required: false,
     trim: true
   },
+  color: {
+    type: String,
+    required: false,
+    trim: true
+  },
+  category: {
+    type: String,
+    required: false,
+    trim: true
+  },
   user: {
     type: Schema.ObjectId,
     ref: 'User'
