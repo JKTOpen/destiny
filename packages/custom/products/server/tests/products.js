@@ -31,6 +31,9 @@ describe('<Unit Test>', function() {
         product = new Product({
           title: 'Product Title',
           description: 'Product Description',
+          tag: 'Product Tag',
+          color: 'Product Color',
+          category: 'Product Category',
           user: user
         });
 
@@ -44,6 +47,27 @@ describe('<Unit Test>', function() {
           should.not.exist(err);
           product.title.should.equal('Product Title');
           product.description.should.equal('Product Description');
+          product.tag.should.equal('Product Tag');
+          product.color.should.equal('Product Color');
+          product.category.should.equal('Product Category');
+          product.user.should.not.have.length(0);
+          product.created.should.not.have.length(0);
+          done();
+        });
+      });
+
+      it('should be able to save without problems when try to save without tag, color & category', function(done) {
+        product.tag = '';
+        product.color = '';
+        product.category = '';
+
+        return product.save(function(err) {
+          should.not.exist(err);
+          product.title.should.equal('Product Title');
+          product.description.should.equal('Product Description');
+          product.tag.should.equal('');
+          product.color.should.equal('');
+          product.category.should.equal('');
           product.user.should.not.have.length(0);
           product.created.should.not.have.length(0);
           done();

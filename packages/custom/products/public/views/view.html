@@ -21,8 +21,8 @@
     <label mean-token="'show-category'" for="category" class="col-md-1">Category</label>
     <div class="col-md-11"><p>{{product.category}}</p></div>
   </div>
-  <div ng-if="product.tag !== undefined">
-    <span class="glyphicon glyphicon-tag col-md-1"> {{product.tag}}<br><br></span>
+  <div ng-if="product.tag !== undefined" class="col-md-1">
+    <span class="glyphicon glyphicon-tag"></span> {{product.tag}}<br><br>
   </div>
   <div class="col-md-12">
     <div ng-if="product !== undefined" ng-include="'comments/views/index.html'" data-ng-controller="CommentsController" data-ng-init="findComments(product, 2)"/>
