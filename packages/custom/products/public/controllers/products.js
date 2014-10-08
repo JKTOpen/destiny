@@ -41,6 +41,7 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$st
             $scope.products.splice(i, 1);
           }
         }
+        $location.path('products');
       } else {
         $scope.product.$remove(function(response) {
           $location.path('products');
