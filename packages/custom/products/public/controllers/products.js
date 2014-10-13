@@ -13,14 +13,20 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$st
       if (isValid) {
         var product = new Products({
           title: this.title,
-          content: this.content
+          description: this.description,
+          tag: this.tag,
+          color: this.color,
+          category: this.category
         });
         product.$save(function(response) {
           $location.path('products/' + response._id);
         });
 
         this.title = '';
-        this.content = '';
+        this.description = '';
+        this.tag = '';
+        this.color = '';
+        this.category = '';
       } else {
         $scope.submitted = true;
       }
@@ -35,6 +41,7 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$st
             $scope.products.splice(i, 1);
           }
         }
+        $location.path('products');
       } else {
         $scope.product.$remove(function(response) {
           $location.path('products');

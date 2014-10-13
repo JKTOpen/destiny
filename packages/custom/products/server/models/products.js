@@ -20,9 +20,24 @@ var ProductSchema = new Schema({
     required: true,
     trim: true
   },
-  content: {
+  description: {
     type: String,
     required: true,
+    trim: true
+  },
+  tag: {
+    type: String,
+    required: false,
+    trim: true
+  },
+  color: {
+    type: String,
+    required: false,
+    trim: true
+  },
+  category: {
+    type: String,
+    required: false,
     trim: true
   },
   user: {
@@ -38,9 +53,9 @@ ProductSchema.path('title').validate(function(title) {
   return !!title;
 }, 'Title cannot be blank');
 
-ProductSchema.path('content').validate(function(content) {
-  return !!content;
-}, 'Content cannot be blank');
+ProductSchema.path('description').validate(function(description) {
+  return !!description;
+}, 'Description cannot be blank');
 
 /**
  * Statics

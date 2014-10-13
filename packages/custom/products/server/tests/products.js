@@ -30,7 +30,10 @@ describe('<Unit Test>', function() {
       user.save(function() {
         product = new Product({
           title: 'Product Title',
-          content: 'Product Content',
+          description: 'Product Description',
+          tag: 'Product Tag',
+          color: 'Product Color',
+          category: 'Product Category',
           user: user
         });
 
@@ -43,7 +46,28 @@ describe('<Unit Test>', function() {
         return product.save(function(err) {
           should.not.exist(err);
           product.title.should.equal('Product Title');
-          product.content.should.equal('Product Content');
+          product.description.should.equal('Product Description');
+          product.tag.should.equal('Product Tag');
+          product.color.should.equal('Product Color');
+          product.category.should.equal('Product Category');
+          product.user.should.not.have.length(0);
+          product.created.should.not.have.length(0);
+          done();
+        });
+      });
+
+      it('should be able to save without problems when try to save without tag, color & category', function(done) {
+        product.tag = '';
+        product.color = '';
+        product.category = '';
+
+        return product.save(function(err) {
+          should.not.exist(err);
+          product.title.should.equal('Product Title');
+          product.description.should.equal('Product Description');
+          product.tag.should.equal('');
+          product.color.should.equal('');
+          product.category.should.equal('');
           product.user.should.not.have.length(0);
           product.created.should.not.have.length(0);
           done();
@@ -59,8 +83,8 @@ describe('<Unit Test>', function() {
         });
       });
 
-      it('should be able to show an error when try to save without content', function(done) {
-        product.content = '';
+      it('should be able to show an error when try to save without description', function(done) {
+        product.description = '';
 
         return product.save(function(err) {
           should.exist(err);

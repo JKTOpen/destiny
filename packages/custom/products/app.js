@@ -18,7 +18,6 @@ Products.register(function(app, auth, database) {
 
   //We are adding a link to the main menu for all authenticated users
   Products.menus.add({
-    'roles': ['authenticated'],
     'title': 'Products',
     'link': 'all products'
   });

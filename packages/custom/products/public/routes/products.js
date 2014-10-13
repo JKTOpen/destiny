@@ -27,10 +27,7 @@ angular.module('mean.products').config(['$stateProvider',
     $stateProvider
       .state('all products', {
         url: '/products',
-        templateUrl: 'products/views/list.html',
-        resolve: {
-          loggedin: checkLoggedin
-        }
+        templateUrl: 'products/views/list.html'
       })
       .state('create product', {
         url: '/products/create',
@@ -48,10 +45,7 @@ angular.module('mean.products').config(['$stateProvider',
       })
       .state('product by id', {
         url: '/products/:productId',
-        templateUrl: 'products/views/view.html',
-        resolve: {
-          loggedin: checkLoggedin
-        }
+        templateUrl: 'products/views/view.html'
       });
   }
 ]);

@@ -1,4 +1,4 @@
-DESTINY is a Full-stack javascript ecommerce application built with mean.io framework.
+ DESTINY is a Full-stack javascript ecommerce application built with mean.io framework.
 
 ## Prerequisites
 * Node.js - Download and Install [Node.js](http://www.nodejs.org/download/). You can also follow [this gist](https://gist.github.com/isaacs/579814) for a quick and easy way to install Node.js and npm

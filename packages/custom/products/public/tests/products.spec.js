@@ -55,7 +55,10 @@
           // test expected GET request
           $httpBackend.expectGET('products').respond([{
             title: 'An Product about MEAN',
-            content: 'MEAN rocks!'
+            description: 'MEAN rocks!',
+            tag: 'Destiny!',
+            color: 'Open Source',
+            category: 'eCommerce'
           }]);
 
           // run controller
@@ -65,7 +68,10 @@
           // test scope value
           expect(scope.products).toEqualData([{
             title: 'An Product about MEAN',
-            content: 'MEAN rocks!'
+            description: 'MEAN rocks!',
+            tag: 'Destiny!',
+            color: 'Open Source',
+            category: 'eCommerce'
           }]);
 
         });
@@ -79,7 +85,10 @@
           var testProductData = function() {
             return {
               title: 'An Product about MEAN',
-              content: 'MEAN rocks!'
+              description: 'MEAN rocks!',
+              tag: 'Destiny!',
+              color: 'Open Source',
+              category: 'eCommerce'
             };
           };
 
@@ -103,7 +112,10 @@
           var postProductData = function() {
             return {
               title: 'An Product about MEAN',
-              content: 'MEAN rocks!'
+              description: 'MEAN rocks!',
+              tag: 'Destiny!',
+              color: 'Open Source',
+              category: 'eCommerce'
             };
           };
 
@@ -112,13 +124,19 @@
             return {
               _id: '525cf20451979dea2c000001',
               title: 'An Product about MEAN',
-              content: 'MEAN rocks!'
+              description: 'MEAN rocks!',
+              tag: 'Destiny!',
+              color: 'Open Source',
+              category: 'eCommerce'
             };
           };
 
           // fixture mock form input values
           scope.title = 'An Product about MEAN';
-          scope.content = 'MEAN rocks!';
+          scope.description = 'MEAN rocks!';
+          scope.tag = 'Destiny!';
+          scope.color = 'Open Source';
+          scope.category = 'eCommerce';
 
           // test post request is sent
           $httpBackend.expectPOST('products', postProductData()).respond(responseProductData());
@@ -129,7 +147,10 @@
 
           // test form input(s) are reset
           expect(scope.title).toEqual('');
-          expect(scope.content).toEqual('');
+          expect(scope.description).toEqual('');
+          expect(scope.tag).toEqual('');
+          expect(scope.color).toEqual('');
+          expect(scope.category).toEqual('');
 
           // test URL location to new object
           expect($location.path()).toBe('/products/' + responseProductData()._id);
