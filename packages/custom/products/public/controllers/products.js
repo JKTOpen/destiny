@@ -3,7 +3,7 @@
 angular.module('mean.products').controller('ProductsController', ['$scope', '$stateParams', '$location', 'Global', 'Products',
   function($scope, $stateParams, $location, Global, Products) {
     $scope.global = Global;
-
+    
     $scope.hasAuthorization = function(product) {
       if (!product || !product.user) return false;
       return $scope.global.isAdmin || product.user._id === $scope.global.user._id;
