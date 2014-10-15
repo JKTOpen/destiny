@@ -36,6 +36,13 @@ exports.signout = function(req, res) {
   res.redirect('/');
 };
 
+/*exports.profile = function(req, res) {
+  
+  res.redirect('/profile');
+
+  res.json(req.user || null);
+};
+*/
 /**
  * Session
  */
