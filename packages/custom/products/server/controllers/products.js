@@ -45,7 +45,7 @@ exports.update = function(req, res) {
   var product = req.product;
 
   product = _.extend(product, req.body);
-
+console.log(req.body);
   product.save(function(err) {
     if (err) {
       return res.json(500, {
