@@ -3,33 +3,51 @@
 angular.module('mean.products').controller('ProductsController', ['$scope', '$stateParams', '$location', 'Global', 'Products',
   function($scope, $stateParams, $location, Global, Products) {
     $scope.global = Global;
-
+    $scope.images = [];
+     
     $scope.hasAuthorization = function(product) {
       if (!product || !product.user) return false;
       return $scope.global.isAdmin || product.user._id === $scope.global.user._id;
     };
 
+       
     $scope.create = function(isValid) {
-      if (isValid) {
-        var product = new Products({
-          title: this.title,
-          description: this.description,
-          tag: this.tag,
-          color: this.color,
-          category: this.category
-        });
-        product.$save(function(response) {
-          $location.path('products/' + response._id);
-        });
+     
+       if (isValid) {
+          var current = this; 
+      angular.forEach($scope.images, function(image, key) {
+          var product = new Products({
+          title: current.title,
+          description: current.description,
+          tag: current.tag,
+          color: current.color,
+          category: current.category,
+          images:{
+                              
+                    name: image.name,
+                    src: image.src,
+                    size: image.size,
+                    type: image.type,
+                    created: Date.now()
 
+                  } 
+         });
+          console.log('product=' + product);
+          product.$save(function(response) {
+          console.log('Hello product saved=' + product);          
+          $location.path('products/' + response._id);
+                });
+      });
+      } else {
+        $scope.submitted = true;
+    
+      }
+      
         this.title = '';
         this.description = '';
         this.tag = '';
         this.color = '';
-        this.category = '';
-      } else {
-        $scope.submitted = true;
-      }
+     
     };
 
     $scope.remove = function(product) {
@@ -77,6 +95,14 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$st
       }, function(product) {
         $scope.product = product;
       });
+    };
+  
+  $scope.uploadProductFinished = function(files) {
+   var log = [];
+   angular.forEach(files, function(file, key) {
+     $scope.images.push(file);
+   }, log);
+     
     };
   }
 ]);
