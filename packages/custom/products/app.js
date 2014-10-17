@@ -22,7 +22,7 @@ Products.register(function(app, auth, database) {
     'link': 'all products'
   });
   Products.menus.add({
-    'roles': ['authenticated'],
+    'roles': ['admin'],
     'title': 'Create New Product',
     'link': 'create product'
   });
