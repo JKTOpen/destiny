@@ -36,13 +36,6 @@ exports.signout = function(req, res) {
   res.redirect('/');
 };
 
-/*exports.profile = function(req, res) {
-  
-  res.redirect('/profile');
-
-  res.json(req.user || null);
-};
-*/
 /**
  * Session
  */
@@ -108,24 +101,6 @@ exports.create = function(req, res, next) {
     res.status(200);
   });
 };
-
-exports.update = function(req, res , next) {
-  //var user = req.user;
-//console.log('sthsthst');
-  /*user = _.extend(user, req.body);
-
-  user.save(function(err) {
-    if (err) {
-      return res.json(500, {
-        error: 'Cannot update the user'
-      });
-    }
-    res.json(user);
-
-  });*/
-};
-
-
 
 /**
  * Send User

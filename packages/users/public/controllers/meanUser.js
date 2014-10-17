@@ -24,49 +24,14 @@ angular.module('mean.users')
   ])
   .controller('ProfileController', ['$scope', '$rootScope', '$http', '$location', 'Global',
     function($scope, $rootScope, $http, $location, $templateCache,Global) {
-
-      /*$scope.global = Global ;
-      $scope.profileUser = $scope.global.user; 
-      console.log($scope.profileUser);*/
-      $http.get('/users/me')
+        $http.get('/users/me')
         .success(function(user) {
          $scope.profileUser = user ;
          user = user ;
       });
     }
   ])
-  .controller('ProfileEditController', ['$scope', '$rootScope', '$http', '$location', 'Global',
-    function($scope, $rootScope, $http, $location, $templateCache,Global) {
-
-var puser = null;      
-      $http.post('/users/edit/me')
-        .success(function(user) {
-          puser = user ;
-         $scope.profileUser = puser ;
-    });
-//console.log('sthsthst');
-/*$scope.update = function(isValid) {
-
-console.log('sthsthst');
   
-        if (isValid) {
-        var user = puser;
-        if (!user.updated) {
-          user.updated = [];
-        }
-        user.updated.push(new Date().getTime());
-
-        user.$update(function() {
-          $location.path('userEdit/' + user._id);
-        });
-      } else {
-        $scope.submitted = true;
-      }
-    };*/
-
-
-    }
-  ])
   .controller('LoginCtrl', ['$scope', '$rootScope', '$http', '$location', 'Global',
     function($scope, $rootScope, $http, $location, Global) {
       // This object will be filled by the form
