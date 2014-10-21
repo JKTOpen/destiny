@@ -26,8 +26,7 @@ angular.module('mean.users')
     function($scope, $rootScope, $http, $location, $templateCache,Global) {
         $http.get('/users/me')
         .success(function(user) {
-         $scope.profileUser = user ;
-         user = user ;
+         $scope.profileUser = user ;         
       });
     }
   ])
