@@ -22,6 +22,15 @@ angular.module('mean.users')
         });
     }
   ])
+  .controller('ProfileController', ['$scope', '$rootScope', '$http', '$location', 'Global',
+    function($scope, $rootScope, $http, $location, $templateCache,Global) {
+        $http.get('/users/me')
+        .success(function(user) {
+         $scope.profileUser = user ;         
+      });
+    }
+  ])
+  
   .controller('LoginCtrl', ['$scope', '$rootScope', '$http', '$location', 'Global',
     function($scope, $rootScope, $http, $location, Global) {
       // This object will be filled by the form
