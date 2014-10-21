@@ -72,6 +72,60 @@
       });
     });
 
+    describe('ProfileController', function() {
+      beforeEach(function() {
+        this.addMatchers({
+          toEqualData: function(expected) {
+            return angular.equals(this.actual, expected);
+          }
+        });
+      });
+
+      beforeEach(function() {
+        module('mean');
+        module('mean.system');
+        module('mean.users');
+      });
+
+      var ProfileController,
+        scope,
+        $rootScope,
+        $httpBackend,
+        $location;
+
+      beforeEach(inject(function($controller, _$rootScope_, _$location_, _$httpBackend_) {
+
+        scope = _$rootScope_.$new();
+        $rootScope = _$rootScope_;
+
+        ProfileController = $controller('ProfileController', {
+          $scope: scope,
+          $rootScope: _$rootScope_
+        });
+
+        $httpBackend = _$httpBackend_;
+
+        $location = _$location_;
+
+      }));
+
+      afterEach(function() {
+        $httpBackend.verifyNoOutstandingExpectation();
+        $httpBackend.verifyNoOutstandingRequest();
+      });
+
+      it('should have the same user as rootScope', function() {
+
+        // test expected GET request
+        $httpBackend.expectGET('/users/me').respond(200,{
+          user: 'Fred'
+        });
+        $httpBackend.flush();
+        // test scope value
+        expect(scope.profileUser).toEqualData({ user: 'Fred' });
+      });
+    });
+
     describe('RegisterCtrl', function() {
       beforeEach(function() {
         this.addMatchers({
