@@ -24,13 +24,42 @@ angular.module('mean.users')
   ])
   .controller('ProfileController', ['$scope', '$rootScope', '$http', '$location', 'Global',
     function($scope, $rootScope, $http, $location, $templateCache,Global) {
-        $http.get('/users/me')
+    
+    $scope.profileUser = null;
+
+    $scope.viewProfile = function() {
+      $http.get('/users/me')
         .success(function(user) {
-         $scope.profileUser = user ;         
+         $scope.profileUser = user ;     
       });
+    };
+  
+    $scope.update = function(isValid) {
+      console.log('In update method');
+        if (isValid) {
+          var user = $scope.profileUser;
+          console.log(user);
+          $http.post('userEdit/' + user._id)
+          .success(function() {
+            $location.url('/profile');
+          });
+
+        /*if (!user.updated) {
+          user.updated = [];
+        }
+        user.updated.push(new Date().getTime());
+
+        user.$update(function() {
+          $location.path('userEdit/' + user._id);
+        });*/
+
+        } else {
+          $scope.submitted = true;
+        }
+    };
     }
   ])
-  
+
   .controller('LoginCtrl', ['$scope', '$rootScope', '$http', '$location', 'Global',
     function($scope, $rootScope, $http, $location, Global) {
       // This object will be filled by the form
