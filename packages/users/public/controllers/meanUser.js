@@ -24,39 +24,33 @@ angular.module('mean.users')
   ])
   .controller('ProfileController', ['$scope', '$rootScope', '$http', '$location', 'Global',
     function($scope, $rootScope, $http, $location, $templateCache,Global) {
-    
+
     $scope.profileUser = null;
 
     $scope.viewProfile = function() {
       $http.get('/users/me')
         .success(function(user) {
-         $scope.profileUser = user ;     
+         $scope.profileUser = user ;
       });
     };
-  
+
     $scope.update = function(isValid) {
       console.log('In update method');
         if (isValid) {
           var user = $scope.profileUser;
           console.log(user);
-          $http.post('userEdit/' + user._id)
-          .success(function() {
+          $http.put('/admin/users/' + user._id, user)
+          .success(function(response) {
             $location.url('/profile');
           });
-
-        /*if (!user.updated) {
-          user.updated = [];
-        }
-        user.updated.push(new Date().getTime());
-
-        user.$update(function() {
-          $location.path('userEdit/' + user._id);
-        });*/
 
         } else {
           $scope.submitted = true;
         }
     };
+
+
+
     }
   ])
 

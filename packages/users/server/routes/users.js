@@ -8,12 +8,9 @@ module.exports = function(MeanUser, app, auth, database, passport) {
 
   app.route('/logout')
     .get(users.signout);
-     
+
   app.route('/users/me')
     .get(users.me);
-
-  app.route('/userEdit/:userId')
-    .post(users.update);
 
   // Setting up the users api
   app.route('/register')
