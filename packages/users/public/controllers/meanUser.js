@@ -35,18 +35,16 @@ angular.module('mean.users')
     };
 
     $scope.update = function(isValid) {
-      console.log('In update method');
-        if (isValid) {
-          var user = $scope.profileUser;
-          console.log(user);
-          $http.put('/admin/users/' + user._id, user)
-          .success(function(response) {
-            $location.url('/profile');
-          });
+      if (isValid) {
+        var user = $scope.profileUser;
+        $http.put('/users/' + user._id, user)
+        .success(function(response) {
+          $location.url('/profile');
+        });
 
-        } else {
-          $scope.submitted = true;
-        }
+      } else {
+        $scope.submitted = true;
+      }
     };
 
 

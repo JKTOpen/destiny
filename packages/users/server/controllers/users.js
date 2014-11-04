@@ -104,21 +104,15 @@ exports.create = function(req, res, next) {
 };
 
 /**
- * Update User
+ * Update a user
  */
-exports.update = function(req, res , next) {
-  var user = req.user;
-  user = _.extend(user, req.body);
+exports.update = function(req, res) {
+    var user = req.profile;
+    user = _.extend(user, req.body);
 
-  user.save(function(err) {
-    if (err) {
-      return res.json(500, {
-        error: 'Cannot update the user'
-      });
-    }
-    res.json(user);
-    console.log('user in update is ' + user);
-  });
+    user.save(function(err) {
+        res.jsonp(user);
+    });
 };
 
 /**
