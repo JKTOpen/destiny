@@ -50,6 +50,7 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$st
      
     };
 
+
     $scope.remove = function(product) {
       if (product) {
         product.$remove();
@@ -69,7 +70,17 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$st
 
     $scope.update = function(isValid) {
       if (isValid) {
+       angular.forEach($scope.images, function(image, key) {
         var product = $scope.product;
+            product.images.name = image.name;
+            product.images.src =  image.src ;
+            product.images.size = image.size ;
+            product.images.type = image.type;
+            product.images.created = Date.now();
+
+                
+        
+
         if (!product.updated) {
           product.updated = [];
         }
@@ -78,6 +89,7 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$st
         product.$update(function() {
           $location.path('products/' + product._id);
         });
+       });  
       } else {
         $scope.submitted = true;
       }
@@ -93,16 +105,55 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$st
       Products.get({
         productId: $stateParams.productId
       }, function(product) {
-        $scope.product = product;
-      });
+         $scope.product = product;
+         $scope.images.push(product.images);
+             
+         });
     };
+      
   
-  $scope.uploadProductFinished = function(files) {
-   var log = [];
-   angular.forEach(files, function(file, key) {
-     $scope.images.push(file);
-   }, log);
-     
+  
+ $scope.deleteImage = function() {
+      $scope.images = []; 
+      $scope.errorMessages = ' ' ;
+     $scope.slides = [];
+     };
+
+
+    $scope.uploadFileCallback = function(file) {
+    $scope.errorMessages = [];  
+       console.log('length images'+ $scope.images.length);
+
+
+      if ($scope.images.length === 0 && file.type.indexOf('image') !== -1) {
+          $scope.errorMessages = '' ;
+          $scope.images.push(file);
+          $scope.addSlide(file.src);
+          }
+      else if ($scope.images.length === 1 && file.type.indexOf('image') !== -1) {
+          $scope.errorMessages.push('More Than One Image Not Allowed');   
+          } else {
+            $scope.errorMessages.push('File Type Not Allowed');
+           //  $scope.images=[];
+                  }
+   
+   console.log('length images at exit'+ $scope.images.length);   
     };
+
+    $scope.uploadFinished = function(files) {
+      console.log(files);
+    };
+
+    $scope.myInterval = 5000;
+    var slides = $scope.slides = [];
+    $scope.addSlide = function(url) {
+//           var newWidth = 600 + slides.length;
+       slides.push({
+         image: url
+       });
+    };
+
+
+ 
   }
 ]);
