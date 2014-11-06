@@ -22,6 +22,37 @@ angular.module('mean.users')
         });
     }
   ])
+  .controller('ProfileController', ['$scope', '$rootScope', '$http', '$location', 'Global',
+    function($scope, $rootScope, $http, $location, $templateCache,Global) {
+
+    $scope.profileUser = null;
+
+    $scope.viewProfile = function() {
+      $http.get('/users/me')
+        .success(function(user) {
+         $scope.profileUser = user ;
+      });
+    };
+
+    $scope.update = function(isValid) {
+      if (isValid) {
+        var user = $scope.profileUser;
+        $http.put('/users/' + user._id, user)
+        
+        .success(function(response) {
+          $location.url('/profile');
+        });
+
+      } else {
+        $scope.submitted = true;
+      }
+    };
+
+
+
+    }
+  ])
+
   .controller('LoginCtrl', ['$scope', '$rootScope', '$http', '$location', 'Global',
     function($scope, $rootScope, $http, $location, Global) {
       // This object will be filled by the form
