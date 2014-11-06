@@ -38,6 +38,7 @@ angular.module('mean.users')
       if (isValid) {
         var user = $scope.profileUser;
         $http.put('/users/' + user._id, user)
+        
         .success(function(response) {
           $location.url('/profile');
         });
