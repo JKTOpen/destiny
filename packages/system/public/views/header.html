@@ -3,22 +3,35 @@
     <a class="navbar-brand" ui-sref="home" mean-token="'site-title'">MEAN</a>
   </div>
 
-  <div class="left pull-left">
-    <ul class="navbar-nav nav">
-      <li data-ng-repeat="item in menus.main" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}">
-        <a mean-token="item.link" ui-sref='{{item.link}}'>{{item.title}}</a>
-      </li>
-    </ul>
-  </div>
+  <div class="head-bottom">
+    <div class="free-shipping">free shipping* | 30 days return<br />cash on delivery*</div>
+    <div class="search-box"> 
+      <div class="search-txt">SEARCH</div>
+      <div class="search-sty"> 
+       <!-- Fetch options from database -->
+        <ul class="navbar-nav nav">
+          <li>
+            <select>
+              <option></option>
+            </select> 
+            <input type="text" class="search" value="Search products, brands, color and more" />
+            <input type="button" />
+          </li> 
+        </ul>
+      </div>
+    </div>
+  </div>  
 
   <div class="account">
     <div class="text-edit">
       <div class="pull-right" data-ng-show="global.authenticated" mean-token-editable></div>
       <div class="pull-right" data-ng-show="global.authenticated" mean-translate></div>
     </div>
+
     <ul class="navbar-nav nav" data-ng-hide="global.authenticated">
       <li><a ui-sref='auth.register'>Join</a>
       </li>
+
       <li class="divider-vertical"></li>
       <li><a ui-sref='auth.login'>Log In</a>
       </li>
@@ -37,4 +50,14 @@
       </li>
     </ul>
   </div>
+
+  <div class="left pull-left">
+    <ul class="navbar-nav nav">
+      <li data-ng-repeat="item in menus.main" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}">
+        <a mean-token="item.link" ui-sref='{{item.link}}'>{{item.title}}</a>
+      </li>
+    </ul>
+  </div>
+
+  
 </div>
