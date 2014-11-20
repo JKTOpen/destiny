@@ -23,12 +23,19 @@ angular.module('mean.users').config(['$stateProvider',
       return deferred.promise;
     };
 
-
     // states for my app
     $stateProvider
       .state('auth', {
         url: '/auth',
         templateUrl: 'users/views/index.html'
+      })
+      .state('profile', {
+        url: '/profile',
+        templateUrl: 'users/views/profile.html'
+      })
+      .state('profileEdit', {
+        url: '/profileEdit',
+        templateUrl: 'users/views/profileEdit.html'
       })
       .state('auth.login', {
         url: '/login',

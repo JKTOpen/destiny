@@ -72,6 +72,98 @@
       });
     });
 
+    describe('ProfileController', function() {
+      beforeEach(function() {
+        this.addMatchers({
+          toEqualData: function(expected) {
+            return angular.equals(this.actual, expected);
+          }
+        });
+      });
+
+      beforeEach(function() {
+        module('mean');
+        module('mean.system');
+        module('mean.users');
+      });
+
+      var ProfileController,
+        scope,
+        $httpBackend,
+        $stateParams,
+        $location;        
+
+      beforeEach(inject(function($controller, $rootScope, _$location_, _$stateParams_, _$httpBackend_) {
+
+        scope = $rootScope.$new();
+
+        ProfileController = $controller('ProfileController', {
+          $scope: scope
+        });
+
+        $stateParams = _$stateParams_;
+
+        $httpBackend = _$httpBackend_;
+
+        $location = _$location_;        
+
+      }));
+
+
+      it('should have the same user as rootScope', function() {
+
+        // test expected GET request
+        $httpBackend.expectGET('/users/me').respond(200,{
+          user: 'Fred'
+        });
+        scope.viewProfile();
+        $httpBackend.flush();
+        // test scope value
+        expect(scope.profileUser).toEqualData({ user: 'Fred' });
+      });
+
+      it('$scope.update(true) should update a valid user', inject(function(MeanUser) {
+
+        var putUserData = function() {
+            return {
+              
+  _id : '54364f1e8575da8b299f53a7',
+  email : 'rishi.kesarwani@jktech.com',
+  hashed_password : 'U1ROBEN5KyfYilSkW9trdM31Auj//32vPB4/m2zY6qIjDURAcGN/ntzeF1VKU76YUOb7JRmai/EDzbyA+wTZDw==',
+  name : 'Rishi',
+  provider : 'local',
+  roles : [
+    'authenticated'
+  ],
+  salt : 'a0u5O5Snq1aW8a7iPOLj5Q==',
+  username : 'Rishi'
+
+            };
+          };
+
+  // mock product object from form
+        var user = new MeanUser(putUserData());          
+       
+        scope.profileUser = user ; 
+      
+
+
+        // test expected GET request
+        //$httpBackend.expectPUT('/users/54364f1e8575da8b299f53a7', scope.user).respond();
+          
+    
+        $httpBackend.expectPUT(/users\/([0-9a-fA-F]{24})$/).respond();
+
+        scope.update(true);
+        $httpBackend.flush();
+        // test scope value
+        //expect(scope.user).toEqualData({ user : 'nitish'});
+        expect($location.path()).toBe('/profile');
+        
+      }));
+
+    });
+
     describe('RegisterCtrl', function() {
       beforeEach(function() {
         this.addMatchers({

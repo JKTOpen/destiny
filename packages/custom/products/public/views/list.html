@@ -27,5 +27,7 @@
       </div>
     </li>
   </ul>
-  <h1 data-ng-hide="!products || products.length">No products yet. <br> Why don't you <a href="/#!/products/create">Create One</a>?</h1>
+  <h1 data-ng-show="products.length === 0"> No Products Yet. </h1>
+  <h1 data-ng-show="global.isAdmin === true && products.length === 0"> <br> Why don't you <a href="/#!/products/create">Create One</a>?</h1>
+
 </section>

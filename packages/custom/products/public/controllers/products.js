@@ -4,17 +4,17 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$st
   function($scope, $stateParams, $location, Global, Products) {
     $scope.global = Global;
     $scope.images = [];
-     
+
     $scope.hasAuthorization = function(product) {
       if (!product || !product.user) return false;
       return $scope.global.isAdmin || product.user._id === $scope.global.user._id;
     };
 
-       
+
     $scope.create = function(isValid) {
-     
+
        if (isValid) {
-          var current = this; 
+          var current = this;
       angular.forEach($scope.images, function(image, key) {
           var product = new Products({
           title: current.title,
@@ -23,31 +23,31 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$st
           color: current.color,
           category: current.category,
           images:{
-                              
+
                     name: image.name,
                     src: image.src,
                     size: image.size,
                     type: image.type,
                     created: Date.now()
 
-                  } 
+                  }
          });
           console.log('product=' + product);
           product.$save(function(response) {
-          console.log('Hello product saved=' + product);          
+          console.log('Hello product saved=' + product);
           $location.path('products/' + response._id);
                 });
       });
       } else {
         $scope.submitted = true;
-    
+
       }
-      
+
         this.title = '';
         this.description = '';
         this.tag = '';
         this.color = '';
-     
+
     };
 
 
@@ -78,8 +78,8 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$st
             product.images.type = image.type;
             product.images.created = Date.now();
 
-                
-        
+
+
 
         if (!product.updated) {
           product.updated = [];
@@ -89,7 +89,7 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$st
         product.$update(function() {
           $location.path('products/' + product._id);
         });
-       });  
+       });
       } else {
         $scope.submitted = true;
       }
@@ -107,21 +107,21 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$st
       }, function(product) {
          $scope.product = product;
          $scope.images.push(product.images);
-             
+
          });
     };
-      
-  
-  
+
+
+
  $scope.deleteImage = function() {
-      $scope.images = []; 
+      $scope.images = [];
       $scope.errorMessages = ' ' ;
      $scope.slides = [];
      };
 
 
     $scope.uploadFileCallback = function(file) {
-    $scope.errorMessages = [];  
+    $scope.errorMessages = [];
        console.log('length images'+ $scope.images.length);
 
 
@@ -131,13 +131,13 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$st
           $scope.addSlide(file.src);
           }
       else if ($scope.images.length === 1 && file.type.indexOf('image') !== -1) {
-          $scope.errorMessages.push('More Than One Image Not Allowed');   
+          $scope.errorMessages.push('More Than One Image Not Allowed');
           } else {
             $scope.errorMessages.push('File Type Not Allowed');
            //  $scope.images=[];
                   }
-   
-   console.log('length images at exit'+ $scope.images.length);   
+
+   console.log('length images at exit'+ $scope.images.length);
     };
 
     $scope.uploadFinished = function(files) {
@@ -154,6 +154,6 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$st
     };
 
 
- 
+
   }
 ]);
