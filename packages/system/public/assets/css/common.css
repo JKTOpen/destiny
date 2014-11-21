@@ -24,7 +24,7 @@
     margin-left: 0
 }
 .content {
-    margin-top: 100px;
+    margin-top: 170px;
     width: 100%
 }
 /*footer {
@@ -164,6 +164,23 @@ footer p {
 img {
     background: red;
 }
+
+body {
+    background: #ebebeb url("/system/assets/img/main-bg.jpg") top repeat-x;
+}
+*{padding:0; margin:0;}
+.main-container{ width:1030px; margin:0 auto;}
+
+.you-may-like{ background:url("/system/assets/img/bestseller-bg.png") top no-repeat; width:350px; height:auto;}
+.you-may-like ul{ margin:0; list-style:none; padding:11px 10px; height:25px;}
+.you-may-like ul li{ list-style:none; width:147px; float:left; padding-left:5px;text-align:center; border:1px solid #f4f0e4; padding:5px;}
+.you-may-like ul li a{  font:normal 12px Tahoma, Geneva, sans-serif; color:#a9a9a9; text-decoration:none; text-transform:uppercase; }
+.you-may-like ul li a:hover{ color:#000;}
+
+.cate-head{ font:bold 14px Verdana, Geneva, sans-serif; color:#FFF; color:#2F48CE; padding-bottom:20px;}
+.sub-cate{ width:168px; float:left; margin-left:40px;}
+.cate-name{ background:#ff9b05; width:140px; color:#FFF; color:#3e3e3e; font:normal 13px Tahoma, Geneva, sans-serif; margin:5px auto; padding:10px;}
+
 
 /*.ng-invalid.ng-dirty{*/
     /*border-color:#FA787E;*/
