@@ -2,7 +2,9 @@
     padding-bottom: 0 !important;
     margin: 0 !important;
     border-bottom: 0 !important;
-    overflow: hidden;
+    overflow: visible;
+    position: fixed !important;
+    width: 100% !important;
 }
 .page-header .navbar-nav {
     float: right;
@@ -14,6 +16,8 @@
     padding: 13px 0 0 0;
 }
 .account {
+    background-color: black !important;
+    z-index: 20 !important;
     text-align:right;
 }
 .account > div, .account > ul {
@@ -50,8 +54,8 @@ footer p {
 .logo a{ display:block; height:42px;text-indent:-9999px; }
 
 .head-bottom {
-    width: 761px;
-    float: right;
+    width: 78%;
+    float: left;
     border-top: 1px solid #4f4f4f;
     padding-top: 12px;
     color: #FFF;
