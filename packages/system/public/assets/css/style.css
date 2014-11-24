@@ -33,7 +33,7 @@ ul.menu-links li a:hover{ background:#ff9b05;}
 .sub-cate{ width:168px; float:left; margin-left:40px;}
 .slider{ width:650px; margin:10px auto;}
 .cate-name{ background:#ff9b05; width:140px; color:#FFF; color:#3e3e3e; font:normal 13px Tahoma, Geneva, sans-serif; margin:5px auto; padding:10px;}
-.you-may-like{ background:url("/system/assets/img/bestseller-bg.png") top no-repeat; width:320px; height:486px;}
+.you-may-like{  width:320px; height:486px; padding-left: 0;padding-right: 0}
 .you-may-like ul{ margin:0; list-style:none; padding:11px 10px; height:25px;}
 .you-may-like ul li{ margin:0; list-style:none; width:147px; float:left; padding-left:5px;text-align:center; border:1px solid #f4f0e4; padding:5px 0;}
 .you-may-like ul li a{  font:normal 12px Tahoma, Geneva, sans-serif; color:#a9a9a9; text-decoration:none; text-transform:uppercase; }
