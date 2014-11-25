@@ -3,32 +3,31 @@
     margin: 0 !important;
     border-bottom: 0 !important;
     overflow: visible;
-    position: fixed !important;
-    width: 100% !important;
+    position: fixed ;
+    padding-left: 150px;
 }
 .page-header .navbar-nav {
-    float: right;
+    float: left;
 }
-.page-header > div > div, .page-header > div > ul {
+/*.page-header > div > div, .page-header > div > ul {
     display: inline-block;
-}
+}*/
 .text-edit {
-    padding: 13px 0 0 0;
+    padding: 5px 0 0 0;
+    float: left;
 }
 .account {
-    background-color: black !important;
-    z-index: 20 !important;
-    text-align:right;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
 }
-.account > div, .account > ul {
-    text-align: left;
-}
+
 .navbar .nav > li > a.brand {
     padding-left: 20px;
     margin-left: 0
 }
 .content {
-    margin-top: 170px;
+    margin-top: 150px;
+    margin-bottom: 50px;
     width: 100%
 }
 
