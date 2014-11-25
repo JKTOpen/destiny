@@ -3,11 +3,12 @@
 {% include '../includes/head.html' %}
 
 <body data-ng-controller="ThemeController" ng-cloak class="ng-cloak" ng-class="state">
+
     <div class="navbar navbar-inverse navbar-fixed-top" data-ng-include="'/system/views/header.html'" data-role="navigation"></div>
     {% if adminEnabled %}
-    <section class="admin-menu">
+    <!-- <section class="admin-menu">
         <div data-ng-include="'/mean-admin/views/index.html'"></div>
-    </section>
+    </section> -->
     {% endif %}
     <section class="content">
         <section class="container">
@@ -15,6 +16,8 @@
         </section>
     </section>
     {% include '../includes/foot.html' %}
+    <section class="footer">
+        <div ng-include="'/system/views/footer.html'"></div>
+    </section>
 </body>
-
 </html>
