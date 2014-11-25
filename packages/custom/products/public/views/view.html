@@ -1,6 +1,7 @@
 <section data-ng-controller="ProductsController" data-ng-init="findOne()">
   <span>{{product.created | date:'medium'}}</span> /
   <span>{{product.user.name}}</span>
+  
   <h2>
     {{product.title}}
     <span data-ng-if="hasAuthorization(product)">
@@ -12,6 +13,10 @@
       </a>
     </span>
   </h2>
+  
+ <img data-ng-src="{{product.images.src}}" alt="">
+            <span class="glyphicon glyphicon-remove-circle pull-right" ng-click="deletePhoto(img)"></span>
+
   <div><p>{{product.description}}</p></div>
   <div ng-if="product.color !== undefined">
     <b><label mean-token="'show-color'" for="color" class="col-md-1">Color</label></b>

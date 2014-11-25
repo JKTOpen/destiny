@@ -23,12 +23,20 @@
     <div class="form-group">
       <label mean-token="'create-image'" for="image" class="col-md-3 control-label">Image</label>
       <div class="col-md-9">
-        <div data-ng-controller="MeanUploadController">
-          <mean-upload file-dest="'/photos/'" upload-callback="uploadFinished(files)" upload-file-callback="uploadFileCallback(file)"></mean-upload>
+        
+          <mean-upload file-dest="'/photos/'" upload-callback="uploadProductFinished(files)" upload-file-callback="uploadFileCallback(file)" ></mean-upload>
+        
+                 
+             {{errorMessages}} 
+         
+
           <div data-ng-repeat="img in images">
-            <img data-ng-src="{{img.src}}" alt="">
-            <span class="glyphicon glyphicon-remove-circle pull-right" ng-click="deletePhoto(img)"></span>
-          </div>
+           <img data-ng-src="{{img.src}}" alt="">
+            <a class="btn" data-ng-click="deleteImage();">
+            <i class="glyphicon glyphicon-trash"></i>
+            </a>
+            
+        
         </div>
       </div>
     </div>

@@ -19,6 +19,7 @@ SystemPackage.register(function(app, auth, database) {
   SystemPackage.routes(app, auth, database);
 
   SystemPackage.aggregateAsset('css', 'common.css');
+  SystemPackage.aggregateAsset('css', 'style.css');
 
   // The middleware in config/express will run before this code
 
