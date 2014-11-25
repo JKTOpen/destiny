@@ -25,9 +25,12 @@ exports.product = function(req, res, next, id) {
  */
 exports.create = function(req, res) {
   var product = new Product(req.body);
+    
   product.user = req.user;
-
+ 
+  console.log('image name that need to store is' + product.images.name);
   product.save(function(err) {
+ 
     if (err) {
       return res.json(500, {
         error: 'Cannot save the product'
