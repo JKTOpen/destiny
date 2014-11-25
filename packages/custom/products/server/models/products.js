@@ -1,69 +1,69 @@
 'use strict';
-
 /**
- * Module dependencies.
- */
+* Module dependencies.
+*/
 var mongoose = require('mongoose'),
-  Schema = mongoose.Schema;
-
-
+Schema = mongoose.Schema;
 /**
- * Product Schema
- */
+* Product Schema
+*/
 var ProductSchema = new Schema({
-  created: {
-    type: Date,
-    default: Date.now
-  },
-  title: {
-    type: String,
-    required: true,
-    trim: true
-  },
-  description: {
-    type: String,
-    required: true,
-    trim: true
-  },
-  tag: {
-    type: String,
-    required: false,
-    trim: true
-  },
-  color: {
-    type: String,
-    required: false,
-    trim: true
-  },
-  category: {
-    type: String,
-    required: false,
-    trim: true
-  },
-  user: {
-    type: Schema.ObjectId,
-    ref: 'User'
-  }
+created: {
+type: Date,
+default: Date.now
+},
+title: {
+type: String,
+required: true,
+trim: true
+},
+description: {
+type: String,
+required: true,
+trim: true
+},
+tag: {
+type: String,
+required: false,
+trim: true
+},
+color: {
+type: String,
+required: false,
+trim: true
+},
+category: {
+type: Schema.ObjectId,
+ref: 'Productcategorylist'
+},
+user: {
+type: Schema.ObjectId,
+ref: 'User'
+}
 });
-
 /**
- * Validations
- */
+* Validations
+*/
 ProductSchema.path('title').validate(function(title) {
-  return !!title;
+return !!title;
 }, 'Title cannot be blank');
-
 ProductSchema.path('description').validate(function(description) {
-  return !!description;
+return !!description;
 }, 'Description cannot be blank');
-
 /**
- * Statics
- */
+* Statics
+*/
 ProductSchema.statics.load = function(id, cb) {
-  this.findOne({
-    _id: id
-  }).populate('user', 'name username').exec(cb);
+this.findOne({
+_id: id
+}).populate('user', 'name username').populate('category', 'name ').exec(cb);
+
 };
+
+/*ProductSchema.statics.load = function(id, cb) {
+this.findOne({
+_id: id
+}).populate('category', 'name ').exec(cb);
+};*/
 
 mongoose.model('Product', ProductSchema);

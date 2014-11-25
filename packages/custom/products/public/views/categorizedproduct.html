@@ -1,8 +1,8 @@
-<section data-ng-controller="ProductsController" data-ng-init="findOne()">
+<section data-ng-controller="ProductsController" data-ng-init="findCategorizedProduct()">
   <span>{{product.created | date:'medium'}}</span> /
   <span>{{product.user.name}}</span>
   <h2>
-    {{product.title}}
+    {{categorizedProduct.title}}
     <span data-ng-if="hasAuthorization(product)">
       <a class="btn" href="/#!/products/{{product._id}}/edit">
         <i class="glyphicon glyphicon-edit"></i>
@@ -12,10 +12,10 @@
       </a>
     </span>
   </h2>
-  <div><p>{{product.description}}</p></div>
+  <div><p>{{categorizedProduct.description}}</p></div>
   <div ng-if="product.color !== undefined">
     <b><label mean-token="'show-color'" for="color" class="col-md-1">Color</label></b>
-    <div class="col-md-11"><p>{{product.color}}</p></div>
+    <div class="col-md-11"><p>{{categorizedProduct.color}}</p></div>
   </div>
   <div ng-if="product.category !== undefined">
     <label mean-token="'show-category'" for="category" class="col-md-1">Category</label>

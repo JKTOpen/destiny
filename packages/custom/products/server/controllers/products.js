@@ -5,6 +5,7 @@
  */
 var mongoose = require('mongoose'),
   Product = mongoose.model('Product'),
+  Productcategorylist = mongoose.model('Productcategorylist'),
   _ = require('lodash');
 
 
@@ -38,12 +39,12 @@ exports.create = function(req, res) {
   });
 };
 
-/**
+/**ProductCategoryList
  * Update an product
  */
 exports.update = function(req, res) {
   var product = req.product;
-
+  console.log(product);
   product = _.extend(product, req.body);
   product.save(function(err) {
     if (err) {
@@ -77,6 +78,7 @@ exports.destroy = function(req, res) {
  * Show an product
  */
 exports.show = function(req, res) {
+ // console.log(req.product);
   res.json(req.product);
 };
 
@@ -84,13 +86,43 @@ exports.show = function(req, res) {
  * List of Products
  */
 exports.all = function(req, res) {
-  Product.find().sort('-created').populate('user', 'name username').exec(function(err, products) {
-    if (err) {
-      return res.json(500, {
-        error: 'Cannot list the products'
-      });
-    }
-    res.json(products);
+Product.find().sort('-created').populate('user', 'name username').populate('category', 'name ').exec(function(err, products) {
+//Product.find().sort('-created').populate('category', 'name ').exec(function(err, products) {  
+if (err) {
+return res.json(500, {
+error: 'Cannot list the products'
+});
+}
+res.json(products);
 
   });
 };
+
+
+exports.productCategory = function(req, res) {
+  Productcategorylist.find().exec(function(err, productCategoryLists) {
+    
+    if (err) {
+      return res.json(500, {
+        error: 'Cannot list the xyz'
+      });
+    }
+    res.json(productCategoryLists);
+
+  });
+};
+
+exports.categorizedProduct = function(req, res, next) {
+  
+   .find({
+     category: req.params.categoryId
+   })
+   .sort('-created')
+   .populate('user', 'name username')
+   .populate('category', 'name')
+   .exec(function(err, products) {
+     if (err) return next(err);
+      res.json(products);
+     next();
+   });
+}; 

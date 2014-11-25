@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('mean.products').controller('ProductsController', ['$scope', '$stateParams', '$location', 'Global', 'Products',
-  function($scope, $stateParams, $location, Global, Products) {
+angular.module('mean.products').controller('ProductsController', ['$scope', '$stateParams', '$location', 'Global', 'Products','ProductCategoryLists','CategorizedProducts',
+  function($scope, $stateParams, $location, Global, Products, ProductCategoryLists, CategorizedProducts) {
     $scope.global = Global;
     
     $scope.hasAuthorization = function(product) {
@@ -52,11 +52,18 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$st
     $scope.update = function(isValid) {
       if (isValid) {
         var product = $scope.product;
+        
         if (!product.updated) {
           product.updated = [];
         }
-        product.updated.push(new Date().getTime());
 
+        var categoryUpdate = new Products({
+
+          category : this.category
+
+        });
+        product.category._id = categoryUpdate.category;
+        product.updated.push(new Date().getTime());
         product.$update(function() {
           $location.path('products/' + product._id);
         });
@@ -71,6 +78,14 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$st
       });
     };
 
+    $scope.findProductCategory = function() {
+      $scope.defaultCategory = '54634e05a92d436556ae189a' ;
+      ProductCategoryLists.query(function(productCategory) {
+        $scope.productCategory = productCategory;
+        
+      });
+    };
+
     $scope.findOne = function() {
       Products.get({
         productId: $stateParams.productId
@@ -78,5 +93,16 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$st
         $scope.product = product;
       });
     };
+
+
+    $scope.findCategorizedProduct = function() {
+      CategorizedProducts.get({
+        categoryId: $stateParams.categoryId
+      }, function(product) {
+               
+        $scope.categorizedProduct = product;
+      });
+    };
+
   }
 ]);
