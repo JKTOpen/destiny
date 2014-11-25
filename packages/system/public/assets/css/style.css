@@ -30,9 +30,9 @@ ul.menu-links li a:hover{ background:#ff9b05;}
 .banner-categories{ width:228px; float:right; padding-top:6px;}
 .banner-categories div img{ float:right;}
 .home-categories{width:678px; background:url("/system/assets/img/cate-bg.png") top repeat-x; height:254px; padding:19px 10px;}
-.cate-head{ font:bold 14px Verdana, Geneva, sans-serif; color:#FFF; padding-bottom:20px;}
+.cate-head{ font:bold 14px Verdana, Geneva, sans-serif; color:#FFF; }
 .sub-cate{ width:168px; float:left; margin-left:40px;}
-.slider{ width:650px; margin:10px auto;}
+.slider{ width:650px; margin:10px auto; height: 50px;padding-top: 30px;}
 .cate-name{ background:#ff9b05; width:140px; color:#FFF; color:#3e3e3e; font:normal 13px Tahoma, Geneva, sans-serif; margin:5px auto; padding:10px;}
 .you-may-like{  width:320px; height:486px; padding-left: 0;padding-right: 0}
 .you-may-like ul{ margin:0; list-style:none; padding:11px 10px; height:25px;}
