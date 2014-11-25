@@ -70,29 +70,27 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$st
 
     $scope.update = function(isValid) {
       if (isValid) {
-       angular.forEach($scope.images, function(image, key) {
         var product = $scope.product;
-        product.images.name = image.name;
-        product.images.src =  image.src ;
-        product.images.size = image.size ;
-        product.images.type = image.type;
-        product.images.created = Date.now();
+        var categoryUpdate = new Products({
+          category : this.category
+        });
+        product.category._id = categoryUpdate.category;
+
+        angular.forEach($scope.images, function(image, key) {
+          product.images.name = image.name;
+          product.images.src =  image.src ;
+          product.images.size = image.size ;
+          product.images.type = image.type;
+          product.images.created = Date.now();
+        });
 
         if (!product.updated) {
           product.updated = [];
         }
-
-        var categoryUpdate = new Products({
-
-          category : this.category
-
-        });
-        product.category._id = categoryUpdate.category;
         product.updated.push(new Date().getTime());
         product.$update(function() {
-          $location.path('products/' + product._id);
+         $location.path('products/' + product._id);
         });
-       });
       } else {
         $scope.submitted = true;
       }

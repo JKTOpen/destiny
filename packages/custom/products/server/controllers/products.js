@@ -116,7 +116,7 @@ exports.productCategory = function(req, res) {
 };
 
 exports.categorizedProduct = function(req, res, next) {
-  
+  Product
    .find({
      category: req.params.categoryId
    })

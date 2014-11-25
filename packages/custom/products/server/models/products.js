@@ -40,23 +40,23 @@ var ProductSchema = new Schema({
   user: {
     type: Schema.ObjectId,
     ref: 'User'
-  }
+  },
   images: {
-     name: {
+    name: {
       type:String,
       required: false,
       trim: true  
-     },
-     src: {
+    },
+    src: {
       type:String,
       required: false,
       trim: true  
-     },
-     size: {
+    },
+    size: {
       type:String,
       required: false,
       trim: true  
-     },
+    },
     type:  {
       type:String,
       required: false,
