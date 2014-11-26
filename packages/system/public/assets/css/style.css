@@ -1,8 +1,9 @@
 body{ padding:0; margin:0; background:#ebebeb}
 *{padding:0; margin:0;}
 .main-container{ width:1030px; margin:0 auto;}
-.logo{ background:url("/system/assets/img/logo.png") top no-repeat; width:247px; height:42px; display:block; float:left;}
+.logo{  width:247px; height:42px; display:block; float:left;}
 .logo a{ display:block; height:42px;text-indent:-9999px; }
+.logo img{ display:block; height:42px;text-indent:-9999px;padding-bottom: 12px;}
 .head-top{ padding-top:20px;}
 
 ul.top-links{ padding:0; margin:0; list-style:none; width:370px; float:right;}
@@ -19,7 +20,7 @@ ul.top-links li a .small-text { font:normal 11px Verdana, Geneva, sans-serif;col
 .bd-container{ width:1030px; padding-top:30px;}
 .menu{ padding-top:19px; height:50px;}
 .free-shipping{ width:260px; float:left; font:normal 11px Verdana, Geneva, sans-serif; color:#737272; text-transform:capitalize; text-align:center;}
-.search-box{ width:406px; float:left;font:normal 11px Verdana, Geneva, sans-serif; color:#737272;padding-left: 5px;}
+.search-box{width:406px; float:left;font:normal 11px Verdana, Geneva, sans-serif; color:#737272;padding-left: 5px;}
 .search-txt{ padding-top:10px; width:65px; float:left;}
 ul.menu-links{padding:0; margin:0; }
 ul.menu-links li{padding:0; list-style:none; display:inline; }
