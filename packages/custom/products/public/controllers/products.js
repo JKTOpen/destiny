@@ -154,18 +154,22 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$st
     };
 
     $scope.findCategorizedProduct = function() {
-      CategorizedProducts.get({
-        categoryId: $stateParams.categoryId
-      }, function(product) {
-               
-        $scope.categorizedProduct = product;
+
+      CategorizedProducts.query(
+        {
+          categoryId: $stateParams.categoryId
+        },
+      function(products) {
+        console.log('something unexpected 3');
+        $scope.categorizedProducts = products;
       });
+          
     };
 
     $scope.myInterval = 5000;
     var slides = $scope.slides = [];
     $scope.addSlide = function(url) {
-//           var newWidth = 600 + slides.length;
+// var newWidth = 600 + slides.length;
        slides.push({
          image: url
        });

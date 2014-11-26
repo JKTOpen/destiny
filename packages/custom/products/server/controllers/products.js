@@ -90,7 +90,7 @@ exports.show = function(req, res) {
  */
 exports.all = function(req, res) {
 Product.find().sort('-created').populate('user', 'name username').populate('category', 'name ').exec(function(err, products) {
-//Product.find().sort('-created').populate('category', 'name ').exec(function(err, products) {  
+
 if (err) {
 return res.json(500, {
 error: 'Cannot list the products'
@@ -115,7 +115,7 @@ exports.productCategory = function(req, res) {
   });
 };
 
-exports.categorizedProduct = function(req, res, next) {
+exports.categorizedProduct = function(req, res) {
   Product
    .find({
      category: req.params.categoryId
@@ -124,8 +124,11 @@ exports.categorizedProduct = function(req, res, next) {
    .populate('user', 'name username')
    .populate('category', 'name')
    .exec(function(err, products) {
-     if (err) return next(err);
+    if (err) {
+      return res.json(500, {
+      error: 'Cannot list the products'
+      });
+    }
       res.json(products);
-     next();
    });
 }; 
