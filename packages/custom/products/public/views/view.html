@@ -13,11 +13,13 @@
       </a>
     </span>
   </h2>
-  
- <img data-ng-src="{{product.images.src}}" alt="">
-            <span class="glyphicon glyphicon-remove-circle pull-right" ng-click="deletePhoto(img)"></span>
-
-  <div><p>{{product.description}}</p></div>
+ 
+    <div class="row">
+       <div class=" row col-md-3">
+             <img data-ng-src="{{product.images.src}}" class="img-responsive img-thumbnail" alt="">
+       </div>
+    </div> 
+   <div><p>{{product.description}}</p></div>
   <div ng-if="product.color !== undefined">
     <b><label mean-token="'show-color'" for="color" class="col-md-1">Color</label></b>
     <div class="col-md-11"><p>{{product.color}}</p></div>
