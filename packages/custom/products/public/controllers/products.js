@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('mean.products').controller('ProductsController', ['$scope', '$stateParams', '$location', 'Global', 'Products',
-  function($scope, $stateParams, $location, Global, Products) {
+angular.module('mean.products').controller('ProductsController', ['$scope', '$stateParams', '$location', 'Global', 'Products','ProductCategoryLists','CategorizedProducts',
+  function($scope, $stateParams, $location, Global, Products, ProductCategoryLists, CategorizedProducts) {
     $scope.global = Global;
     $scope.images = [];
 
@@ -70,26 +70,27 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$st
 
     $scope.update = function(isValid) {
       if (isValid) {
-       angular.forEach($scope.images, function(image, key) {
         var product = $scope.product;
-            product.images.name = image.name;
-            product.images.src =  image.src ;
-            product.images.size = image.size ;
-            product.images.type = image.type;
-            product.images.created = Date.now();
+        var categoryUpdate = new Products({
+          category : this.category
+        });
+        product.category._id = categoryUpdate.category;
 
-
-
+        angular.forEach($scope.images, function(image, key) {
+          product.images.name = image.name;
+          product.images.src =  image.src ;
+          product.images.size = image.size ;
+          product.images.type = image.type;
+          product.images.created = Date.now();
+        });
 
         if (!product.updated) {
           product.updated = [];
         }
         product.updated.push(new Date().getTime());
-
         product.$update(function() {
-          $location.path('products/' + product._id);
+         $location.path('products/' + product._id);
         });
-       });
       } else {
         $scope.submitted = true;
       }
@@ -98,6 +99,14 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$st
     $scope.find = function() {
       Products.query(function(products) {
         $scope.products = products;
+      });
+    };
+
+    $scope.findProductCategory = function() {
+      $scope.defaultCategory = '54634e05a92d436556ae189a' ;
+      ProductCategoryLists.query(function(productCategory) {
+        $scope.productCategory = productCategory;
+        
       });
     };
 
@@ -144,16 +153,27 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$st
       console.log(files);
     };
 
+    $scope.findCategorizedProduct = function() {
+
+      CategorizedProducts.query(
+        {
+          categoryId: $stateParams.categoryId
+        },
+      function(products) {
+        console.log('something unexpected 3');
+        $scope.categorizedProducts = products;
+      });
+          
+    };
+
     $scope.myInterval = 5000;
     var slides = $scope.slides = [];
     $scope.addSlide = function(url) {
-//           var newWidth = 600 + slides.length;
+// var newWidth = 600 + slides.length;
        slides.push({
          image: url
        });
     };
-
-
 
   }
 ]);

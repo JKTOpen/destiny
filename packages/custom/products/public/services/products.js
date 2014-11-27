@@ -12,3 +12,7 @@ angular.module('mean.products').factory('Products', ['$resource',
     });
   }
 ]);
+
+
+
+
