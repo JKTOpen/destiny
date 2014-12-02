@@ -1,8 +1,28 @@
 'use strict';
 
-angular.module('mean.system').controller('IndexController', ['$scope', 'Global',
-  function($scope, Global) {
+angular.module('mean.system').controller('IndexController', ['$scope', 'Global','ProductCategoryLists','CategorizedProducts',
+  function($scope, Global, ProductCategoryLists, CategorizedProducts) {
     $scope.global = Global;
+    
+
+    $scope.loadCategory = function() {
+      $scope.defaultCategory = '54634e05a92d436556ae189a' ;
+      ProductCategoryLists.query(function(productCategory) {
+        $scope.listingCategory = productCategory;
+        console.log($scope.listingCategory);
+      });
+    };
+
+    $scope.listProductByCategory = function(categoryId) {
+      CategorizedProducts.query(
+        {
+          categoryId: categoryId
+        },
+      function(products) {
+        $scope.productByCategory = products;
+      });
+    };
+
     $scope.sites = {
       'makeapoint':{
         'name':'makeapoint',

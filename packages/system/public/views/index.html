@@ -1,4 +1,5 @@
-<section class="welcome container-fluid" data-ng-controller="IndexController">
+<section class="welcome container-fluid" data-ng-controller="IndexController" 
+    data-ng-init="loadCategory()" >
 
   
     <div class="container main-container bd-container ">
@@ -56,81 +57,25 @@
 
 
     <div class="row clearfix">
-      <div class="col-md-8 column left-container">
+      <div class="col-md-8 column left-container home-categories ">
         
-        <div class="row clearfix home-categories">
-          <div class="cate-head">
-            <a href="#">Flower Vase</a>  
-            <div class="slider">
-              <div class="sub-cate">
-                <img src="/system/assets/img/flower-vase1.jpg" width="168" height="147" />
-                <div class="cate-name">Glass</div>
-              </div>
-              
-              <div class="sub-cate">
-                <img src="/system/assets/img/flower-vase2.jpg" width="168" height="147" />
-                <div class="cate-name">Glass and metal combo</div>
-              </div>
-              
-              <div class="sub-cate">
-                <img src="/system/assets/img/flower-vase3.jpg" width="168" height="147" />
-                <div class="cate-name">For Dry Flowers</div>
-              </div>
+        <div class="row clearfix " ng-repeat="category in listingCategory|limitTo:2">
+            <div class="cate-head">
+              <a data-ng-href="#!/products/category/{{category._id}}">{{category.name}}</a>  
             </div>
-          </div>
-        </div>
-        <br/>
-        <br/>
-        <div class="row clearfix home-categories">
-          <div class="cate-head">
-            <a href="#">Flower Vase</a>  
-            <div class="slider">
-              <div class="sub-cate">
-                <img src="/system/assets/img/flower-vase1.jpg" width="168" height="147" />
-                <div class="cate-name">Glass</div>
-              </div>
-              
-              <div class="sub-cate">
-                <img src="/system/assets/img/flower-vase2.jpg" width="168" height="147" />
-                <div class="cate-name">Glass and metal combo</div>
-              </div>
-              
-              <div class="sub-cate">
-                <img src="/system/assets/img/flower-vase3.jpg" width="168" height="147" />
-                <div class="cate-name">For Dry Flowers</div>
-              </div>
+            <div data-ng-init="listProductByCategory(category._id)">
+                <div class="slider ">
+                    <div class="sub-cate " ng-repeat="product in productByCategory|limitTo:3 ">
+                    <img data-ng-src="{{product.images.src}}" class="img-responsive img-thumbnail" alt="" width="150" height="130" />
+                    <div class="cate-name">{{product.title}}</div>
+                  </div>
+                </div>
             </div>
-          </div>
-        </div>
-
-        <br/>
-        <br/>  
-        <div class="row clearfix home-categories">
-          <div class="cate-head">
-            <a href="#">Flower Vase</a>  
-            <div class="slider">
-              <div class="sub-cate">
-                <img src="/system/assets/img/flower-vase1.jpg" width="168" height="147" />
-                <div class="cate-name">Glass</div>
-              </div>
-              
-              <div class="sub-cate">
-                <img src="/system/assets/img/flower-vase2.jpg" width="168" height="147" />
-                <div class="cate-name">Glass and metal combo</div>
-              </div>
-              
-              <div class="sub-cate">
-                <img src="/system/assets/img/flower-vase3.jpg" width="168" height="147" />
-                <div class="cate-name">For Dry Flowers</div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
-  
-    
       
-      <div class="col-md-4 column you-may-like right-container">
+   
+    <div class="col-md-4 column you-may-like right-container">
         <ul>
           <li><a href="#">You may like</a></li>
           <li><a href="#">Bestsellers</a></li>
@@ -145,7 +90,9 @@
             </div>
           </div>
         </div>
-    </div>    
+    </div>
+
   </div>
+
 </div>
 </section>
