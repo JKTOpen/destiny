@@ -4,40 +4,41 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$st
   function($scope, $stateParams, $location, Global, Products, ProductCategoryLists, CategorizedProducts) {
     $scope.global = Global;
     $scope.images = [];
-
+    $scope.productImages = null;
     $scope.hasAuthorization = function(product) {
       if (!product || !product.user) return false;
       return $scope.global.isAdmin || product.user._id === $scope.global.user._id;
     };
 
-
     $scope.create = function(isValid) {
 
-       if (isValid) {
-          var current = this;
-      angular.forEach($scope.images, function(image, key) {
-          var product = new Products({
-          title: current.title,
-          description: current.description,
-          tag: current.tag,
-          color: current.color,
-          category: current.category,
-          images:{
+      if (isValid) {
+        
+        if(typeof $scope.images[0] !== 'undefined'){
+          $scope.productImages =
+            {
+              name: $scope.images[0].name,
+              src: $scope.images[0].src,
+              size: $scope.images[0].size,
+              type: $scope.images[0].type,
+              created: Date.now()
+            };
+        }
+        
+       var product = new Products({
+          title: this.title,
+          description: this.description,
+          tag: this.tag,
+          color: this.color,
+          category: this.category,
+          images: $scope.productImages,
+        });
 
-                    name: image.name,
-                    src: image.src,
-                    size: image.size,
-                    type: image.type,
-                    created: Date.now()
-
-                  }
-         });
-          console.log('product=' + product);
-          product.$save(function(response) {
-          console.log('Hello product saved=' + product);
-          $location.path('products/' + response._id);
-                });
-      });
+        
+        product.$save(function(response) {
+        $location.path('products/' + response._id);
+        });
+     
       } else {
         $scope.submitted = true;
 
@@ -49,7 +50,6 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$st
         this.color = '';
 
     };
-
 
     $scope.remove = function(product) {
       if (product) {
@@ -70,27 +70,27 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$st
 
     $scope.update = function(isValid) {
       if (isValid) {
+        
         var product = $scope.product;
-        var categoryUpdate = new Products({
-          category : this.category
-        });
-        product.category._id = categoryUpdate.category;
-
-        angular.forEach($scope.images, function(image, key) {
-          product.images.name = image.name;
-          product.images.src =  image.src ;
-          product.images.size = image.size ;
-          product.images.type = image.type;
-          product.images.created = Date.now();
-        });
-
         if (!product.updated) {
           product.updated = [];
         }
+
+        if(typeof $scope.images[0] !== 'undefined'){
+        
+          product.images.name = $scope.images[0].name;
+          product.images.src = $scope.images[0].src ;
+          product.images.size = $scope.images[0].size ;
+          product.images.type = $scope.images[0].type;
+          product.images.created = Date.now();
+        }
+        product.category= this.category;
+
         product.updated.push(new Date().getTime());
         product.$update(function() {
-         $location.path('products/' + product._id);
+        $location.path('products/' + product._id);
         });
+        
       } else {
         $scope.submitted = true;
       }
