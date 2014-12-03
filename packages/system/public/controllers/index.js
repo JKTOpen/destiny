@@ -13,13 +13,13 @@ angular.module('mean.system').controller('IndexController', ['$scope', 'Global',
       });
     };
 
-    $scope.listProductByCategory = function(categoryId) {
+    $scope.listProductByCategory = function(category) {
       CategorizedProducts.query(
         {
-          categoryId: categoryId
+          categoryId: category._id
         },
       function(products) {
-        $scope.productByCategory = products;
+        category.products = products;
       });
     };
 
