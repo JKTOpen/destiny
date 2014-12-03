@@ -160,7 +160,6 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$st
           categoryId: $stateParams.categoryId
         },
       function(products) {
-        console.log('something unexpected 3');
         $scope.categorizedProducts = products;
       });
           
