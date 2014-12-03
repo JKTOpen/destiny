@@ -28,8 +28,6 @@ exports.create = function(req, res) {
   var product = new Product(req.body);
     
   product.user = req.user;
- 
-  console.log('image name that need to store is' + product.images.name);
   product.save(function(err) {
  
     if (err) {
@@ -47,7 +45,7 @@ exports.create = function(req, res) {
  */
 exports.update = function(req, res) {
   var product = req.product;
-  console.log(product);
+  
   product = _.extend(product, req.body);
   product.save(function(err) {
     if (err) {
