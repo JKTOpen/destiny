@@ -1,4 +1,4 @@
-body{ padding:0; margin:0; background:#ebebeb}
+body{ padding:0; margin:0; background:#ebebeb }
 *{padding:0; margin:0;}
 .main-container{ width:1030px; margin:0 auto;}
 .logo{  width:247px; height:42px; display:block; float:left;}
@@ -11,7 +11,7 @@ ul.top-links li{ margin:0; list-style:none; float:left; display:block; padding:0
 ul.top-links li a{ padding:0; margin:0; list-style:none; color:#fff; text-decoration:none;font:bold 13px Verdana, Geneva, sans-serif; }
 ul.top-links li a .small-text { font:normal 11px Verdana, Geneva, sans-serif;color:#c4c4c4;}
 .clear{ clear:both;}
-.head-bottom{ width:880px;height: 50px;padding-top:12px; color:#FFF;}
+.head-bottom{ width:880px;height: 60px;padding-top:12px; color:#FFF;}
 .search-sty {background:url("/system/assets/img/search-bg.jpg") top no-repeat; width:332px; height:33px; float:left !important;}
 .search-sty select{ background:none; border:none; width:43px; float:left !important; height:31px;}
 .search-sty input[type="text"]{ background:none; border:none;width:243px; float:left; margin-left:6px; height:30px; font:normal 11px Verdana, Geneva, sans-serif; color:#bdbdbd;}
@@ -30,12 +30,12 @@ ul.menu-links li a:hover{ background:#ff9b05;}
 .left-container{ width:715px; float:left;}
 .banner-categories{ width:228px; float:right; padding-top:6px;}
 .banner-categories div img{ float:right;}
-.home-categories{width:678px;  height:254px; }
+.home-categories{width:678px;  height:254px;}
 .cate-head{ background:url("/system/assets/img/cate-bg.png") top repeat-x;font:bold 14px Verdana, Geneva, sans-serif; color:#FFF;padding:19px 10px; }
 .sub-cate{ width:168px; float:left; margin-left:40px;}
-.slider{ width:650px; margin:10px auto; height: 250px;padding-top:15px;border-bottom-width: 10px;}
+.slider{ width:650px; margin:10px auto; height: 250px;padding-top:15px;border-bottom-width: 10px; background-color: white;}
 .cate-name{ background:#ff9b05; width:140px; color:#FFF; color:#3e3e3e; font:normal 13px Tahoma, Geneva, sans-serif; margin:5px auto;}
-.you-may-like{  width:320px; height:486px; padding-left: 0;padding-right: 0}
+.you-may-like{  width:320px; height:486px; padding-left: 0;padding-right: 0;background-color:white;}
 .you-may-like ul{ margin:0; list-style:none; padding:11px 10px; height:25px;}
 .you-may-like ul li{ margin:0; list-style:none; width:147px; float:left; padding-left:5px;text-align:center; border:1px solid #f4f0e4; padding:5px 0;}
 .you-may-like ul li a{  font:normal 12px Tahoma, Geneva, sans-serif; color:#a9a9a9; text-decoration:none; text-transform:uppercase; }
