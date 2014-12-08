@@ -21,11 +21,15 @@ Products.register(function(app, auth, database) {
     'title': 'Products',
     'link': 'all products'
   });
+
   Products.menus.add({
     'roles': ['admin'],
     'title': 'Create New Product',
     'link': 'create product'
   });
+
+
+  
 
   //Products.aggregateAsset('js','/packages/system/public/services/menus.js', {group:'footer', absolute:true, weight:-9999});
   //Products.aggregateAsset('js', 'test.js', {group: 'footer', weight: -1});
