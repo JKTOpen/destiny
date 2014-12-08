@@ -13,7 +13,7 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$st
     $scope.create = function(isValid) {
 
       if (isValid) {
-        
+
         if(typeof $scope.images[0] !== 'undefined'){
           $scope.productImages =
             {
@@ -23,8 +23,10 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$st
               type: $scope.images[0].type,
               created: Date.now()
             };
+        } else {
+          $scope.images = [];
         }
-        
+
        var product = new Products({
           title: this.title,
           description: this.description,
@@ -34,11 +36,11 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$st
           images: $scope.productImages,
         });
 
-        
+
         product.$save(function(response) {
         $location.path('products/' + response._id);
         });
-     
+
       } else {
         $scope.submitted = true;
 
@@ -70,19 +72,20 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$st
 
     $scope.update = function(isValid) {
       if (isValid) {
-        
+
         var product = $scope.product;
         if (!product.updated) {
           product.updated = [];
         }
-
         if(typeof $scope.images[0] !== 'undefined'){
-        
+          product.images = {};
           product.images.name = $scope.images[0].name;
           product.images.src = $scope.images[0].src ;
           product.images.size = $scope.images[0].size ;
           product.images.type = $scope.images[0].type;
           product.images.created = Date.now();
+        } else {
+          $scope.images = [];
         }
         product.category= this.category;
 
@@ -90,7 +93,7 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$st
         product.$update(function() {
         $location.path('products/' + product._id);
         });
-        
+
       } else {
         $scope.submitted = true;
       }
@@ -106,7 +109,7 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$st
       $scope.defaultCategory = '54634e05a92d436556ae189a' ;
       ProductCategoryLists.query(function(productCategory) {
         $scope.productCategory = productCategory;
-        
+
       });
     };
 
@@ -115,8 +118,9 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$st
         productId: $stateParams.productId
       }, function(product) {
          $scope.product = product;
-         $scope.images.push(product.images);
-
+         if(typeof product.images !== 'undefined'){
+           $scope.images.push(product.images);
+         }
          });
     };
 
@@ -162,7 +166,7 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$st
       function(products) {
         $scope.categorizedProducts = products;
       });
-          
+
     };
 
     $scope.myInterval = 5000;
