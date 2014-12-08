@@ -26,7 +26,8 @@ angular.module('mean.users')
     function($scope, $rootScope, $http, $location, $templateCache,Global) {
 
     $scope.profileUser = null;
-
+    $scope.global = Global;
+   
     $scope.viewProfile = function() {
       $http.get('/users/me')
         .success(function(user) {
@@ -38,18 +39,16 @@ angular.module('mean.users')
       if (isValid) {
         var user = $scope.profileUser;
         $http.put('/users/' + user._id, user)
-        
-        .success(function(response) {
-          $location.url('/profile');
+         .success(function(response) {
+         $rootScope.user = response;
+         $rootScope.$emit('loggedin');
+         $location.url('/profile');
         });
 
       } else {
         $scope.submitted = true;
       }
     };
-
-
-
     }
   ])
 
