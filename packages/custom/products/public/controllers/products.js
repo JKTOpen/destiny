@@ -77,7 +77,6 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$st
         if (!product.updated) {
           product.updated = [];
         }
-console.log($scope.images[0])
         if(typeof $scope.images[0] !== 'undefined'){
           product.images = {};
           product.images.name = $scope.images[0].name;
