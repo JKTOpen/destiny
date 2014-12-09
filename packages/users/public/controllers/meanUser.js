@@ -27,7 +27,7 @@ angular.module('mean.users')
 
     $scope.profileUser = null;
     $scope.global = Global;
-   
+
     $scope.viewProfile = function() {
       $http.get('/users/me')
         .success(function(user) {
