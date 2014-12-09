@@ -1,0 +1,34 @@
+
+
+
+
+
+<section data-ng-controller="ProductsController" data-ng-init="find()">
+
+<div class="odd">
+<ul>
+<li class="first" >
+  <li data-ng-repeat="product in products">
+<!-- <div class="row"> -->
+   <div class="col-md-13">
+         <img data-ng-src="{{product.images.src}}" class="img-responsive img-thumbnail" alt="" width="206" height="174">
+   </div>
+<div class="product-name">
+  <a data-ng-href="#!/products/{{product._id}}">{{product.title}}</a>
+      <span data-ng-if="hasAuthorization(product)">
+          <a class="btn" href="/#!/products/{{product._id}}/edit">
+            <i class="glyphicon glyphicon-edit"></i>
+          </a>
+          <a class="btn" data-ng-click="remove(product);">
+            <i class="glyphicon glyphicon-trash"></i>
+          </a>
+      </span>
+</div> 
+<div class="product-price">Rs. 6,050</div><div class="add-to-cart"><a href="#"><img src="/products/assets/img/add-to-cart.jpg" width="83" height="28" /></a></div></li></li></ul>
+</div>
+
+</section>
+
+
+
+

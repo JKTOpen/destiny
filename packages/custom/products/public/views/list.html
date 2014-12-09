@@ -1,4 +1,4 @@
-<section data-ng-controller="ProductsController" data-ng-init="find()">
+<!-- <section data-ng-controller="ProductsController" data-ng-init="find()">
   <ul class="products unstyled">
     <li data-ng-repeat="product in products">
       <span>{{product.created | date:'medium'}}</span> /
@@ -29,4 +29,163 @@
   <h1 data-ng-show="products.length === 0"> No Products Yet. </h1>
   <h1 data-ng-show="global.isAdmin === true && products.length === 0"> <br> Why don't you <a href="/#!/products/create">Create One</a>?</h1>
 
+</section> -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>handmade Destiny - product listing page</title>
+<link href="/products/assets/products.css" rel="stylesheet" type="text/css" />
+<!-- <link href="/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css" /> -->
+</head>
+
+<body>
+<!-- <div id="main-container" class="listing-page">
+
+<div class="header">
+<div class="head-top">
+<h1 class="logo"><a href="#">Handmade Destiny</a></h1>
+<ul class="top-links"><li><a href="#"><span class="small-text">Hello. Login</span> <span class="normal-text">Your Account</span></a></li>  <li><a href="#"><img src="images/home-cart.jpg" width="33" height="28" /> Cart</a></li> <li><a href="#"><span class="small-text">New Customer?</span> <span class="normal-text">Sign Up</span></a></li>   </ul>
+</div>
+<div class="clear"></div>
+<div class="head-bottom">
+<div class="free-shipping">free shipping* | 30 days return<br />cash on delivery*</div><div class="search-box"><div class="search-txt">SEARCH</div>
+<div class="search-sty"> <select><option></option><option>Electric lamp</option> <option>Electric lamp</option></select> <input type="text" class="search" value="Search products, brands, color and more" /><input type="button" /></div></div>
+
+</div></div>   header -->
+
+<!-- <div class="clear"></div>
+<div class="menu">
+<ul class="menu-links"><li class="selected"><a href="#">Flower Vase</a></li>    <li><a href="#">Candle Holder Hurricane</a></li>    <li><a href="#">Electric lamp</a></li> <li><a href="#">Taper Candel Holder</a></li> <li><a href="#">Bowl</a></li> <li><a href="#"> Tray</a></li> <li><a href="#">T-Light Holder</a></li> <li><a href="#">Wall Screen</a></li> <li><a href="#">Hanging Pendent</a></li> <li><a href="#">Chandelier</a></li> <li><a href="#"> Metal Furniture</a></li> <li><a href="#">Mirror</a></li></ul>
+</div> -->
+
+
+<div class="bd-container">
+<div class="Breadcrumb"><a href="#">Home</a> > <a href="#">Flower vase</a> > Glass Vase</div>
+<div class="listpage-left">
+<div class="lpage-mainhead">Filter by</div>
+<div class="lpage-head">Categories</div>
+<div class="lpage-content">
+<input type="checkbox" name="glass" value="vase"> Glass vase<br>
+<input type="checkbox" name="glass" value="metal"> Glass and Metal vase<br>
+<input type="checkbox" name="glass" value="vase"> For Dry Flowers<br>
+<input type="checkbox" name="glass" value="metal"> Glass vase<br>
+<input type="checkbox" name="glass" value="vase"> For Dry Flowers<br>
+<input type="checkbox" name="glass" value="metal"> Glass vase<br>
+</div>
+
+<div class="lpage-head">Colour</div>
+<div class="lpage-content">
+  <img src="/products/assets/img/colors.jpg" width="198" height="76" /> </div>
+
+
+<div class="lpage-head">Price</div>
+<div class="lpage-content">
+  <img src="/products/assets/img/price-img.jpg" width="191" height="73" /> </div>
+
+<div class="lpage-head">Discount</div>
+<div class="lpage-content">
+1% - 20%(144)<br />
+20% - 40%(48)<br />
+40% - 60%(77)<br />
+60% - 80%(45)<br />
+</div>
+
+<div class="lpage-head">brands</div>
+<div class="lpage-content lpage-last">
+<input type="checkbox" name="glass" value="vase"> Brand1<br>
+<input type="checkbox" name="glass" value="metal"> Brand2<br>
+<input type="checkbox" name="glass" value="vase">  Brand3<br>
+<input type="checkbox" name="glass" value="metal"> Brand4<br>
+<input type="checkbox" name="glass" value="vase">  Brand5<br>
+<input type="checkbox" name="glass" value="metal">  Brand6<br>
+</div>
+
+</div><!--list page left-->
+
+
+
+<div class="listpage-right">
+
+<div class="category-name">Glass Vase <span class="pro-found">(899 Items found )</span></div>
+<div class="sort-by">
+  Sort by: <a href="#">Popularity</a> <span class="sep">|</span> <a href="#">What's New</a><span class="sep">|</span> <a href="#">Price</a>
+</div>
+
+<div class="odd">
+<ul>
+<li class="first"><img src="images/product1.jpg" width="206" height="174" /><div class="product-name">Product Name</div> <div class="product-price">Rs. 6,050</div><div class="add-to-cart"><a href="#"><img src="images/add-to-cart.jpg" width="83" height="28" /></a></div></li>
+<li><img src="images/product2.jpg" width="206" height="174" /><div class="product-name">Product Name</div> <div class="product-price">Rs. 6,050</div><div class="add-to-cart"><a href="#"><img src="images/add-to-cart.jpg" width="83" height="28" /></a></div></li>
+<li><img src="images/product3.jpg" width="206" height="174" /><div class="product-name">Product Name</div> <div class="product-price">Rs. 6,050</div><div class="add-to-cart"><a href="#"><img src="images/add-to-cart.jpg" width="83" height="28" /></a></div></li>
+</ul>
+</div>
+
+<section data-ng-controller="ProductsController" data-ng-init="find()">
+  <div class="odd">
+  <ul>
+    <li class="first"><img src="images/product1.jpg" width="206" height="174" /><div class="product-name">Product Name</div> <div class="product-price">Rs. 6,050</div><div class="add-to-cart"><a href="#"><img src="images/add-to-cart.jpg" width="83" height="28" /></a></div></li>
+  </ul>
+  </div>
 </section>
+
+</div><!--list page right-->
+
+
+
+</div><!--end bd container-->
+
+</div><!--main-container--></div></div></div></div>
+<!-- <div class="clear"></div>
+<div id="footer">
+<div class="foot">
+<div class="foot-section">
+<div class="foot-head">About HatndMade fantasy</div>
+<ul>
+<li><a href="#">About us</a></li>
+<li><a href="#">Careers</a></li>
+<li><a href="#">Blog</a></li>
+<li><a href="#">Press</a></li>
+<li><a href="#">Contact us</a></li>
+</ul>
+</div>
+
+<div class="foot-section">
+<div class="foot-head">Help & Contact</div>
+<ul>
+<li><a href="#">Frequently Asked Question </a></li>
+<li><a href="#">Track Orders</a></li>
+<li><a href="#">Shipping</a></li>
+<li><a href="#">Cancellation</a></li>
+<li><a href="#">Returns</a></li>
+</ul>
+
+</div>
+
+<div class="foot-section">
+<div class="foot-head">Account</div>
+<ul>
+<li><a href="#">Login</a></li>
+<li><a href="#">Create Account</a></li>
+<li><a href="#">Create Wishlist</a></li>
+<li><a href="#">Press</a></li>
+<li><a href="#">My Shopping bag</a></li>
+</ul>
+
+</div>
+
+</div>
+<div class="copyright">
+<ul class="track-your-order"><li><img src="images/track-your-order.png" width="21" height="15" />&nbsp;&nbsp;Track your order</li> <li><img src="images/free-return.png" width="21" height="21" />&nbsp;&nbsp;FREE & EASY RETURNS</li> <li><img src="images/cancel-icon.png" width="19" height="19" />&nbsp;&nbsp;online cancellations</li></ul>
+<div class="clear"></div>
+<div class="copy">&copy; 2014- 2015 handmadedestiny.com.</div>
+<div class="social-icons">Keep in Touch &nbsp;&nbsp;&nbsp; <a href="#"><img src="images/fb-icon.jpg" width="22" height="21" /></a> <a href="#"><img src="images/twitter-icon.jpg" width="21" height="21" /></a> <a href="#"><img src="images/google-plus.jpg" width="21" height="21" /></a> <a href="#"><img src="images/you-tube.jpg" width="21" height="21" /></a></div>
+</div>
+
+
+</div> -->
+
+
+
+</body>
+</html>
