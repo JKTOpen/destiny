@@ -4,7 +4,6 @@
 ul.products li:not(:last-child) {
 	border-bottom: 1px solid #ccc
 }*/
-
 /*listpage-left CSS*/
 .listing-page .bd-container{ padding-top:10px;}
 .listpage-left{ width:210px; float:left; background:#fff url("/products/assets/img/left-bg.jpg") top repeat-x; border-left:1px solid #e6e6e6;border-right:1px solid #e6e6e6; margin-top:10px; padding:10px;font:normal 11px/23px Verdana, Geneva, sans-serif; color:#070707; padding-bottom:20px; margin-bottom:20px; min-height:995px;}
