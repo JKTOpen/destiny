@@ -77,14 +77,13 @@
 
 
 
-<div class="listpage-right">
+<div class="listpage-right" data-ng-controller="ProductsController" data-ng-init="find()">
 
-<div class="category-name">Glass Vase <span class="pro-found">(899 Items found )</span></div>
+<div class="category-name">All Products <span class="pro-found">({{products.length}} Items found )</span></div>
 <div class="sort-by">
   Sort by: <a href="#">Popularity</a> <span class="sep">|</span> <a href="#">What's New</a><span class="sep">|</span> <a href="#">Price</a>
 </div>
 
-<section data-ng-controller="ProductsController" data-ng-init="find()">
   <div class="row" data-ng-repeat="product in products" ng-if="$index % 3 == 0">
 
     <div class=" col-md-4 " ng-repeat="product in products.slice($index, $index+3)" >
@@ -104,7 +103,6 @@
       </div>
     </div>
   </div>
-</section>
 
 </div><!--list page right-->
 
