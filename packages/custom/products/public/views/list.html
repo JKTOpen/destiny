@@ -28,78 +28,75 @@
   </ul>
   <h1 data-ng-show="products.length === 0"> No Products Yet. </h1>
   <h1 data-ng-show="global.isAdmin === true && products.length === 0"> <br> Why don't you <a href="/#!/products/create">Create One</a>?</h1>
-
 </section> -->
 
-
 <div class="container main-container bd-container">
-<div class="Breadcrumb"><a href="#">Home</a> > <a href="#">Flower vase</a> > Glass Vase</div>
-<div class="listpage-left">
-<div class="lpage-mainhead">Filter by</div>
-<div class="lpage-head">Categories</div>
-<div class="lpage-content">
-<input type="checkbox" name="glass" value="vase"> Glass vase<br>
-<input type="checkbox" name="glass" value="metal"> Glass and Metal vase<br>
-<input type="checkbox" name="glass" value="vase"> For Dry Flowers<br>
-<input type="checkbox" name="glass" value="metal"> Glass vase<br>
-<input type="checkbox" name="glass" value="vase"> For Dry Flowers<br>
-<input type="checkbox" name="glass" value="metal"> Glass vase<br>
-</div>
+  <div class="Breadcrumb"><a href="#">Home</a> > <a href="#">Flower vase</a> > Glass Vase</div>
+  <div class="listpage-left">
+    <div class="lpage-mainhead">Filter by</div>
+    <div class="lpage-head">Categories</div>
+    <div class="lpage-content">
+      <input type="checkbox" name="glass" value="vase"> Glass vase<br>
+      <input type="checkbox" name="glass" value="metal"> Glass and Metal vase<br>
+      <input type="checkbox" name="glass" value="vase"> For Dry Flowers<br>
+      <input type="checkbox" name="glass" value="metal"> Glass vase<br>
+      <input type="checkbox" name="glass" value="vase"> For Dry Flowers<br>
+      <input type="checkbox" name="glass" value="metal"> Glass vase<br>
+    </div>
 
-<div class="lpage-head">Colour</div>
-<div class="lpage-content">
-  <img src="/products/assets/img/colors.jpg" width="198" height="76" /> </div>
+    <div class="lpage-head">Colour</div>
+    <div class="lpage-content">
+      <img src="/products/assets/img/colors.jpg" width="198" height="76" /> 
+    </div>
 
+    <div class="lpage-head">Price</div>
+    <div class="lpage-content">
+      <img src="/products/assets/img/price-img.jpg" width="191" height="73" /> 
+    </div>
 
-<div class="lpage-head">Price</div>
-<div class="lpage-content">
-  <img src="/products/assets/img/price-img.jpg" width="191" height="73" /> </div>
+    <div class="lpage-head">Discount</div> 
+    <div class="lpage-content">
+      1% - 20%(144)<br />
+      20% - 40%(48)<br />
+      40% - 60%(77)<br />
+      60% - 80%(45)<br />
+    </div>
 
-<div class="lpage-head">Discount</div>
-<div class="lpage-content">
-1% - 20%(144)<br />
-20% - 40%(48)<br />
-40% - 60%(77)<br />
-60% - 80%(45)<br />
-</div>
+    <div class="lpage-head">brands</div>
+    <div class="lpage-content lpage-last">
+      <input type="checkbox" name="glass" value="vase"> Brand1<br>
+      <input type="checkbox" name="glass" value="metal"> Brand2<br>
+      <input type="checkbox" name="glass" value="vase">  Brand3<br>
+      <input type="checkbox" name="glass" value="metal"> Brand4<br>
+      <input type="checkbox" name="glass" value="vase">  Brand5<br>
+      <input type="checkbox" name="glass" value="metal">  Brand6<br>
+    </div>
+  </div><!--list page left-->
 
-<div class="lpage-head">brands</div>
-<div class="lpage-content lpage-last">
-<input type="checkbox" name="glass" value="vase"> Brand1<br>
-<input type="checkbox" name="glass" value="metal"> Brand2<br>
-<input type="checkbox" name="glass" value="vase">  Brand3<br>
-<input type="checkbox" name="glass" value="metal"> Brand4<br>
-<input type="checkbox" name="glass" value="vase">  Brand5<br>
-<input type="checkbox" name="glass" value="metal">  Brand6<br>
-</div>
-
-</div><!--list page left-->
-
-<div class="listpage-right" data-ng-controller="ProductsController" data-ng-init="find()">
-<div class="category-name">All Products <span class="pro-found">({{products.length}} Items found)</span></div>
-<div class="sort-by">
-  Sort by: <a href="#">Popularity</a> <span class="sep">|</span> <a href="#">What's New</a><span class="sep">|</span> <a href="#">Price</a>
-</div>
-
-  <div class="row" data-ng-repeat="product in products" ng-if="$index % 3 == 0">
-    <div class=" col-md-4 " ng-repeat="product in products.slice($index, $index+3)" >
-      <div class="thumbnail" >
-      <a data-ng-href="#!/products/{{product._id}}">
-      <!-- <div style="height: 200px; width: 200px;"> -->
-      <img data-ng-src="{{product.images.src}}"  class="img-responsive" alt="" />
-      <!-- </div> -->
-      </a>
-      <div class="product-name">
-        <a data-ng-href="#!/products/{{product._id}}">{{product.title}}</a>
+  <div class="listpage-right" data-ng-controller="ProductsController" data-ng-init="find()">
+      <div class="category-name">All Products <span class="pro-found">({{products.length}} Items found) </span>
       </div>
-      <div class="product-price">Rs. 6,050</div>
-      <div class="add-to-cart">
-        <a href="#"><img src="products/assets/img/add-to-cart.jpg" width="83" height="28" /></a>
+      <div class="sort-by">
+        Sort by: <a href="#">Popularity</a> <span class="sep">|</span> <a href="#">What's New</a><span class="sep">|</span> <a href="#">Price</a>
       </div>
+
+      <div class="row" data-ng-repeat="product in products" ng-if="$index % 3 == 0">
+        <div class=" col-md-4 " ng-repeat="product in products.slice($index, $index+3)" >
+          <div class="thumbnail" >
+             <a data-ng-href="#!/products/{{product._id}}">
+               <!-- <div style="height: 200px; width: 200px;"> -->
+               <img data-ng-src="{{product.images.src}}"  class="img-responsive" alt="" />
+               <!-- </div> -->
+             </a>
+           <div class="product-name">
+             <a data-ng-href="#!/products/{{product._id}}">{{product.title}}</a>
+           </div>
+           <div class="product-price">Rs. 6,050</div>
+           <div class="add-to-cart">
+             <a href="#"><img src="products/assets/img/add-to-cart.jpg" width="83" height="28" /></a>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-
-</div><!--list page right-->
-
+  </div><!--list page right-->
 </div><!--end bd container-->
