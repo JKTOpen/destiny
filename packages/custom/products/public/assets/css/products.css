@@ -1,6 +1,31 @@
-h1 {
+/*h1 {
 	text-align: center
 }
 ul.products li:not(:last-child) {
 	border-bottom: 1px solid #ccc
-}
+}*/
+/*listpage-left CSS*/
+.listing-page .bd-container{ padding-top:10px;}
+.listpage-left{ width:210px; float:left; background:#fff url("/products/assets/img/left-bg.jpg") top repeat-x; border-left:1px solid #e6e6e6;border-right:1px solid #e6e6e6; margin-top:10px; padding:10px;font:normal 11px/23px Verdana, Geneva, sans-serif; color:#070707; padding-bottom:20px; margin-bottom:20px; min-height:995px;}
+.Breadcrumb{ font:bold 11px Verdana, Geneva, sans-serif; color:#4b4b4b;}
+.Breadcrumb a{ font:normal 11px Verdana, Geneva, sans-serif; color:#4b4b4b; text-decoration:none;}
+.Breadcrumb a:hover{ text-decoration:underline;}
+.lpage-mainhead{ font:bold 11px Verdana, Geneva, sans-serif; color:#515151; text-transform:uppercase; padding:10px 0 5px 0; border-bottom:1px solid #d9d9d9;}
+.lpage-head{font:bold 11px Verdana, Geneva, sans-serif; color:#070707;text-transform:uppercase; padding:15px 0;}
+.lpage-content{ padding:0 0 20px 1px; border-bottom:1px solid #d9d9d9;}
+.lpage-last{ border-bottom:none;}
+/*.listpage-right CSS*/
+.listpage-right{ width:755px; float:right; background:#fff url("/products/assets/img/right-bg.jpg") top repeat-x; border-left:1px solid #e6e6e6;border-right:1px solid #e6e6e6; margin-top:10px; padding:10px; margin-bottom:20px;}
+.category-name{ padding-top:10px; font:bold 16px Verdana, Geneva, sans-serif; color:#000; padding-bottom:5px;}
+.pro-found{font:normal 10px Verdana, Geneva, sans-serif; color:#000; }
+.sort-by{ font:bold 12px Verdana, Geneva, sans-serif; color:#000;border-bottom:1px solid #CCC; padding-bottom:5px; margin-bottom:50px;}
+.sort-by ul{ padding:0; margin:0; list-style:none;}
+.sort-by ul li{display:inline;}
+.sort-by a, .sep{ font:normal 11px Verdana, Geneva, sans-serif; color:#999; text-decoration:none;}
+.odd{ width:755px; height:300px;}
+.odd ul{ padding:0; margin:0; list-style:none;}
+.odd ul li{ padding:0; margin:0; list-style:none; width:206px; float:left; display:block; margin-right:35px;}
+.odd ul li.first{ margin-left:30px;}
+.product-name{ font:normal 12px Verdana, Geneva, sans-serif; color:#000; text-align:center; padding:5px 0;}
+.product-price{ font:normal 12px Verdana, Geneva, sans-serif; color:#fd9802;text-align:center; padding:5px 0;}
+.add-to-cart{ width:83px; margin:0 auto;}
