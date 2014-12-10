@@ -24,7 +24,6 @@ angular.module('mean.users')
   ])
   .controller('ProfileController', ['$scope', '$rootScope', '$http', '$location', 'Global',
     function($scope, $rootScope, $http, $location, $templateCache,Global) {
-
     $scope.profileUser = null;
     $scope.global = Global;
 

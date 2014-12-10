@@ -5,7 +5,7 @@ ul.products li:not(:last-child) {
 	border-bottom: 1px solid #ccc
 }*/
 
-
+/*listpage-left CSS*/
 .listing-page .bd-container{ padding-top:10px;}
 .listpage-left{ width:210px; float:left; background:#fff url("/products/assets/img/left-bg.jpg") top repeat-x; border-left:1px solid #e6e6e6;border-right:1px solid #e6e6e6; margin-top:10px; padding:10px;font:normal 11px/23px Verdana, Geneva, sans-serif; color:#070707; padding-bottom:20px; margin-bottom:20px; min-height:995px;}
 .Breadcrumb{ font:bold 11px Verdana, Geneva, sans-serif; color:#4b4b4b;}
@@ -15,10 +15,7 @@ ul.products li:not(:last-child) {
 .lpage-head{font:bold 11px Verdana, Geneva, sans-serif; color:#070707;text-transform:uppercase; padding:15px 0;}
 .lpage-content{ padding:0 0 20px 1px; border-bottom:1px solid #d9d9d9;}
 .lpage-last{ border-bottom:none;}
-
-
-
-
+/*.listpage-right CSS*/
 .listpage-right{ width:755px; float:right; background:#fff url("/products/assets/img/right-bg.jpg") top repeat-x; border-left:1px solid #e6e6e6;border-right:1px solid #e6e6e6; margin-top:10px; padding:10px; margin-bottom:20px;}
 .category-name{ padding-top:10px; font:bold 16px Verdana, Geneva, sans-serif; color:#000; padding-bottom:5px;}
 .pro-found{font:normal 10px Verdana, Geneva, sans-serif; color:#000; }
