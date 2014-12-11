@@ -1,4 +1,5 @@
-<div class="page-header main-container" data-ng-controller="HeaderController">
+<div class="page-header main-container" data-ng-controller="HeaderController" 
+  data-ng-init="loadCategory()">
   <div class="logo head-top">
     <a class="navbar-brand"  ui-sref="home">
       <img src="/system/assets/img/logo.png" alt="Handmade Destiny">
@@ -53,9 +54,14 @@
   <div class= "clear"></div>
 
   <div class="menu">
-    <ul class="navbar-nav nav menu-links">
+    <!-- <ul class="navbar-nav nav menu-links">
       <li data-ng-repeat="item in menus.main" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}">
         <a mean-token="item.link" ui-sref='{{item.link}}'>{{item.title}}</a>
+      </li>
+    </ul> -->
+    <ul class="navbar-nav nav menu-links">
+      <li data-ng-repeat="category in listingCategory">
+        <a data-ng-href="#!/products/category/{{category._id}}">{{category.name}}</a>
       </li>
     </ul>
   </div>

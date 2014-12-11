@@ -1,9 +1,16 @@
 'use strict';
 
-angular.module('mean.system').controller('HeaderController', ['$scope', '$rootScope', 'Global', 'Menus',
-  function($scope, $rootScope, Global, Menus) {
+angular.module('mean.system').controller('HeaderController', ['$scope', '$rootScope', 'Global', 'Menus','ProductCategoryLists',
+  function($scope, $rootScope, Global, Menus,ProductCategoryLists) {
     $scope.global = Global;
     $scope.menus = {};
+
+    $scope.loadCategory = function() {
+      $scope.defaultCategory = '54634e05a92d436556ae189a' ;
+      ProductCategoryLists.query(function(productCategory) {
+        $scope.listingCategory = productCategory;
+      });
+    };
 
     // Default hard coded menu items for main menu
     var defaultMainMenu = [];
