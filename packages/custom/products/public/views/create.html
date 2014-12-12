@@ -83,23 +83,21 @@
 
     <div class="outer-box" ng-class="{ 'has-error' : submitted && productForm.title.$invalid }">
       <label mean-token="'title'" for="title" class="label-sty">Title</label>
-      <!-- <div class="col-md-9"> -->
+        <div class="col-md-6">
         <input name="title" type="text" class="input-sty" data-ng-model="title" placeholder="Title" required>
         <div ng-show="submitted && productForm.title.$invalid" class="help-block">
           <p ng-show="productForm.title.$error.required">Title is required</p>
         </div>
-      <!-- </div> -->
+        </div>
     </div>
-
 
      <div class="outer-box">
       <label mean-token="'image'" for="image" class="label-sty">Image</label>
-        <div class="input-sty">
+        <div class="col-md-6">
+           <div class="input-sty">
           <mean-upload file-dest="'/photos/'" upload-callback="uploadProductFinished(files)" upload-file-callback="uploadFileCallback(file)" ></mean-upload>
                 {{errorMessages}}
        
-          <!-- <div class="row"> -->
-            <div class="col-md-6">
            <div data-ng-repeat="img in images">
             <img data-ng-src="{{img.src}}" class="img-responsive img-thumbnail" alt="">
             <a class="btn" data-ng-click="deleteImage();">
@@ -107,26 +105,30 @@
             </a>
            </div>
            </div>
-         <!-- </div> -->
           </div>
       </div>
 
       <div class="outer-box">
        <label mean-token="'tag'" for="tag" class="label-sty">Tag</label>
+       <div class="col-md-6">
        <div class="input-sty">
        <input name="tag" type="text" data-ng-model="tag" placeholder="Tag">
       </div>
       </div>
+    </div>
 
     <div class="outer-box">
       <label mean-token="'color'" for="color" class="label-sty">Color</label>
+      <div class="col-md-6">
       <div class="input-sty">
       <input name="color" type="text"  data-ng-model="color" placeholder="Color">
     </div>
     </div>
+  </div>
 
     <div class="outer-box">
       <label mean-token="'category'" for="category" class="label-sty">Category</label>
+      <div class="col-md-6">
       <div class="input-sty">
       <select data-ng-model="category" data-ng-init="findProductCategory()">
         <option value="">-- Choose Category --</option>
@@ -134,16 +136,20 @@
       </select>
     </div>
     </div>
+  </div>
 
     <div class="outer-box">
        <label mean-token="'price'" for="price" class="label-sty">Price</label>
+       <div class="col-md-6">
        <div class="input-sty">
        <input name="price" type="text" data-ng-model="price" placeholder="Price">
       </div>
       </div>
+    </div>
 
     <div class="outer-box" ng-class="{ 'has-error' : submitted && productForm.description.$invalid }">
       <label mean-token="'description'" for="description" class="label-sty">Description</label>
+      <div class="col-md-6">
       <div class="input-sty">
          <textarea name="description" data-ng-model="description"placeholder="Description"required></textarea>
 
@@ -152,14 +158,15 @@
         </div>
         </div>
     </div>
-
-    
+  </div>
 
     <div class="outer-box">
+      <div class="col-md-6">
       <div class="input-sty">
        <button type="submit">Submit</button>
       </div>
     </div>
+  </div>
 
   </form>
 </section>
