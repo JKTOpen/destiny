@@ -33,6 +33,11 @@ var ProductSchema = new Schema({
     required: false,
     trim: true
   },
+  price: {
+    type: String,
+    required: false,
+    trim: true
+  },
   category: {
     type: Schema.ObjectId,
     ref: 'Productcategorylist'
