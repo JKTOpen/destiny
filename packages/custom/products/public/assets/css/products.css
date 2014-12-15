@@ -29,3 +29,14 @@ ul.products li:not(:last-child) {
 .product-name{ font:normal 12px Verdana, Geneva, sans-serif; color:#000; text-align:center; padding:5px 0;}
 .product-price{ font:normal 12px Verdana, Geneva, sans-serif; color:#fd9802;text-align:center; padding:5px 0;}
 .add-to-cart{ width:83px; margin:0 auto;}
+/*createprofilePage*/
+.admin-container{ width:1010px; padding:30px 10px; background:#FFF; min-height:300px;}
+.create-add-product div.outer-box{ width:500px; padding:10px; height:40px;}
+.label-sty{ width:150px;float:left;}
+/*.create-add-product label{ }*/
+.create-add-product input[type="text"]{ background:none; border:none; border:1px solid #ccc; width:200px;  padding:2px;}
+.create-add-product h2{ font:normal 18px Arial, Helvetica, sans-serif; color:#000; padding-bottom:20px;}
+.input-sty{ width:300px; float:left; margin-bottom: 15px;}
+
+form.add-product{font:normal 12px Verdana, Geneva, sans-serif; color:#000;}
+.add-product button[type="submit"]{background:#ed9112; border:none; margin-top:20px; margin-left: 150px; font:normal 12px Verdana, Geneva, sans-serif; color:#FFF; padding:5px 15px; cursor:pointer;}
