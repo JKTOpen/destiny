@@ -114,11 +114,17 @@ exports.productCategory = function(req, res) {
 };
 
 exports.categorizedProduct = function(req, res) {
-  Product
-   .find({
-     category: req.params.categoryId
-   })
-   .sort('-created')
+     
+  var json = {
+     category: req.params.categoryId,
+     title: new RegExp(req.params.searchString)
+  };
+  
+  
+  
+  console.log(json);
+  
+  Product.find(json).sort('-created')
    .populate('user', 'name username')
    .populate('category', 'name')
    .exec(function(err, products) {
