@@ -31,6 +31,9 @@
   <div ng-if="product.tag !== undefined" class="col-md-12">
     <span class="glyphicon glyphicon-tag"></span> {{product.tag}}<br><br>
   </div>
+   <div ng-if="product.price !== undefined" class="col-md-12">
+    <span class="glyphicon glyphicon-tag"></span> {{product.price}}<br><br>
+  </div>
   <div class="col-md-12">
     <div ng-if="product !== undefined" ng-include="'comments/views/index.html'" data-ng-controller="CommentsController" data-ng-init="findComments(product, 2)"/>
   </div>
