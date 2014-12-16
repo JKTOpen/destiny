@@ -46,18 +46,19 @@
     <div class="product-detail">
       <div class="detail-left">
         <div class="product-icons">
-          <img src="/products/assets/img/pro1.jpg" width="52" height="52" />   <img src="/products/assets/img/pro2.jpg" width="52" height="52" />   <img src="/products/assets/img/pro3.jpg" width="52" height="52" />   <img src="/products/assets/img/pro4.jpg" width="52" height="52" />   <img src="/products/assets/img/pro5.jpg" width="52" height="52" />
+          <img src="/products/assets/img/na1.png" width="52" height="52" />   <img src="/products/assets/img/na2.png" width="52" height="52" />   <img src="/products/assets/img/na3.png" width="52" height="52" />   <img src="/products/assets/img/na4.png" width="52" height="52" />   <img src="/products/assets/img/na5.png" width="52" height="52" />
         </div>
         <div class="produc-img">
+          <div class=" row col-md-8">
           <img data-ng-src="{{product.images.src}}" class="img-responsive img-thumbnail" alt=""/> 
+        </div>
         </div>
       </div> <!--end detail left-->
 
       <div class="detail-right">
         <h2>{{product.title}}</h2>
         <div class="title">Short Description</div>
-        <div class="short-des">Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+        <div class="short-des">{{product.description}}
         </div>
         <div class="price">Rs. {{product.price}}</div>
         <div class="details-btn">

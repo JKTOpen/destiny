@@ -74,16 +74,26 @@
   </div><!--list page left-->
 
   <div class="listpage-right" data-ng-controller="ProductsController" data-ng-init="find()">
-      <div class="category-name">All Products <span class="pro-found">({{products.length}} Items found) </span>
+    <div class="category-name">All Products <span class="pro-found">({{products.length}} Items found) </span>
       </div>
       <div class="sort-by">
         Sort by: <a href="#">Popularity</a> <span class="sep">|</span> <a href="#">What's New</a><span class="sep">|</span> <a href="#">Price</a>
       </div>
-
+            <h1 data-ng-show="products.length === 0"> No Products Yet. </h1>
+             <h1 data-ng-show="global.isAdmin === true && products.length === 0"> <br> Why don't you <a href="/#!/products/create">Create One</a>?</h1>
       <div class="row" data-ng-repeat="product in products" ng-if="$index % 3 == 0">
         <div class=" col-md-4 " ng-repeat="product in products.slice($index, $index+3)" >
           <div class="thumbnail" >
+            <span data-ng-if="hasAuthorization(product)">
+              <a class="btn" href="/#!/products/{{product._id}}/edit">
+                <i class="glyphicon glyphicon-edit"></i>
+              </a>
+              <a class="btn" data-ng-click="remove(product);">
+                <i class="glyphicon glyphicon-trash"></i>
+              </a>
+            </span>
              <a data-ng-href="#!/products/{{product._id}}">
+
                <!-- <div style="height: 200px; width: 200px;"> -->
                <img data-ng-src="{{product.images.src}}"  class="img-responsive" alt="" />
                <!-- </div> -->

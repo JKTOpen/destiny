@@ -30,59 +30,91 @@
   <h1 data-ng-show="categorizedProducts.length === 0"> No Products Yet. </h1>
   <h1 data-ng-show="global.isAdmin === true && categorizedProducts.length === 0"> <br> Why don't you <a href="/#!/products/create">Create One</a>?</h1>
 
-</section>
- -->
+</section> -->
 
-
- <div class="bd-container container">
-  <section data-ng-controller="ProductsController" data-ng-init="findCategorizedProduct()">
-    <div data-ng-repeat="product in categorizedProducts">
-      <div class="Breadcrumb"><a href="#">Home</a> > <a href="#">Flower vase</a> > {{product.title}}</div>
-      <div class="product-detail">
-        <div class="detail-left">
-          <div class="product-icons">
-            <img src="/products/assets/img/pro1.jpg" width="52" height="52" />   <img src="/products/assets/img/pro2.jpg" width="52" height="52" />   <img src="/products/assets/img/pro3.jpg" width="52" height="52" />   <img src="/products/assets/img/pro4.jpg" width="52" height="52" />   <img src="/products/assets/img/pro5.jpg" width="52" height="52" />
-          </div>
-          <div class="produc-img">
-            <img data-ng-src="{{product.images.src}}" class="img-responsive img-thumbnail" alt=""/> 
-          </div>
-        </div> <!--end detail left-->
-
-        <div class="detail-right">
-          <h2>{{product.title}}</h2>
-          <div class="title">Short Description</div>
-          <div class="short-des">Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-          </div>
-          <div class="price">Rs. {{product.price}}</div>
-          <div class="details-btn">
-            <input type="button" class="add-cart" /> 
-            <input type="button" class="add-wishlist" />
-          </div>
-          <div class="minimum-order">Minimum Order Quantity <input type="text" /></div>
-        </div><!-- end detail right -->
-
-        <div class="clear"></div>
-
-        <div class="detail-desc-box">
-          <div class="detail-title">Product Description</div>
-          <div class="detail-des">{{product.description}}</div>
-          <div class="detail-title">Product Details</div>
-          <div class="detail-des">Tag : {{product.tag}} ,Color : {{product.color}}</div>
-          <div class="detail-title">Demensions (LXWXH)</div>
-          <div class="detail-des">32X32X31 CMS</div>
-        </div><!--end-detail-des-->
-
-        <div class="shipping-detail-box">
-          <ul class="short-shipping-details">
-            <li>Shipping Charges: None</li>
-            <li>Cash On Delivery: Available</li>
-            <li>part payment: Available</li>
-            <li>EMI : Available</li>
-          </ul>
-        </div><!--end-shipping-detail-->
-        <div class="clear"></div>
-      </div><!--detail end-->
+<div class="container main-container bd-container">
+  <div data-ng-controller="ProductsController" data-ng-init="findCategorizedProduct()">
+  <div class="Breadcrumb"><a href="#">Home</a> > <a href="#">Flower vase</a> > Glass Vase</div>
+  <div class="listpage-left">
+    <div class="lpage-mainhead">Filter by</div>
+    <div class="lpage-head">Categories</div>
+    <div class="lpage-content">
+      <input type="checkbox" name="glass" value="vase"> Glass vase<br>
+      <input type="checkbox" name="glass" value="metal"> Glass and Metal vase<br>
+      <input type="checkbox" name="glass" value="vase"> For Dry Flowers<br>
+      <input type="checkbox" name="glass" value="metal"> Glass vase<br>
+      <input type="checkbox" name="glass" value="vase"> For Dry Flowers<br>
+      <input type="checkbox" name="glass" value="metal"> Glass vase<br>
     </div>
-  </section>
-</div><!--end bd container
+
+    <div class="lpage-head">Colour</div>
+    <div class="lpage-content">
+      <img src="/products/assets/img/colors.jpg" width="198" height="76" /> 
+    </div>
+
+    <div class="lpage-head">Price</div>
+    <div class="lpage-content">
+      <img src="/products/assets/img/price-img.jpg" width="191" height="73" /> 
+    </div>
+
+    <div class="lpage-head">Discount</div> 
+    <div class="lpage-content">
+      1% - 20%(144)<br />
+      20% - 40%(48)<br />
+      40% - 60%(77)<br />
+      60% - 80%(45)<br />
+    </div>
+
+    <div class="lpage-head">brands</div>
+    <div class="lpage-content lpage-last">
+      <input type="checkbox" name="glass" value="vase"> Brand1<br>
+      <input type="checkbox" name="glass" value="metal"> Brand2<br>
+      <input type="checkbox" name="glass" value="vase">  Brand3<br>
+      <input type="checkbox" name="glass" value="metal"> Brand4<br>
+      <input type="checkbox" name="glass" value="vase">  Brand5<br>
+      <input type="checkbox" name="glass" value="metal">  Brand6<br>
+    </div>
+  </div><!--list page left-->
+
+  <div class="listpage-right" >
+    
+     <div class="category-name">All Products <span class="pro-found">({{categorizedProducts.length}} Items found) </span>
+      </div>
+      <div class="sort-by">
+        Sort by: <a href="#">Popularity</a> <span class="sep">|</span> <a href="#">What's New</a><span class="sep">|</span> <a href="#">Price</a>
+      </div>
+        <h1 data-ng-show="categorizedProducts.length === 0"> No Products Yet. </h1>
+        <h1 data-ng-show="global.isAdmin === true && categorizedProducts.length === 0"> <br> Why don't you <a href="/#!/products/create">Create One</a>?</h1>
+      <div class="row" data-ng-repeat="product in categorizedProducts" ng-if="$index % 3 == 0">
+        <div class=" col-md-4 " ng-repeat="product in categorizedProducts.slice($index, $index+3)" >
+          <div class="thumbnail" >
+            <span data-ng-if="hasAuthorization(product)">
+              <a class="btn" href="/#!/products/{{product._id}}/edit">
+                <i class="glyphicon glyphicon-edit"></i>
+              </a>
+              <a class="btn" data-ng-click="remove(product);">
+                <i class="glyphicon glyphicon-trash"></i>
+              </a>
+            </span>
+             <a data-ng-href="#!/products/{{product._id}}">
+               <!-- <div style="height: 200px; width: 200px;"> -->
+               <img data-ng-src="{{product.images.src}}"  class="img-responsive" alt="" />
+               <!-- </div> -->
+             </a>
+           <div class="product-name">
+             <a data-ng-href="#!/products/{{product._id}}">{{product.title}}</a>
+           </div>
+           <div class="product-price">Rs.{{product.price}}</div>
+           <div class="add-to-cart">
+             <a href="#"><img src="products/assets/img/add-to-cart.jpg" width="83" height="28" /></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!--list page right-->
+</div>
+</div><!--end bd container-->
+
+
+
+ 
