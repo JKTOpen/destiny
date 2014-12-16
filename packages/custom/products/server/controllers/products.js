@@ -114,10 +114,11 @@ exports.productCategory = function(req, res) {
 };
 
 exports.categorizedProduct = function(req, res) {
-     
+  var titleString = new RegExp(req.query.keyword);
+  console.log(req.query.keyword);
   var json = {
      category: req.params.categoryId,
-     title: new RegExp(req.params.searchString)
+     title: titleString
   };
   
   
