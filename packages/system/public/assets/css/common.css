@@ -7,14 +7,14 @@
     padding-left: 150px;
 }
 .page-header .navbar-nav {
-    float: left;
+    float: right;
 }
 /*.page-header > div > div, .page-header > div > ul {
     display: inline-block;
 }*/
 .text-edit {
     padding: 5px 0 0 0;
-    float: left;
+    float: right;
 }
 .account {
     padding-top: 5px !important;

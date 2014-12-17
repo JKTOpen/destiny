@@ -1,95 +1,121 @@
-<section class="container-fluid" data-ng-controller="IndexController"
-    data-ng-init="loadCategory()" >
+<section data-ng-controller="IndexController" data-ng-init="loadCategory()" >
+  <div class="blank-space"></div>
 
-
-    <div class="container main-container bd-container ">
-      <div class="row clearfix " >
-        <div class="col-md-8 column banner left-container">
-           <div class="banner-categories">
-              <div>
-                <a href="#">
-                  <img src="/system/assets/img/first-tab.png" width="228" height="75" />
-                </a>
-              </div>
-              <div>
-                <a href="#">
-                  <img src="/system/assets/img/second-tab.png" width="218" height="76" />
-                </a>
-              </div>
-              <div>
-                <a href="#">
-                  <img src="/system/assets/img/third-tab.png" width="218" height="76" />
-                </a>
-              </div>
-              <div>
-                <a href="#">
-                  <img src="/system/assets/img/forth-tab.png" width="218" height="74" />
-                </a>
-              </div>
-            </div>
+  <div class="col-md-8 column left-container">
+    <div class="banner">
+      <div class="banner-categories">
+        <div>
+          <a href="#">
+            <img src="/system/assets/img/first-tab.png" width="228" height="75" />
+          </a>
         </div>
-
-        <div class="col-md-4 column right-container">
-          <div class="advertisement-banner">
-            <div>
-              <a href="#">
-                <img src="/system/assets/img/advertisement-ban1.png" width="312" height="132" />
-              </a>
-            </div>
-            <div>
-              <a href="#">
-                <img src="/system/assets/img/advertisement-ban2.png" width="312" height="132" />
-              </a>
-            </div>
-            <div>
-              <a href="#">
-                <img src="/system/assets/img/advertisement-ban3.png" width="312" height="132" />
-              </a>
-            </div>
-            <div>
-              <a href="#">
-                <img src="/system/assets/img/advertisement-ban4.png" width="312" height="132" />
-              </a>
-            </div>
-          </div>
+        <div>
+          <a href="#">
+            <img src="/system/assets/img/second-tab.png" width="218" height="76" />
+          </a>
         </div>
-
-        <div class="col-md-8 column left-container home-categories ">
-          <div class="row clearfix " ng-repeat="category in listingCategory|limitTo:2"
-            ng-init="listProductByCategory(category)">
-
-            <div class="cate-head">
-              <a data-ng-href="#!/products/category/{{category._id}}">{{category.name}}</a>
-            </div>
-            <div class="slider ">
-              <div class="sub-cate " ng-repeat="product in category.products|limitTo:3 ">
-                <a data-ng-href="#!/products/{{product._id}}">
-                  <img data-ng-src="{{product.images.src}}" class="img-responsive img-thumbnail" alt=""/>
-                  <div class="cate-name">{{product.title}}</div>
-                </a>
-              </div>
-            </div>
-          </div>
+        <div>
+          <a href="#">
+            <img src="/system/assets/img/third-tab.png" width="218" height="76" />
+          </a>
         </div>
-
-        <div class="col-md-4 column you-may-like right-container">
-          <ul>
-            <li><a href="#">You may like</a></li>
-            <li><a href="#">Bestsellers</a></li>
-          </ul>
-
-          <div class="product-suggestion">
-            <div class="pro-img">
-              <img src="/system/assets/img/pro-img.jpg" width="77" height="72" />
-            </div>
-            <div class="pro-detail">
-            <div class="name">Glass candle holder</div>
-            <div class="price">Rs. 8,000</div>
-            </div>
-          </div>
+        <div>
+          <a href="#">
+            <img src="/system/assets/img/forth-tab.png" width="218" height="74" />
+          </a>
         </div>
       </div>
     </div>
+    <div class="row clearfix " ng-repeat="category in listingCategory|limitTo:2"
+      ng-init="listProductByCategory(category)">
+      <div class="home-categories ">
+        <div class="cate-head">
+          <a data-ng-href="#!/products/category/{{category._id}}">{{category.name}}</a>
+        </div>
+        <div class="slider ">
+          <div class="sub-cate " ng-repeat="product in category.products|limitTo:3 ">
+            <a data-ng-href="#!/products/{{product._id}}">
+              <img data-ng-src="{{product.images.src}}" class="img-responsive img-thumbnail" alt=""/>
+              <div class="cate-name">{{product.title}}</div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
 
-</div>
+  <div class="col-md-4 column right-container">
+    <div class="advertisement-banner">
+      <div>
+        <a href="#">
+          <img src="/system/assets/img/advertisement-ban1.png" width="312" height="132" />
+        </a>
+      </div>
+      <div>
+        <a href="#">
+          <img src="/system/assets/img/advertisement-ban2.png" width="312" height="132" />
+        </a>
+      </div>
+      <div>
+        <a href="#">
+          <img src="/system/assets/img/advertisement-ban3.png" width="312" height="132" />
+        </a>
+      </div>
+      <div>
+        <a href="#">
+          <img src="/system/assets/img/advertisement-ban4.png" width="312" height="132" />
+        </a>
+      </div>
+    </div>
+
+    <div class="you-may-like">
+      <ul>
+        <li><a href="#">You may like</a></li>
+        <li><a href="#">Bestsellers</a></li>
+      </ul>
+      <div class="product-suggestion">
+        <div class="pro-img">
+          <img src="/system/assets/img/pro-img.jpg" width="77" height="72" />
+        </div>
+        <div class="pro-detail">
+          <div class="name">Glass candle holder</div>
+          <div class="price">Rs. 8,000</div>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <div class="product-suggestion">
+        <div class="pro-img">
+          <img src="/system/assets/img/pro-img.jpg" width="77" height="72" />
+        </div>
+        <div class="pro-detail">
+          <div class="name">Glass candle holder</div>
+          <div class="price">Rs. 8,000</div>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <div class="product-suggestion">
+        <div class="pro-img">
+          <img src="/system/assets/img/pro-img.jpg" width="77" height="72" />
+        </div>
+        <div class="pro-detail">
+          <div class="name">Glass candle holder</div>
+          <div class="price">Rs. 8,000</div>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <div class="product-suggestion">
+        <div class="pro-img">
+          <img src="/system/assets/img/pro-img.jpg" width="77" height="72" />
+        </div>
+        <div class="pro-detail">
+          <div class="name">Glass candle holder</div>
+          <div class="price">Rs. 8,000</div>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+
+  </div>
+
 </section>

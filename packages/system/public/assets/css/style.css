@@ -1,31 +1,33 @@
-body{ padding:0; margin:0; background:#ebebeb }
-*{padding:0; margin:0;}
-.main-container{ width:1030px; margin:0 auto;}
-.logo{  width:247px; height:42px; display:block; float:left;}
-.logo a{ display:block; height:42px;text-indent:-9999px; }
-.logo img{ display:block; height:42px;text-indent:-9999px;padding-bottom: 12px;}
-.head-top{ padding-top:20px;}
 
-ul.top-links{ padding:0; margin:0; list-style:none; width:370px; float:right;}
+body{ padding:0; margin:0; }
+*{padding:0; margin:0;}
+.main-container{ width:1030px; margin:0 auto; top:200px;}
+h1.logo{ background:url("/system/assets/img/logo.png") top no-repeat; width:247px; height:42px; display:block; float:left;}
+h1.logo a{ display:block; height:42px;text-indent:-9999px; }
+.head-top{ padding-top:20px;}
+.header{ width:100%; background:#464646; min-height: 120px;}
+
+ul.top-links{ padding:0; margin:0; list-style:none; float:right;}
 ul.top-links li{ margin:0; list-style:none; float:left; display:block; padding:0 10px; width:100px;}
 ul.top-links li a{ padding:0; margin:0; list-style:none; color:#fff; text-decoration:none;font:bold 13px Verdana, Geneva, sans-serif; }
 ul.top-links li a .small-text { font:normal 11px Verdana, Geneva, sans-serif;color:#c4c4c4;}
 .clear{ clear:both;}
-.head-bottom{ width:880px;height: 60px;padding-top:12px; color:#FFF;}
+.head-bottom{ width:761px; float:right; border-top:0 solid #4f4f4f; padding-top:12px; color:#FFF;}
 .search-sty {background:url("/system/assets/img/search-bg.jpg") top no-repeat; width:332px; height:33px; float:left !important;}
 .search-sty select{ background:none; border:none; width:43px; float:left !important; height:31px;}
 .search-sty input[type="text"]{ background:none; border:none;width:243px; float:left; margin-left:6px; height:30px; font:normal 11px Verdana, Geneva, sans-serif; color:#bdbdbd;}
-.search-sty input[type="button"]{border:none; background:url("/system/assets/img/search-btn.jpg") top no-repeat; width:39px; height:33px; cursor:pointer; } 
-
+.search-sty input[type="button"]{border:none; background:url("/system/assets/img/search-btn.jpg") top no-repeat; width:39px; height:33px; cursor:pointer; }
+.outer-head{ min-height:202px; border:0 solid #00ff00; position: fixed; top: 0; z-index: 99999; width:100%;}
 .bd-container{ width:1030px; padding-top:30px;}
-.menu{ padding-top:19px; height:50px;}
+.menu{ padding-top:19px; height:50px; width: 100%; background:#3d3d3d;}
 .free-shipping{ width:260px; float:left; font:normal 11px Verdana, Geneva, sans-serif; color:#737272; text-transform:capitalize; text-align:center;}
-.search-box{width:406px; float:left;font:normal 11px Verdana, Geneva, sans-serif; color:#737272;padding-left: 5px;}
+.search-box{float:right;font:normal 11px Verdana, Geneva, sans-serif; color:#737272;padding-left: 5px;}
 .search-txt{ padding-top:10px; width:65px; float:left;}
 ul.menu-links{padding:0; margin:0; }
 ul.menu-links li{padding:0; list-style:none; display:inline; }
 ul.menu-links li a{margin:0; font:normal 11px Verdana, Geneva, sans-serif; color:#FFF; text-decoration:none; background:url("/system/assets/img/sep.png") top right no-repeat; padding:10px 7px 10px 2px; }
 ul.menu-links li a:hover{ background:#ff9b05;}
+.blank-space{ height: 150px;}
 .banner{ background:url("/system/assets/img/banner.png") top no-repeat; width:700px; height:315px;}
 .left-container{ width:715px; float:left;}
 .banner-categories{ width:228px; float:right; padding-top:6px;}
@@ -44,7 +46,7 @@ ul.menu-links li a:hover{ background:#ff9b05;}
 .pro-img{ width:77px; height:72px; float:left; display:block;}
 .pro-detail{width:160px; float:right; display:block; font:normal 11px Tahoma, Geneva, sans-serif; color:#000; padding-top:15px;}
 .price{ padding-top:10px; font:bold 11px Tahoma, Geneva, sans-serif; color:#ff9b05;}
-.right-container{ width:315px; float:right;}
+.right-container{ width:315px; float:right;z-index:999;}
 .advertisement-banner img{ padding:5px 0;}
 .footer{ background:#525252 url("/system/assets/img/foot-bg.jpg") top repeat-x; height:388px; width:100%;}
 .foot{ width:1030px; margin:0 auto; padding-top:30px; height:236px;}
@@ -60,3 +62,4 @@ ul.menu-links li a:hover{ background:#ff9b05;}
 .track-your-order li:last-child{ border:none;}
 .copy{ width:245px; float:left; font:normal 11px Verdana, Geneva, sans-serif; color:#FFF; padding:20px 0 0 53px;}
 .social-icons{width:245px; float:right; font:normal 11px Verdana, Geneva, sans-serif; color:#FFF; padding:15px 25px 0 0;}
+.fix-width{ width:1030px; margin:0 auto; }
