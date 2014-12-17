@@ -68,7 +68,10 @@
         <a mean-token="item.link" ui-sref='{{item.link}}'>{{item.title}}</a>
       </li>
     </ul> -->
-    <ul class="navbar-nav nav menu-links">
+    <ul class="menu-links">
+      <li>
+        <a href='#!/products'>All Products</a>
+      </li>
       <li data-ng-repeat="category in listingCategory">
         <a data-ng-href="#!/products/category/{{category._id}}">{{category.name}}</a>
       </li>

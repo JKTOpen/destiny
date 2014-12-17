@@ -1,5 +1,5 @@
 
-body{ padding:0; margin:0; }
+body{ padding:0; margin:0; background:#ebebeb;}
 *{padding:0; margin:0;}
 .main-container{ width:1030px; margin:0 auto; top:200px;}
 h1.logo{ background:url("/system/assets/img/logo.png") top no-repeat; width:247px; height:42px; display:block; float:left;}
@@ -13,13 +13,13 @@ ul.top-links li a{ padding:0; margin:0; list-style:none; color:#fff; text-decora
 ul.top-links li a .small-text { font:normal 11px Verdana, Geneva, sans-serif;color:#c4c4c4;}
 .clear{ clear:both;}
 .head-bottom{ width:761px; float:right; border-top:0 solid #4f4f4f; padding-top:12px; color:#FFF;}
-.search-sty {background:url("/system/assets/img/search-bg.jpg") top no-repeat; width:332px; height:33px; float:left !important;}
+.search-sty {background:url("/system/assets/img/search-bg.jpg") top no-repeat; width:332px; height:33px; margin:0 20px; float:left !important;}
 .search-sty select{ background:none; border:none; width:43px; float:left !important; height:31px;}
 .search-sty input[type="text"]{ background:none; border:none;width:243px; float:left; margin-left:6px; height:30px; font:normal 11px Verdana, Geneva, sans-serif; color:#bdbdbd;}
 .search-sty input[type="button"]{border:none; background:url("/system/assets/img/search-btn.jpg") top no-repeat; width:39px; height:33px; cursor:pointer; }
 .outer-head{ min-height:202px; border:0 solid #00ff00; position: fixed; top: 0; z-index: 99999; width:100%;}
 .bd-container{ width:1030px; padding-top:30px;}
-.menu{ padding-top:19px; height:50px; width: 100%; background:#3d3d3d;}
+.menu{ padding-top:10px; height:40px; width: 100%; background:#3d3d3d;}
 .free-shipping{ width:260px; float:left; font:normal 11px Verdana, Geneva, sans-serif; color:#737272; text-transform:capitalize; text-align:center;}
 .search-box{float:right;font:normal 11px Verdana, Geneva, sans-serif; color:#737272;padding-left: 5px;}
 .search-txt{ padding-top:10px; width:65px; float:left;}
@@ -32,11 +32,11 @@ ul.menu-links li a:hover{ background:#ff9b05;}
 .left-container{ width:715px; float:left;}
 .banner-categories{ width:228px; float:right; padding-top:6px;}
 .banner-categories div img{ float:right;}
-.home-categories{width:678px;  height:254px;}
-.cate-head{ background:url("/system/assets/img/cate-bg.png") top repeat-x;font:bold 14px Verdana, Geneva, sans-serif; color:#FFF;padding:19px 10px; }
+.home-categories{width:678px; background:url("/system/assets/img/cate-bg.png") top repeat-x; height:284px; padding:19px 10px;}
+.cate-head{ font:bold 14px Verdana, Geneva, sans-serif; color:#FFF; padding-bottom:20px;}
 .sub-cate{ width:168px; float:left; margin-left:40px;}
-.slider{ width:650px; margin:10px auto; height: 250px;padding-top:15px;border-bottom-width: 10px; background-color: white;}
-.cate-name{ background:#ff9b05; width:140px; color:#FFF; color:#3e3e3e; font:normal 13px Tahoma, Geneva, sans-serif; margin:5px auto;}
+.slider{ width:650px; margin:10px auto;}
+.cate-name{ background:#ff9b05; width:140px; color:#FFF; font:normal 13px Tahoma, Geneva, sans-serif; margin:5px auto; padding:10px;}
 .you-may-like{  width:320px; height:486px; padding-left: 0;padding-right: 0;background-color:white;}
 .you-may-like ul{ margin:0; list-style:none; padding:11px 10px; height:25px;}
 .you-may-like ul li{ margin:0; list-style:none; width:147px; float:left; padding-left:5px;text-align:center; border:1px solid #f4f0e4; padding:5px 0;}
@@ -56,7 +56,7 @@ ul.menu-links li a:hover{ background:#ff9b05;}
 .foot-section ul li{ padding:0; margin:0; list-style:none; border-bottom: 1px solid #535353;}
 .foot-section ul li a{ padding:0; margin:0; list-style:none; font:normal 11px/25px Verdana, Geneva, sans-serif; color:#e0e0e0; text-decoration:none;}
 .foot-section ul li a:hover{ color:#fff; text-decoration:none;}
-.copyright{ width:1030px; margin:0 auto; padding-top:15px;}
+.copyright{ width:1030px; margin:0 auto; padding-top:45px;}
 .track-your-order{ padding:0; height:43px; margin:0; list-style:none; border-top:1px solid #6c6c6c; border-bottom:1px solid #6c6c6c;}
 .track-your-order li{ padding:10px 0; height:23px; border-right:1px solid #6c6c6c; margin:0; list-style:none; width:330px; float:left; text-transform:uppercase; font:normal 17px Verdana, Geneva, sans-serif; color:#c6c6c6; text-align:center;}
 .track-your-order li:last-child{ border:none;}
