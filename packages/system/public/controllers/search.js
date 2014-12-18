@@ -1,19 +1,20 @@
 'use strict';
-angular.module('mean.system').controller('SearchController', ['$scope', '$rootScope', '$location', 'Global', 'Menus','CategorizedProducts',
-  function($scope, $rootScope, $location, Global, Menus, CategorizedProducts) {
+angular.module('mean.system').controller('SearchController', ['$scope', '$rootScope', '$location', 'Global', 'Menus','CategorizedProducts', 'SearchService',
+  function($scope, $rootScope, $location, Global, Menus, CategorizedProducts, SearchService) {
     $scope.global = Global;
     $scope.searchProducts = function() {
       if ($scope.category !== undefined) {
         CategorizedProducts.query({keyword: $scope.keyword, categoryId: $scope.category},
           function(products) {
-            //console.log('I am here');
-            console.log(products);
-            $rootScope.$broadcast('fillProductsByCategory', products);
+            $rootScope.$broadcast('searchProductEvent', products);
             $location.url('/products');
           });
-      } else {
-        console.log('HELP ME');
-        $location.url('/products');
+      } else if ($scope.category === undefined){
+        console.log('Without category search');
+        SearchService.query({keyword: $scope.keyword}, function(products) {
+            $rootScope.$broadcast('searchProductEvent', products);
+            $location.url('/products');
+          });
       }
     };
   }
