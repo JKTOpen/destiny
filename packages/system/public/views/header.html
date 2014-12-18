@@ -1,25 +1,16 @@
-<div data-ng-controller="HeaderController"
-  data-ng-init="loadCategory()">
+<div data-ng-controller="HeaderController" data-ng-init="loadCategory()">
 <div class="outer-head">
-
   <div class="header">
-<div class="fix-width">
+  <div class="fix-width">
     <div class="head-top">
       <h1 class="logo"><a ui-sref="home">Handmade Destiny</a></h1>
-      <ul class="top-links"><li><a href="#"><span class="small-text">Hello. Login</span></li> <li><a href="#"><span class="small-text">signup</span></a></li>   </ul>
-
-      <div class="text-edit account">
-        <div class="pull-right" data-ng-show="global.authenticated" mean-token-editable></div>
-        <div class="pull-right" data-ng-show="global.authenticated" mean-translate></div>
-      </div>
-
-      <ul class="navbar-nav nav" data-ng-hide="global.authenticated">
-        <li><a ui-sref='auth.register'>Join</a>
-        </li>
-
-        <li class="divider-vertical"></li>
-        <li><a ui-sref='auth.login'>Log In</a>
-        </li>
+      <ul class="top-links">
+        <li data-ng-hide="global.authenticated"><a ui-sref='auth.register'>Join</li>
+        <li data-ng-hide="global.authenticated"><a ui-sref='auth.login'>Log In</a></li>
+        <li><a href="#">Link1</a></li>
+        <li><a href="#">Link2</a></li>
+        <li><a href="#">Link3</a></li>
+        <li><a href="#">Link4</a></li>
       </ul>
       <ul class="navbar-nav nav" data-ng-show="global.authenticated">
         <li class="dropdown">
@@ -31,43 +22,50 @@
             </li>
             <li><a href="/logout">Log Out</a>
             </li>
+            <li data-ng-repeat="item in menus.main" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}">
+              <a mean-token="item.link" ui-sref='{{item.link}}'>{{item.title}}</a>
+            </li>
           </ul>
         </li>
       </ul>
-    </div>
 
+      <div class="text-edit account">
+        <div class="pull-right" data-ng-show="global.authenticated" mean-token-editable></div>
+        <div class="pull-right" data-ng-show="global.authenticated" mean-translate></div>
+      </div>
+    </div>
     <div class="head-bottom">
       <div class="search-box">
+        <div class="search-txt">SEARCH</div>
         <div class="search-sty">
-         <!-- Fetch options from database -->
           <ul class="navbar-nav nav">
             <li>
               <select>
-                <option></option>
+                <option> All </option>
+                <option> Cat1 </option>
+                <option> Cat2 </option>
+                <option> Cat3 </option>
               </select>
               <input type="text" class="search" value="Search products, brands, color and more" />
               <input type="button" />
             </li>
           </ul>
         </div>
-        <a href="#"><img src="/system/assets/img/home-cart.jpg" width="33" height="28" /></a>
       </div>
-
-
+      <div class="cart-btn-top"><a href="#"><img src="/system/assets/img/home-cart.jpg" width="33" height="28" /> Cart (10)</a></div>
     </div>
-    </div>
-
   </div>
-
+  </div>
   <div class="clear"></div>
-
   <div class="menu">
   <div class="fix-width">
-    <!-- <ul class="navbar-nav nav menu-links">
+<!--
+    <ul class="navbar-nav nav menu-links">
       <li data-ng-repeat="item in menus.main" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}">
         <a mean-token="item.link" ui-sref='{{item.link}}'>{{item.title}}</a>
       </li>
-    </ul> -->
+    </ul>
+   -->
     <ul class="menu-links">
       <li>
         <a href='#!/products'>All Products</a>
@@ -76,7 +74,7 @@
         <a data-ng-href="#!/products/category/{{category._id}}">{{category.name}}</a>
       </li>
     </ul>
-  </div></div>
+  </div>
+  </div>
 </div>
-
 </div>
