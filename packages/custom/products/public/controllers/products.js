@@ -101,9 +101,7 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$ro
 
     $scope.find = function() {
       if ($rootScope.$on('searchProductEvent')) {
-        console.log('Here I am ');
         $rootScope.$on('searchProductEvent', function(event, msg) {
-          console.log('In controller of product' + msg);
           $scope.products = msg;
         });
       }
