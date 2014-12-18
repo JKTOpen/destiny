@@ -4,22 +4,30 @@
     border-bottom: 0 !important;
     overflow: visible;
     position: fixed ;
-    padding-left: 150px;
+    padding-left: 150px; float: right;
 }
-.page-header .navbar-nav {
-    float: left;
+.head-top .navbar-nav {
+    float: right; margin-right:5px;
 }
+li.dropdown a, li.open a:hover, li.open a, li.dropdown a:hover, li.open a:focus{background: #FF9B05; color: #fff !important;}
 /*.page-header > div > div, .page-header > div > ul {
     display: inline-block;
 }*/
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus{background: #FF9B05; }
+ul.dropdown-menu li a{ background: #fff !important; color: #000 !important;}
+ul.dropdown-menu li a:hover{ color: #FF9B05 !important;}
+ul.dropdown-menu li{border-bottom:1px solid #ddd;}
+ul.dropdown-menu{min-width:123px;}
+ul.dropdown-menu li a:last-child{border-bottom:none;}
+.dropdown-menu > li > a{ font-size:12px;}
 .text-edit {
-    padding: 5px 0 0 0;
-    float: left;
+position:absolute; top:5px; right:5px;
 }
 .account {
     padding-top: 5px !important;
     padding-bottom: 5px !important;
 }
+
 
 .navbar .nav > li > a.brand {
     padding-left: 20px;

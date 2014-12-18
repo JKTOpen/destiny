@@ -1,7 +1,8 @@
+<div class="admin-container">
 <section data-ng-controller="ProductsController" data-ng-init="findOne()">
   <span>{{product.created | date:'medium'}}</span> /
   <span>{{product.user.name}}</span>
-  
+
   <h2>
     {{product.title}}
     <span data-ng-if="hasAuthorization(product)">
@@ -13,12 +14,12 @@
       </a>
     </span>
   </h2>
- 
+
     <div class="row">
        <div class=" row col-md-3">
              <img data-ng-src="{{product.images.src}}" class="img-responsive img-thumbnail" alt="">
        </div>
-    </div> 
+    </div>
    <div><p>{{product.description}}</p></div>
   <div ng-if="product.color !== undefined">
     <b><label mean-token="'show-color'" for="color" class="col-md-1">Color</label></b>
@@ -37,4 +38,6 @@
   <div class="col-md-12">
     <div ng-if="product !== undefined" ng-include="'comments/views/index.html'" data-ng-controller="CommentsController" data-ng-init="findComments(product, 2)"/>
   </div>
+  <div class="clear"></div>
 </section>
+</div>

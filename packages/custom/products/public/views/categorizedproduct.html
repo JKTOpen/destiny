@@ -1,9 +1,10 @@
+<div class="admin-container">
 <section data-ng-controller="ProductsController" data-ng-init="findCategorizedProduct()">
   <ul class="products unstyled">
     <li data-ng-repeat="product in categorizedProducts">
       <span>{{product.created | date:'medium'}}</span> /
       <span>{{product.user.name}}</span>
-     
+
       <h2>
         <a data-ng-href="#!/products/{{product._id}}">{{product.title}}</a>
         <span data-ng-if="hasAuthorization(product)">
@@ -15,12 +16,12 @@
           </a>
         </span>
       </h2>
-      
+
         <div class="row">
        <div class=" row col-md-3">
              <img data-ng-src="{{product.images.src}}" class="img-responsive img-thumbnail" alt="">
        </div>
-    </div> 
+    </div>
      <div>{{product.description}} <br /><br /></div>
       <div>
         <div ng-if="product !== undefined" ng-include="'comments/views/index.html'" data-ng-controller="CommentsController" data-ng-init="findComments(product, 2)"/>
@@ -29,5 +30,6 @@
   </ul>
   <h1 data-ng-show="categorizedProducts.length === 0"> No Products Yet. </h1>
   <h1 data-ng-show="global.isAdmin === true && categorizedProducts.length === 0"> <br> Why don't you <a href="/#!/products/create">Create One</a>?</h1>
-
+ <div class="clear"></div>
 </section>
+</div>

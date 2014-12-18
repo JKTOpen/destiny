@@ -30,7 +30,7 @@ ul.products li:not(:last-child) {
 .product-price{ font:normal 12px Verdana, Geneva, sans-serif; color:#fd9802;text-align:center; padding:5px 0;}
 .add-to-cart{ width:83px; margin:0 auto;}
 /*createprofilePage*/
-.admin-container{ width:1010px; padding:30px 10px; background:#FFF; min-height:300px;}
+.admin-container{ width:1010px; margin-bottom: 20px; padding:10px 10px 10px; background:#FFF; min-height:300px;}
 .create-add-product div.outer-box{ width:500px; padding:10px; height:40px;}
 .label-sty{ width:150px;float:left;}
 /*.create-add-product label{ }*/
