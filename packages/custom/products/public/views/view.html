@@ -1,5 +1,5 @@
 <section data-ng-controller="ProductsController" data-ng-init="findOne()">
-  <div class="Breadcrumb"><a href="#">Home</a> > <a href="#">Flower vase</a> > {{product.title}}</div>
+  <div class="Breadcrumb"><a href="#">Home</a> > <a href="#!/products/category/{{product.category._id}}">{{product.category.name}}</a> > {{product.title}}</div>
   <div class="product-detail">
     <div class="detail-left">
       <div class="product-icons">
@@ -13,7 +13,17 @@
     </div> <!--end detail left-->
 
     <div class="detail-right">
-      <h2>{{product.title}}</h2>
+      <h2>
+        {{product.title}}
+        <span data-ng-if="hasAuthorization(product)">
+          <a class="btn" href="/#!/products/{{product._id}}/edit">
+            <i class="glyphicon glyphicon-edit"></i>
+          </a>
+          <a class="btn" data-ng-click="remove(product);">
+            <i class="glyphicon glyphicon-trash"></i>
+          </a>
+        </span>
+      </h2>
       <div class="title">Short Description</div>
       <div class="short-des">{{product.description}}
       </div>
@@ -46,6 +56,7 @@
     </div><!--end-shipping-detail-->
     <div class="clear"></div>
     <div ng-if="product !== undefined" ng-include="'comments/views/index.html'" data-ng-controller="CommentsController" data-ng-init="findComments(product, 2)"/>
+    <div class="clear"></div>
 
   </div><!--detail end-->
 
