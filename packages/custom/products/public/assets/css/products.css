@@ -4,7 +4,7 @@
 ul.products li:not(:last-child) {
 	border-bottom: 1px solid #ccc
 }*/
-/*listpage-left CSS*/
+					/*listpage-left CSS*/
 .listing-page .bd-container{ padding-top:10px;}
 .listpage-left{ width:210px; float:left; background:#fff url("/products/assets/img/left-bg.jpg") top repeat-x; border-left:1px solid #e6e6e6;border-right:1px solid #e6e6e6; margin-top:10px; padding:10px;font:normal 11px/23px Verdana, Geneva, sans-serif; color:#070707; padding-bottom:20px; margin-bottom:20px; min-height:995px;}
 .Breadcrumb{ font:bold 11px Verdana, Geneva, sans-serif; color:#4b4b4b;}
@@ -14,7 +14,7 @@ ul.products li:not(:last-child) {
 .lpage-head{font:bold 11px Verdana, Geneva, sans-serif; color:#070707;text-transform:uppercase; padding:15px 0;}
 .lpage-content{ padding:0 0 20px 1px; border-bottom:1px solid #d9d9d9;}
 .lpage-last{ border-bottom:none;}
-/*.listpage-right CSS*/
+					/*.listpage-right CSS*/
 .listpage-right{ width:755px; float:right; background:#fff url("/products/assets/img/right-bg.jpg") top repeat-x; border-left:1px solid #e6e6e6;border-right:1px solid #e6e6e6; margin-top:10px; padding:10px; margin-bottom:20px;}
 .category-name{ padding-top:10px; font:bold 16px Verdana, Geneva, sans-serif; color:#000; padding-bottom:5px;}
 .pro-found{font:normal 10px Verdana, Geneva, sans-serif; color:#000; }
@@ -33,10 +33,36 @@ ul.products li:not(:last-child) {
 .admin-container{ width:1010px; margin-bottom: 20px; padding:10px 10px 10px; background:#FFF; min-height:300px;}
 .create-add-product div.outer-box{ width:500px; padding:10px; height:40px;}
 .label-sty{ width:150px;float:left;}
-/*.create-add-product label{ }*/
 .create-add-product input[type="text"]{ background:none; border:none; border:1px solid #ccc; width:200px;  padding:2px;}
 .create-add-product h2{ font:normal 18px Arial, Helvetica, sans-serif; color:#000; padding-bottom:20px;}
 .input-sty{ width:300px; float:left; margin-bottom: 15px;}
-
 form.add-product{font:normal 12px Verdana, Geneva, sans-serif; color:#000;}
 .add-product button[type="submit"]{background:#ed9112; border:none; margin-top:20px; margin-left: 150px; font:normal 12px Verdana, Geneva, sans-serif; color:#FFF; padding:5px 15px; cursor:pointer;}
+
+/********* ********* ********* detail page ********* ********* *********/
+
+.product-detail{ width:1010px; background:#fff url("/products/assets/img/center-bg.jpg") top repeat-x; border-left:1px solid #e6e6e6;border-right:1px solid #e6e6e6; margin-top:10px; padding:20px 10px 10px 10px; margin-bottom:20px;}
+
+.detail-left{ width:460px; float:left; padding:20px;}
+.product-icons{ width:55px; float:left;}
+.product-icons img{ padding-bottom:20px;}
+.produc-img{ width:360px; height:341px; float:right;}
+
+.detail-right{ width:490px; float:right; padding:20px;}
+.detail-right h2{ font:bold 19px Verdana, Geneva, sans-serif; color:#404040;}
+.title{ font:bold 11px Verdana, Geneva, sans-serif; color:#000; padding:30px 0 10px 0;}
+.short-des{font:normal 11px Verdana, Geneva, sans-serif; color:#8e8e8e;padding:0 0 20px 0; }
+.detail-right .price{ color:#404040; font:normal 19px Verdana, Geneva, sans-serif; padding-bottom:10px; }
+.details-btn{ padding:10px 0 30px 0;}
+.details-btn input.add-cart{  border:none;background:none; background:url("/products/assets/img/add-to-cart.jpg") top no-repeat; width:83px; height:28px; cursor:pointer; margin-right:10px;}
+.details-btn input.add-wishlist{ border:none; background:none; background:url("/products/assets/img/add-wishlist.jpg") top no-repeat; width:113px; height:28px; cursor:pointer;}
+.minimum-order{ font:bold 11px Verdana, Geneva, sans-serif; color:#000;}
+.minimum-order input{ padding:5px; width:40px; border:1px solid #cecece;}
+.detail-desc-box{ border-top:1px solid #ececec; border-right:1px solid #ececec; width:680px; float:left; padding:20px 10px 10px 10px;}
+
+.shipping-detail-box{ border-top:1px solid #ececec; width:280px; float:left; padding:10px;}
+.detail-title{ background:#ebebeb; padding:10px; font:bold 12px Verdana, Geneva, sans-serif; color:#404040; margin-bottom:10px;}
+.detail-des{ background:#f9f9f9; padding:10px; font:normal 11px/18px Verdana, Geneva, sans-serif; color:#8e8e8e; margin-bottom:20px;}
+ul.short-shipping-details{ padding:10px; margin:0; list-style:none;}
+ul.short-shipping-details li{ padding:0; margin:0; list-style:none; font:normal 12px/30px Verdana, Geneva, sans-serif; color:#404040; border-top:1px solid #e6e6e6; padding-left:10px;}
+ul.short-shipping-details li:last-child{ border-bottom:1px solid #e6e6e6;}

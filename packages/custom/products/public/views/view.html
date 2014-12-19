@@ -1,43 +1,51 @@
 <div class="admin-container">
 <section data-ng-controller="ProductsController" data-ng-init="findOne()">
-  <span>{{product.created | date:'medium'}}</span> /
-  <span>{{product.user.name}}</span>
+  <div class="Breadcrumb"><a href="#">Home</a> > <a href="#">Flower vase</a> > {{product.title}}</div>
+  <div class="product-detail">
+    <div class="detail-left">
+      <div class="product-icons">
+        <img src="/products/assets/img/na1.png" width="52" height="52" />   <img src="/products/assets/img/na2.png" width="52" height="52" />   <img src="/products/assets/img/na3.png" width="52" height="52" />   <img src="/products/assets/img/na4.png" width="52" height="52" />   <img src="/products/assets/img/na5.png" width="52" height="52" />
+      </div>
+      <div class="produc-img">
+        <div class=" row col-md-12">
+        <img data-ng-src="{{product.images.src}}" class="img-responsive img-thumbnail" alt=""/>
+      </div>
+      </div>
+    </div> <!--end detail left-->
 
-  <h2>
-    {{product.title}}
-    <span data-ng-if="hasAuthorization(product)">
-      <a class="btn" href="/#!/products/{{product._id}}/edit">
-        <i class="glyphicon glyphicon-edit"></i>
-      </a>
-      <a class="btn" data-ng-click="remove(product);">
-        <i class="glyphicon glyphicon-trash"></i>
-      </a>
-    </span>
-  </h2>
+    <div class="detail-right">
+      <h2>{{product.title}}</h2>
+      <div class="title">Short Description</div>
+      <div class="short-des">{{product.description}}
+      </div>
+      <div class="price">Rs. {{product.price}}</div>
+      <div class="details-btn">
+        <input type="button" class="add-cart" />
+        <input type="button" class="add-wishlist" />
+      </div>
+      <div class="minimum-order">Minimum Order Quantity <input type="text" /></div>
+    </div><!-- end detail right -->
 
-    <div class="row">
-       <div class=" row col-md-3">
-             <img data-ng-src="{{product.images.src}}" class="img-responsive img-thumbnail" alt="">
-       </div>
-    </div>
-   <div><p>{{product.description}}</p></div>
-  <div ng-if="product.color !== undefined">
-    <b><label mean-token="'show-color'" for="color" class="col-md-1">Color</label></b>
-    <div class="col-md-11"><p>{{product.color}}</p></div>
-  </div>
-  <div ng-if="product.category !== undefined">
-    <label mean-token="'show-category'" for="category" class="col-md-1">Category</label>
-    <div class="col-md-11"><p><a data-ng-href="#!/products/category/{{product.category._id}}">{{product.category.name}}</a></p></div>
-  </div>
-  <div ng-if="product.tag !== undefined" class="col-md-12">
-    <span class="glyphicon glyphicon-tag"></span> {{product.tag}}<br><br>
-  </div>
-   <div ng-if="product.price !== undefined" class="col-md-12">
-    <span class="glyphicon glyphicon-tag"></span> {{product.price}}<br><br>
-  </div>
-  <div class="col-md-12">
-    <div ng-if="product !== undefined" ng-include="'comments/views/index.html'" data-ng-controller="CommentsController" data-ng-init="findComments(product, 2)"/>
-  </div>
-  <div class="clear"></div>
-</section>
+    <div class="clear"></div>
+
+    <div class="detail-desc-box">
+      <div class="detail-title">Product Description</div>
+      <div class="detail-des">{{product.description}}</div>
+      <div class="detail-title">Product Details</div>
+      <div class="detail-des">Tag : {{product.tag}} ,Color : {{product.color}}</div>
+      <div class="detail-title">Demensions (LXWXH)</div>
+      <div class="detail-des">32X32X31 CMS</div>
+    </div><!--end-detail-des-->
+
+    <div class="shipping-detail-box">
+      <ul class="short-shipping-details">
+        <li>Shipping Charges: None</li>
+        <li>Cash On Delivery: Available</li>
+        <li>part payment: Available</li>
+        <li>EMI : Available</li>
+      </ul>
+    </div><!--end-shipping-detail-->
+    <div class="clear"></div>
+  </div><!--detail end-->
+  </section>
 </div>
