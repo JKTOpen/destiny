@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('mean.products').controller('ProductsController', ['$scope', '$stateParams', '$location', 'Global', 'Products','ProductCategoryLists','CategorizedProducts',
-  function($scope, $stateParams, $location, Global, Products, ProductCategoryLists, CategorizedProducts) {
+angular.module('mean.products').controller('ProductsController', ['$scope', '$rootScope','$stateParams', '$location', 'Global', 'Products','ProductCategoryLists','CategorizedProducts',
+  function($scope, $rootScope, $stateParams, $location, Global, Products, ProductCategoryLists, CategorizedProducts) {
     $scope.global = Global;
     $scope.images = [];
     $scope.productImages = null;
@@ -101,9 +101,16 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$st
     };
 
     $scope.find = function() {
-      Products.query(function(products) {
-        $scope.products = products;
-      });
+      if ($rootScope.$on('searchProductEvent')) {
+        $rootScope.$on('searchProductEvent', function(event, msg) {
+          $scope.products = msg;
+        });
+      }
+      else {
+        Products.query(function(products) {
+          $scope.products = products;
+        });  
+      }
     };
 
     $scope.findProductCategory = function() {

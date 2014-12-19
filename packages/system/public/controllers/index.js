@@ -9,7 +9,6 @@ angular.module('mean.system').controller('IndexController', ['$scope', 'Global',
       $scope.defaultCategory = '54634e05a92d436556ae189a' ;
       ProductCategoryLists.query(function(productCategory) {
         $scope.listingCategory = productCategory;
-        console.log($scope.listingCategory);
       });
     };
 
