@@ -35,19 +35,20 @@
       </div>
     </div>
     <div class="head-bottom">
-      <div class="search-box">
+      <div class="search-box" data-ng-controller="SearchController">
         <div class="search-txt">SEARCH</div>
         <div class="search-sty">
           <ul class="navbar-nav nav">
             <li>
-              <select>
+              <select data-ng-model="category">
+                <option value="">-- Choose Category --</option>
                 <option> All </option>
-                <option> Cat1 </option>
-                <option> Cat2 </option>
-                <option> Cat3 </option>
+                <option ng-repeat="category in listingCategory" value = "{{category._id}}">
+                  {{category.name}}
+                </option>
               </select>
-              <input type="text" class="search" value="Search products, brands, color and more" />
-              <input type="button" />
+              <input type="text" class="search" value="Search products" ng-model = "keyword"/>
+              <input type="button" ng-click = "searchProducts()"/>
             </li>
           </ul>
         </div>
