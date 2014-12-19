@@ -5,6 +5,8 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$ro
     $scope.global = Global;
     $scope.images = [];
     $scope.productImages = null;
+    $rootScope.cart = [];
+    $scope.quantity = 0;
     $scope.hasAuthorization = function(product) {
       if (!product || !product.user) return false;
       return $scope.global.isAdmin || product.user._id === $scope.global.user._id;
@@ -109,7 +111,7 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$ro
       else {
         Products.query(function(products) {
           $scope.products = products;
-        });  
+        });
       }
     };
 
@@ -184,6 +186,29 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$ro
        slides.push({
          image: url
        });
+    };
+
+    $scope.addProduct = function(productId, quantity) {
+      if($rootScope.cart.length === 0){
+        $rootScope.cart.push({
+          productId: productId,
+          quantity: quantity
+        });
+      } else {
+        console.log($rootScope.cart);
+        for (var i in $rootScope.cart) {
+          if($rootScope.cart[i].productId === productId){
+            $rootScope.cart[i].quantity = $rootScope.cart[i].quantity + 1;
+          } else {
+            $rootScope.cart.push({
+              productId: productId,
+              quantity: quantity
+            });
+          }
+
+        }
+      }
+      $rootScope.$emit('addtocart');
     };
 
   }

@@ -2,13 +2,14 @@
   <div class="Breadcrumb"><a href="#">Home</a> > <a href="#!/products/category/{{product.category._id}}">{{product.category.name}}</a> > {{product.title}}</div>
   <div class="product-detail">
     <div class="detail-left">
-      <div class="product-icons">
-        <img src="/products/assets/img/na1.png" width="52" height="52" />   <img src="/products/assets/img/na2.png" width="52" height="52" />   <img src="/products/assets/img/na3.png" width="52" height="52" />   <img src="/products/assets/img/na4.png" width="52" height="52" />   <img src="/products/assets/img/na5.png" width="52" height="52" />
+      <div class="product-icons ">
+        <img src="/products/assets/img/na1.png" class="img-responsive img-thumbnail"/>
+        <img src="/products/assets/img/na2.png" class="img-responsive img-thumbnail"/>
+        <img src="/products/assets/img/na3.png" class="img-responsive img-thumbnail"/>
+        <img src="/products/assets/img/na4.png" class="img-responsive img-thumbnail"/>   <img src="/products/assets/img/na5.png" class="img-responsive img-thumbnail"/>
       </div>
       <div class="produc-img">
-        <div class=" row col-md-12">
         <img data-ng-src="{{product.images.src}}" class="img-responsive img-thumbnail" alt=""/>
-      </div>
       </div>
     </div> <!--end detail left-->
 
@@ -28,11 +29,12 @@
       <div class="short-des">{{product.description}}
       </div>
       <div class="price">Rs. {{product.price}}</div>
+      <div class="minimum-order">Order Quantity <input type="text" value="1" data-ng-model="quantity"/></div>
       <div class="details-btn">
-        <input type="button" class="add-cart" />
-        <input type="button" class="add-wishlist" />
+        <input type="button" class="add-cart" data-ng-click='addProduct("{{product._id}}", "{{quantity}}");' />
+        <!-- <input type="button" class="add-wishlist" /> -->
       </div>
-      <div class="minimum-order">Minimum Order Quantity <input type="text" /></div>
+
     </div><!-- end detail right -->
 
     <div class="clear"></div>
