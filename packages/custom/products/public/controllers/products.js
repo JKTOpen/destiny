@@ -5,6 +5,8 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$ro
     $scope.global = Global;
     $scope.images = [];
     $scope.productImages = null;
+    $scope.quantity = 1;
+
     $scope.hasAuthorization = function(product) {
       if (!product || !product.user) return false;
       return $scope.global.isAdmin || product.user._id === $scope.global.user._id;
@@ -101,16 +103,9 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$ro
     };
 
     $scope.find = function() {
-      if ($rootScope.$on('searchProductEvent')) {
-        $rootScope.$on('searchProductEvent', function(event, msg) {
-          $scope.products = msg;
-        });
-      }
-      else {
-        Products.query(function(products) {
-          $scope.products = products;
-        });  
-      }
+      Products.query(function(products) {
+        $scope.products = products;
+      });
     };
 
     $scope.findProductCategory = function() {
@@ -185,6 +180,35 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$ro
          image: url
        });
     };
+
+    $scope.addProduct = function(productId, quantity) {
+      if($scope.global.cart.length === 0){
+        $scope.global.cart.push({
+          productId: productId,
+          quantity: parseInt(quantity)
+        });
+      } else {
+        var newProduct = true;
+        for (var i in $scope.global.cart) {
+          if($scope.global.cart[i].productId === productId){
+            $scope.global.cart[i].quantity = parseInt(quantity);
+            newProduct = false;
+          }
+        }
+       if(newProduct === true) {
+          $scope.global.cart.push({
+            productId: productId,
+            quantity: parseInt(quantity)
+          });
+        }
+      }
+      console.log($scope.global.cart);
+      $rootScope.$emit('addtocart');
+    };
+
+    $rootScope.$on('searchProductEvent', function(event, msg) {
+      $scope.products = msg;
+    });
 
   }
 ]);

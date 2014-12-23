@@ -5,6 +5,7 @@ angular.module('mean.system')
   function($scope, $rootScope, Global, Menus,ProductCategoryLists) {
     $scope.global = Global;
     $scope.menus = {};
+    $scope.cart = [];
 
     $scope.loadCategory = function() {
       ProductCategoryLists.query(function(productCategory) {
@@ -39,6 +40,10 @@ angular.module('mean.system')
         authenticated: !! $rootScope.user,
         user: $rootScope.user
       };
+    });
+
+    $rootScope.$on('addtocart', function() {
+      $scope.cart = $rootScope.cart;
     });
 
   }

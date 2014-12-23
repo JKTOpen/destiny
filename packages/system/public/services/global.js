@@ -8,7 +8,8 @@ angular.module('mean.system').factory('Global', [
     _this._data = {
       user: window.user,
       authenticated: false,
-      isAdmin: false
+      isAdmin: false,
+      cart: []
     };
     if (window.user && window.user.roles) {
       _this._data.authenticated = window.user.roles.length;
