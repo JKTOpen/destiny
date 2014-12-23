@@ -5,8 +5,8 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$ro
     $scope.global = Global;
     $scope.images = [];
     $scope.productImages = null;
-    $rootScope.cart = [];
     $scope.quantity = 0;
+
     $scope.hasAuthorization = function(product) {
       if (!product || !product.user) return false;
       return $scope.global.isAdmin || product.user._id === $scope.global.user._id;
@@ -103,16 +103,9 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$ro
     };
 
     $scope.find = function() {
-      if ($rootScope.$on('searchProductEvent')) {
-        $rootScope.$on('searchProductEvent', function(event, msg) {
-          $scope.products = msg;
-        });
-      }
-      else {
-        Products.query(function(products) {
-          $scope.products = products;
-        });
-      }
+      Products.query(function(products) {
+        $scope.products = products;
+      });
     };
 
     $scope.findProductCategory = function() {
@@ -189,27 +182,40 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$ro
     };
 
     $scope.addProduct = function(productId, quantity) {
-      if($rootScope.cart.length === 0){
-        $rootScope.cart.push({
+      console.log(productId + ': ' + quantity);
+      if($scope.global.cart.length === 0){
+        $scope.global.cart.push({
           productId: productId,
-          quantity: quantity
+          quantity: parseInt(quantity)
         });
+        console.log('no product added');
+        console.log($scope.global.cart);
       } else {
-        console.log($rootScope.cart);
-        for (var i in $rootScope.cart) {
-          if($rootScope.cart[i].productId === productId){
-            $rootScope.cart[i].quantity = $rootScope.cart[i].quantity + 1;
-          } else {
-            $rootScope.cart.push({
-              productId: productId,
-              quantity: quantity
-            });
+        var newProduct = true;
+        for (var i in $scope.global.cart) {
+          if($scope.global.cart[i].productId === productId){
+            console.log('old product');
+            $scope.global.cart[i].quantity = parseInt(quantity);
+            newProduct = false
           }
 
         }
+
+         if(newProduct === true) {
+            console.log('new product');
+            $scope.global.cart.push({
+              productId: productId,
+              quantity: parseInt(quantity)
+            });
+          }
+        console.log($scope.global.cart);
       }
       $rootScope.$emit('addtocart');
     };
+
+    $rootScope.$on('searchProductEvent', function(event, msg) {
+      $scope.products = msg;
+    });
 
   }
 ]);
