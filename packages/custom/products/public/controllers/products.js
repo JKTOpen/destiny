@@ -206,6 +206,18 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$ro
       $rootScope.$emit('addtocart');
     };
 
+    $scope.cartProduct = function(item) {
+      Products.get(
+        {
+          productId: item.productId
+        },
+      function(product) {
+        item.productDetail = product;
+        console.log(item);
+      });
+
+    };
+
     $rootScope.$on('searchProductEvent', function(event, msg) {
       $scope.products = msg;
     });
