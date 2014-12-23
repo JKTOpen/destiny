@@ -29,7 +29,7 @@
       <div class="short-des">{{product.description}}
       </div>
       <div class="price">Rs. {{product.price}}</div>
-      <div class="minimum-order">Order Quantity <input type="text" value="1" data-ng-model="quantity"/></div>
+      <div class="minimum-order">Order Quantity <input type="number" min="1" value="1" data-ng-model="quantity"/></div>
       <div class="details-btn">
         <input type="button" class="add-cart" data-ng-click='addProduct(product._id, quantity);' />
         <!-- <input type="button" class="add-wishlist" /> -->
