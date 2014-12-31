@@ -100,9 +100,10 @@
            <div class="product-name">
              <a data-ng-href="#!/products/{{product._id}}">{{product.title}}</a>
            </div>
-           <div class="product-price">Rs.{{product.price}}</div>
+           <div class="product-price">&#8377;{{product.price}}</div>
            <div class="add-to-cart">
-             <img src="products/assets/img/add-to-cart.jpg" width="83" height="28" data-ng-click='addProduct(product._id, 1);' />
+            <ngcart-addtocart id="{{ product._id }}" name="{{ product.title }}" price="{{ product.price }}" quantity="{{quantity}}" data="product"/>Add to Cart</ngcart-addtocart>
+             <!-- <img src="products/assets/img/add-to-cart.jpg" width="83" height="28" data-ng-click='addProduct(product._id, 1);' /> -->
           </div>
         </div>
       </div>

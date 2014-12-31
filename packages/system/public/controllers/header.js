@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('mean.system')
-.controller('HeaderController', ['$scope', '$rootScope', 'Global', 'Menus','ProductCategoryLists',
-  function($scope, $rootScope, Global, Menus,ProductCategoryLists) {
+.controller('HeaderController', ['$scope', '$rootScope', 'Global', 'Menus','ProductCategoryLists','ngCart',
+  function($scope, $rootScope, Global, Menus,ProductCategoryLists,ngCart) {
     $scope.global = Global;
     $scope.menus = {};
-    $scope.cart = [];
+    // $scope.cart = [];
 
     $scope.loadCategory = function() {
       ProductCategoryLists.query(function(productCategory) {
@@ -42,9 +42,9 @@ angular.module('mean.system')
       };
     });
 
-    $rootScope.$on('addtocart', function() {
+    /*$rootScope.$on('addtocart', function() {
       $scope.cart = $rootScope.cart;
-    });
+    });*/
 
   }
 ]);

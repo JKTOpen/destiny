@@ -1,36 +1,4 @@
-<div class="Breadcrumb"><a href="#">Home</a> > Add to cart</div>
-<div class="listpage-left">
-<div class="lpage-head">Categories</div>
-<div class="lpage-content">
-<ul class="add-cart-category">
-<li><a href="#">Flower vase</a></li>
-<li><a href="#">Candle Holder Hurricane</a> </li>
-<li><a href="#">Electric lamp</a> </li>
-<li><a href="#">Tapper Candel Holder</a> </li>
-<li><a href="#">Bowl</a> </li>
-<li><a href="#">Tray</a> </li>
-<li><a href="#">T-Light Holder</a> </li>
-<li><a href="#">Wall Screen</a> </li>
-<li><a href="#">Hanging Pendent</a> </li>
-<li><a href="#">Chandelier</a> </li>
-<li><a href="#">Metal Furniture</a> </li>
-<li><a href="#">Mirror</a> </li>
-
-</ul>
-
-
-</div>
-
-
-
-
-
-
-
-</div><!--list page left-->
-
-
-
+<!-- 
 <div class="listpage-right" data-ng-controller="ProductsController">
 <div class="category-name">My Cart</div>
 
@@ -53,7 +21,7 @@
     {{item.productDetail.title}}
   </a>
 
-<!-- <img src="/products/assets/img/pro-icon.jpg" width="34" height="30" /> Product name --></div>
+</div>
 <div class="cart-col quant"><input class="quantity" type="text" value="{{item.quantity}}" /></div>
 <div class="cart-col cart-price">{{item.productDetail.price}}</div>
 <div class="cart-col cart-dis">Rs. 999</div>
@@ -68,7 +36,7 @@
 
 
 
-</div><!-- cart-tab-->
+</div>
 
 <div class="shipping-row">
 <div class="ship-code">Shipping to:110088 <span class="orange-col">Change</span></div>
@@ -83,4 +51,16 @@
 </div>
 
 
-</div><!--list page right-->
+</div>
+ -->
+<div ng-controller="ProductsController">
+  <h3>Cart </h3>
+  <ngcart-cart></ngcart-cart>
+  <a class="btn btn-lg btn-primary" ng-click="checkout()">Checkout</a>
+  
+  <div ng-show="summary">
+    <h4>Order Summary</h4>
+    <pre> {{ summary |json}}</pre>
+  </div>
+
+</div>
