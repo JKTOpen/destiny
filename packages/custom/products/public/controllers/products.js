@@ -5,7 +5,7 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$ro
     $scope.global = Global;
     $scope.images = [];
     $scope.productImages = null;
-    // $scope.quantity = 1;
+    $scope.quantity = 1;
     ngCart.setTaxRate(7.5);
     ngCart.setShipping(2.99);
     // console.log(ngCart);
