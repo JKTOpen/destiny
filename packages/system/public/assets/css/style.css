@@ -21,7 +21,7 @@ ul.top-links li:last-child{ border-right:none;}
 .bd-container{ width:1030px; padding-top:30px;}
 .menu{ padding-top:10px; height:40px; width: 100%; background:#3d3d3d;}
 .free-shipping{ width:260px; float:left; font:normal 11px Verdana, Geneva, sans-serif; color:#737272; text-transform:capitalize; text-align:center;}
-.search-box{float:left;font:normal 11px Verdana, Geneva, sans-serif; color:#737272;padding-left: 90px;}
+.search-box{float:left;font:normal 11px Verdana, Geneva, sans-serif; color:#737272;padding-left: 10px;}
 .search-txt{ padding-top:10px; width:40px; float:left; color:#fff !important; text-decoration:none; font:normal 11px/18px Tahoma, Geneva, sans-serif;}
 ul.menu-links{padding:0; margin:0; }
 ul.menu-links li{padding:0; list-style:none; display:inline; }
@@ -64,4 +64,4 @@ ul.menu-links li:last-child{ border-right:none;}
 .copy{ width:245px; float:left; font:normal 11px Verdana, Geneva, sans-serif; color:#FFF; padding:20px 0 0 53px;}
 .social-icons{width:245px; float:right; font:normal 11px Verdana, Geneva, sans-serif; color:#FFF; padding:15px 25px 0 0;}
 .fix-width{ width:1030px; margin:0 auto; }
-.cart-btn-top a:link{ color:#fff !important; text-decoration:none; font:normal 11px/18px Tahoma, Geneva, sans-serif;}
+.cart-btn-top a:link{float:right !important; color:#fff !important; text-decoration:none; font:normal 11px/18px Tahoma, Geneva, sans-serif; padding:5px 0 0 0;width:150px;}

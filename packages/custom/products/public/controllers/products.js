@@ -1,11 +1,19 @@
 'use strict';
 
-angular.module('mean.products').controller('ProductsController', ['$scope', '$rootScope','$stateParams', '$location', 'Global', 'Products','ProductCategoryLists','CategorizedProducts',
-  function($scope, $rootScope, $stateParams, $location, Global, Products, ProductCategoryLists, CategorizedProducts) {
+angular.module('mean.products').controller('ProductsController', ['$scope', '$rootScope','$stateParams', '$location', 'Global', 'Products','ProductCategoryLists','CategorizedProducts','ngCart',
+  function($scope, $rootScope, $stateParams, $location, Global, Products, ProductCategoryLists, CategorizedProducts, ngCart) {
     $scope.global = Global;
     $scope.images = [];
     $scope.productImages = null;
     $scope.quantity = 1;
+    ngCart.setTaxRate(7.5);
+    ngCart.setShipping(2.99);
+    // console.log(ngCart);
+    $scope.checkout = function() {
+        $scope.summary = ngCart.toObject();
+         // Post your cart to your resource
+         //$http.post('cart/', ngCart.toObject());
+    };
 
     $scope.hasAuthorization = function(product) {
       if (!product || !product.user) return false;
@@ -181,46 +189,45 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$ro
        });
     };
 
-    $scope.addProduct = function(productId, quantity) {
-      if($scope.global.cart.length === 0){
-        $scope.global.cart.push({
-          productId: productId,
-          quantity: parseInt(quantity)
-        });
-      } else {
-        var newProduct = true;
-        for (var i in $scope.global.cart) {
-          if($scope.global.cart[i].productId === productId){
-            $scope.global.cart[i].quantity = parseInt(quantity);
-            newProduct = false;
-          }
-        }
-       if(newProduct === true) {
-          $scope.global.cart.push({
-            productId: productId,
-            quantity: parseInt(quantity)
-          });
-        }
-      }
-      console.log($scope.global.cart);
-      $rootScope.$emit('addtocart');
-    };
+    // $scope.addProduct = function(productId, quantity) {
+    //   if($scope.global.cart.length === 0){
+    //     $scope.global.cart.push({
+    //       productId: productId,
+    //       quantity: parseInt(quantity)
+    //     });
+    //   } else {
+    //     var newProduct = true;
+    //     for (var i in $scope.global.cart) {
+    //       if($scope.global.cart[i].productId === productId){
+    //         $scope.global.cart[i].quantity = parseInt(quantity);
+    //         newProduct = false;
+    //       }
+    //     }
+    //    if(newProduct === true) {
+    //       $scope.global.cart.push({
+    //         productId: productId,
+    //         quantity: parseInt(quantity)
+    //       });
+    //     }
+    //   }
+    //   console.log($scope.global.cart);
+    //   /*$rootScope.$emit('addtocart');*/
+    // };
 
-    $scope.cartProduct = function(item) {
-      Products.get(
-        {
-          productId: item.productId
-        },
-      function(product) {
-        item.productDetail = product;
-        console.log(item);
-      });
+    // $scope.cartProduct = function(item) {
+    //   Products.get(
+    //     {
+    //       productId: item.productId
+    //     },
+    //   function(product) {
+    //     item.productDetail = product;
+    //     console.log(item);
+    //   });
 
-    };
+    // };
 
     $rootScope.$on('searchProductEvent', function(event, msg) {
       $scope.products = msg;
     });
-
   }
 ]);
