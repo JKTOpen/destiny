@@ -1,4 +1,4 @@
-<!-- 
+<!--
 <div class="listpage-right" data-ng-controller="ProductsController">
 <div class="category-name">My Cart</div>
 
@@ -53,15 +53,18 @@
 
 </div>
  -->
+
+<div class="admin-container">
 <div ng-controller="ProductsController">
-  <h3>Cart </h3>
+  <h2>Add Product</h2>
   <ngcart-cart></ngcart-cart>
   <a class="btn btn-lg btn-primary" href="#!/home">Continue Shopping</a>
   <a class="btn btn-lg btn-primary pull-right" ng-click="checkout()">Checkout</a>
-  
+
   <div ng-show="summary">
     <h4>Order Summary</h4>
     <pre> {{ summary |json}}</pre>
   </div>
 
+</div>
 </div>
