@@ -51,9 +51,9 @@ angular.module('mean.products').config(['$stateProvider',
         url: '/products/category/:categoryId',
         templateUrl: 'products/views/categorizedproduct.html'
       })
-      .state('view cart', {
+      /*.state('view cart', {
         url: '/cart',
         templateUrl: 'products/views/cart.html'
-      });
+      })*/;
   }
 ]);

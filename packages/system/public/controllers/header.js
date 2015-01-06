@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('mean.system')
-.controller('HeaderController', ['$scope', '$rootScope', 'Global', 'Menus','ProductCategoryLists','ngCart',
-  function($scope, $rootScope, Global, Menus,ProductCategoryLists,ngCart) {
+.controller('HeaderController', ['$scope', '$rootScope', 'Global', 'Menus','ProductCategoryLists',
+  function($scope, $rootScope, Global, Menus,ProductCategoryLists) {
     $scope.global = Global;
     $scope.menus = {};
     // $scope.cart = [];
