@@ -25,7 +25,7 @@ exports.create = function(req, res) {
  //console.log(req.body.order.items);
  //console.log('testformat');
  //console.log(order.order);
-  /*order.save(function(err) {
+  order.save(function(err) {
  
     if (err) {
       return res.json(500, {
@@ -34,7 +34,7 @@ exports.create = function(req, res) {
     }
     res.json(order);
 
-  });*/
+  });
 };
 
 /**
