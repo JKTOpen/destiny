@@ -16,14 +16,6 @@ Carts.register(function(app, auth, database) {
   //We enable routing. By default the Package Object is passed to the routes
   Carts.routes(app, auth, database);
 
-  //We are adding a link to the main menu for all authenticated users
-  Carts.menus.add({
-    title: 'carts example page',
-    link: 'carts example page',
-    roles: ['authenticated'],
-    menu: 'main'
-  });
-  
   Carts.aggregateAsset('css', 'carts.css');
 
   /**

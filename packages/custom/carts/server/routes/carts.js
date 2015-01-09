@@ -1,26 +1,26 @@
 'use strict';
 
+var carts = require('../controllers/carts');
+
+// Cart authorization helpers
+var hasAuthorization = function(req, res, next) {
+  console.log(req.user !== req.cart.user);
+  if (req.user !== req.cart.user) {
+    return res.send(401, 'User is not authorized');
+  }
+  next();
+};
+
+
 // The Package is past automatically as first parameter
 module.exports = function(Carts, app, auth, database) {
-
-  app.get('/carts/example/anyone', function(req, res, next) {
-    res.send('Anyone can access this');
-  });
-
-  app.get('/carts/example/auth', auth.requiresLogin, function(req, res, next) {
-    res.send('Only authenticated users can access this');
-  });
-
-  app.get('/carts/example/admin', auth.requiresAdmin, function(req, res, next) {
-    res.send('Only users with Admin role can access this');
-  });
-
-  app.get('/carts/example/render', function(req, res, next) {
-    Carts.render('index', {
-      package: 'carts'
-    }, function(err, html) {
-      //Rendering a view from the Package server/views
-      res.send(html);
-    });
-  });
+  app.route('/carts/:cartId')
+    .get(auth.requiresLogin, hasAuthorization, carts.showCart)
+    .put(auth.requiresLogin, hasAuthorization, carts.updateCart);
+  app.route('/carts')
+    .post(auth.requiresLogin, carts.createCart);
+  
+  // Finish with setting up the cartId param
+  app.param('cartId', carts.cart);
+  
 };
