@@ -1,6 +1,6 @@
 'use strict';
 
-(function() {
+/*(function() {
   // Articles Controller Spec
   describe('MEAN controllers', function() {
     describe('ArticlesController', function() {
@@ -159,7 +159,7 @@
         scope.article = article;
 
         // test PUT happens correctly
-        $httpBackend.expectPUT(/articles\/([0-9a-fA-F]{24})$/).respond();
+        $httpBackend.expectPUT(/articles\/([0-9a-fA-F]{24})$/).respond();*/
 
         // testing the body data is out for now until an idea for testing the dynamic updated array value is figured out
         //$httpBackend.expectPUT(/articles\/([0-9a-fA-F]{24})$/, putArticleData()).respond();
@@ -170,7 +170,7 @@
                 */
 
         // run controller
-        scope.update(true);
+        /*scope.update(true);
         $httpBackend.flush();
 
         // test URL location to new object
@@ -204,4 +204,4 @@
         }));
     });
   });
-}());
+}());*/
