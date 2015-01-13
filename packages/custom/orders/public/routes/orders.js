@@ -32,20 +32,6 @@ angular.module('mean.orders').config(['$stateProvider',
           loggedin: checkLoggedin
         }
       })
-      /*.state('create article', {
-        url: '/articles/create',
-        templateUrl: 'articles/views/create.html',
-        resolve: {
-          loggedin: checkLoggedin
-        }
-      })*/
-      /*.state('edit article', {
-        url: '/articles/:articleId/edit',
-        templateUrl: 'articles/views/edit.html',
-        resolve: {
-          loggedin: checkLoggedin
-        }
-      })*/
       .state('order by id', {
         url: '/orders/:orderId',
         templateUrl: 'orders/views/view.html',

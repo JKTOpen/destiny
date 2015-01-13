@@ -49,7 +49,11 @@
             <h1 data-ng-show="products.length === 0"> No Products Yet. </h1>
              <h1 data-ng-show="global.isAdmin === true && products.length === 0"> <br> Why don't you <a href="/#!/products/create">Create One</a>?</h1>
       <div class="row" data-ng-repeat="order in orders">
-        {{order._id}}
+        
+
+        <div class="product-name">
+             <a data-ng-href="#!/orders/{{order._id}}">{{order._id}}</a>
+           </div>
         
     </div>
   </div><!--list page right-->
