@@ -183,10 +183,10 @@ ArticleSchema.path('content').validate(function(content) {
 /**
  * Statics
  */
-/*ArticleSchema.statics.load = function(id, cb) {
+OrderSchema.statics.load = function(id, cb) {
   this.findOne({
     _id: id
   }).populate('user', 'name username').exec(cb);
-};*/
+};
 
 mongoose.model('Order', OrderSchema);

@@ -15,11 +15,11 @@ module.exports = function(Orders, app, auth) {
   app.route('/orders')
     .get(orders.all)
     .post(auth.requiresLogin, orders.create);
-  /*app.route('/articles/:articleId')
-    .get(articles.show)
-    .put(auth.requiresLogin, hasAuthorization, articles.update)
+  app.route('/orders/:orderId')
+    .get(orders.show);
+    /*.put(auth.requiresLogin, hasAuthorization, articles.update)
     .delete(auth.requiresLogin, hasAuthorization, articles.destroy);*/
 
   // Finish with setting up the articleId param
-  //app.param('articleId', articles.article);
+  app.param('orderId', orders.order);
 };

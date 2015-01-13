@@ -1,21 +1,55 @@
-<section data-ng-controller="ArticlesController" data-ng-init="find()">
-  <ul class="articles unstyled">
-    <li data-ng-repeat="article in articles">
-      <span>{{article.created | date:'medium'}}</span> /
-      <span>{{article.user.name}}</span>
-      <h2>
-        <a data-ng-href="#!/articles/{{article._id}}">{{article.title}}</a>
-        <span data-ng-if="hasAuthorization(article)">
-          <a class="btn" href="/#!/articles/{{article._id}}/edit">
-            <i class="glyphicon glyphicon-edit"></i>
-          </a>
-          <a class="btn" data-ng-click="remove(article);">
-            <i class="glyphicon glyphicon-trash"></i>
-          </a>
-        </span>
-      </h2>
-      <div>{{article.content}}</div>
-    </li>
-  </ul>
-  <h1 data-ng-hide="!articles || articles.length">No articles yet. <br> Why don't you <a href="/#!/articles/create">Create One</a>?</h1>
-</section>
+<div class="Breadcrumb"><a href="#">Home</a> > <a href="#">Flower vase</a> > Glass Vase</div>
+  <div class="listpage-left">
+    <div class="lpage-mainhead">Filter by</div>
+    <div class="lpage-head">Categories</div>
+    <div class="lpage-content">
+      <input type="checkbox" name="glass" value="vase"> Glass vase<br>
+      <input type="checkbox" name="glass" value="metal"> Glass and Metal vase<br>
+      <input type="checkbox" name="glass" value="vase"> For Dry Flowers<br>
+      <input type="checkbox" name="glass" value="metal"> Glass vase<br>
+      <input type="checkbox" name="glass" value="vase"> For Dry Flowers<br>
+      <input type="checkbox" name="glass" value="metal"> Glass vase<br>
+    </div>
+
+    <div class="lpage-head">Colour</div>
+    <div class="lpage-content">
+      <img src="/products/assets/img/colors.jpg" width="198" height="76" />
+    </div>
+
+    <div class="lpage-head">Price</div>
+    <div class="lpage-content">
+      <img src="/products/assets/img/price-img.jpg" width="191" height="73" />
+    </div>
+
+    <div class="lpage-head">Discount</div>
+    <div class="lpage-content">
+      1% - 20%(144)<br />
+      20% - 40%(48)<br />
+      40% - 60%(77)<br />
+      60% - 80%(45)<br />
+    </div>
+
+    <div class="lpage-head">brands</div>
+    <div class="lpage-content lpage-last">
+      <input type="checkbox" name="glass" value="vase"> Brand1<br>
+      <input type="checkbox" name="glass" value="metal"> Brand2<br>
+      <input type="checkbox" name="glass" value="vase">  Brand3<br>
+      <input type="checkbox" name="glass" value="metal"> Brand4<br>
+      <input type="checkbox" name="glass" value="vase">  Brand5<br>
+      <input type="checkbox" name="glass" value="metal">  Brand6<br>
+    </div>
+  </div><!--list page left-->
+
+  <div class="listpage-right" data-ng-controller="OrdersController" data-ng-init="find()">
+    <div class="category-name">All Products <span class="pro-found">({{products.length}} Items found) </span>
+      </div>
+      <div class="sort-by">
+        Sort by: <a href="#">Popularity</a> <span class="sep">|</span> <a href="#">What's New</a><span class="sep">|</span> <a href="#">Price</a>
+      </div>
+            <h1 data-ng-show="products.length === 0"> No Products Yet. </h1>
+             <h1 data-ng-show="global.isAdmin === true && products.length === 0"> <br> Why don't you <a href="/#!/products/create">Create One</a>?</h1>
+      <div class="row" data-ng-repeat="order in orders">
+        {{order._id}}
+        
+    </div>
+  </div><!--list page right-->

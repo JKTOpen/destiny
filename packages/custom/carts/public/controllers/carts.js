@@ -14,15 +14,43 @@ angular.module('mean.carts').controller('CartsController', ['$scope', '$statePar
         $scope.summary = ngCart.toObject();
          // Post your cart to your resource
          //$http.post('cart/', ngCart.toObject());
-         var order = new Orders({order:$scope.summary});
+         var order = new Orders($scope.summary);
          console.log('order object created ');
          console.log(order);
-          order.$save(function(response) {
+          /*order.$save(function(response) {
+            ngCart.init();
             console.log('order.save ');
             console.log(response);
             console.log('checking  ');
         //$location.path('orders/');
-        });
+        });*/
+
+          order.$save({},function(response) {
+                     ngCart.empty();
+                    
+                //$location.path('orders/');
+                },function(error) {
+                    console.log('Could not save the data');
+                });
     };
+
+
+    $scope.find = function() {
+      Orders.query(function(orders) {
+        //$scope.orders = orders;
+        console.log(orders);
+      });
+    };
+
+ $scope.findOne = function() {
+      Orders.get({
+        orderId: $stateParams.orderId
+      }, function(order) {
+        //$scope.order = order;
+        console.log(order);
+      });
+    };
+
+
   }
 ]);

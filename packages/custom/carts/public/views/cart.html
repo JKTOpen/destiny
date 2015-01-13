@@ -3,12 +3,13 @@
   <h2>Add Product</h2>
   <ngcart-cart></ngcart-cart>
   <a class="btn btn-lg btn-primary" href="#!/home">Continue Shopping</a>
-  <a class="btn btn-lg btn-primary pull-right" ng-click="checkout()">Checkout</a>
+  <a class="btn btn-lg btn-primary pull-right" href="#!/orders" ng-click="checkout()">Checkout</a>
+  <a class="btn btn-lg btn-primary pull-right" ng-click="find()">Orders</a>
 
-  <div ng-show="summary">
+  <!-- <div ng-show="summary">
     <h4>Order Summary</h4>
     <pre> {{ summary |json}}</pre>
-  </div>
+  </div> -->
 
 </div>
 </div>
