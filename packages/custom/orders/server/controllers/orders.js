@@ -23,6 +23,7 @@ exports.order = function(req, res, next, id) {
  * Create an order
  */
 exports.create = function(req, res) {
+  console.log(req.body);
   var order = new Order(req.body);
   order.user = req.user;
   order.save(function(err) {

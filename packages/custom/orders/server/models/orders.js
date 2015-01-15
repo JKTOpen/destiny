@@ -164,6 +164,11 @@ var OrderSchema = new Schema({
         required: false,
         trim: true
       }
+    },
+    total: {
+      type: Number,
+      required: false,
+      trim: true
     }
  }]  
 });

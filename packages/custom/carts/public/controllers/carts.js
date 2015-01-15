@@ -1,19 +1,16 @@
 'use strict';
 
-angular.module('mean.carts').controller('CartsController', ['$scope', '$stateParams','$window' ,'$location','Global', 'Carts','ngCart','Orders',
-  function($scope, $stateParams, $window, $location, Global, Carts,ngCart, Orders) {
+angular.module('mean.carts').controller('CartsController', ['$scope', '$stateParams', '$location','Global', 'Carts','ngCart','Orders',
+  function($scope, $stateParams, $location, Global, Carts,ngCart, Orders) {
     $scope.global = Global;
     $scope.package = {
       name: 'carts'
     };
-    $scope.summary = true ;
+    $scope.orderError = false;
     ngCart.setTaxRate(7.5);
     ngCart.setShipping(2.99);
     
     $scope.checkout = function() {
-      
-      //$scope.summary = ngCart.toObject();
-      /*if(typeof order.items !== 'undefined'){*/
       if(ngCart.toObject()){
         var order = new Orders(ngCart.toObject());  
         order.$save({},function(response) {
@@ -23,8 +20,8 @@ angular.module('mean.carts').controller('CartsController', ['$scope', '$statePar
             console.log('Could not save the data');
         });
       }else{
-            $scope.summary = false ;
-           
+            $scope.orderError = true ;
+           console.log('build order ');
        } 
     };
   }

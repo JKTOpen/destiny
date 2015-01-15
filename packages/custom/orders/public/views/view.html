@@ -1,66 +1,49 @@
-<section data-ng-controller="OrdersController" data-ng-init="findOne()">
-  <div class="Breadcrumb"><a href="#">Home</a> > <a href="#!/products/category/{{product.category._id}}">{{product.category.name}}</a> > {{product.title}}</div>
-  <div class="product-detail">
-    <div class="detail-left">
-      <div class="product-icons ">
-        <img src="/products/assets/img/na1.png" class="img-responsive img-thumbnail"/>
-        <img src="/products/assets/img/na2.png" class="img-responsive img-thumbnail"/>
-        <img src="/products/assets/img/na3.png" class="img-responsive img-thumbnail"/>
-        <img src="/products/assets/img/na4.png" class="img-responsive img-thumbnail"/>   <img src="/products/assets/img/na5.png" class="img-responsive img-thumbnail"/>
-      </div>
-      <div class="produc-img">
-        <img data-ng-src="{{product.images.src}}" class="img-responsive img-thumbnail" alt=""/>
-      </div>
-    </div> <!--end detail left-->
+<div class="admin-container">
+<div data-ng-controller="OrdersController" data-ng-init="findOne()">
+    <legend>Order: {{orders._id}}</legend>
+    <div class="table-responsive col-lg-12">
 
-    <div class="detail-right">
-      <h2>
-        {{product.title}}
-        <span data-ng-if="hasAuthorization(product)">
-          <a class="btn" href="/#!/products/{{product._id}}/edit">
-            <i class="glyphicon glyphicon-edit"></i>
-          </a>
-          <a class="btn" data-ng-click="remove(product);">
-            <i class="glyphicon glyphicon-trash"></i>
-          </a>
-        </span>
-      </h2>
-      <div class="title">Short Description</div>
-      <div class="short-des">{{product.description}}
-      </div>
-      <div class="price">&#8377; {{product.price}}</div>
-      <div class="minimum-order">Order Quantity <input type="number" min="1" value="1" data-ng-model="quantity"/></div>
-      <div class="details-btn" >
-        <!-- <input type="button" class="add-cart" data-ng-click='addProduct(product._id, quantity);' /> -->
-        <!-- <input type="button" class="add-wishlist" /> -->
-        <ngcart-addtocart id="{{ product._id }}" name="{{ product.title }}" price="{{ product.price }}" quantity="{{quantity}}" data="product"/>Add to Cart</ngcart-addtocart>
-      </div>
+    <table class="table table-striped ngCart cart">
 
-    </div><!-- end detail right -->
-
-    <div class="clear"></div>
-
-    <div class="detail-desc-box">
-      <div class="detail-title">Product Description</div>
-      <div class="detail-des">{{product.description}}</div>
-      <div class="detail-title">Product Details</div>
-      <div class="detail-des">Tag : {{product.tag}}, Color : {{product.color}}, Created: {{product.created | date:'medium'}}, User: {{product.user.name}}</div>
-      <div class="detail-title">Demensions (LXWXH)</div>
-      <div class="detail-des">32X32X31 CMS</div>
-    </div><!--end-detail-des-->
-
-    <div class="shipping-detail-box">
-      <ul class="short-shipping-details">
-        <li>Shipping Charges: None</li>
-        <li>Cash On Delivery: Available</li>
-        <li>part payment: Available</li>
-        <li>EMI : Available</li>
-      </ul>
-    </div><!--end-shipping-detail-->
-    <div class="clear"></div>
-    <div ng-if="product !== undefined" ng-include="'comments/views/index.html'" data-ng-controller="CommentsController" data-ng-init="findComments(product, 2)"/>
-    <div class="clear"></div>
-
-  </div><!--detail end-->
-
-  </section>
+        <thead>
+        <tr>
+            <th></th>
+            <th>Quantity</th>
+            <th>Amount</th>
+            <th>Total</th>
+        </tr>
+        </thead>
+        <tfoot>
+        <tr ng-show="orders.taxRate">
+            <td></td>
+            <td></td>
+            <td>Tax ({{ orders.taxRate }}%):</td>
+            <td>{{ orders.tax | currency:"&#8377" }}</td>
+        </tr>
+        <tr ng-show="orders.shipping">
+            <td></td>
+            <td></td>
+            <td>Shipping:</td>
+            <td>{{ orders.shipping | currency:"&#8377" }}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>Total:</td>
+            <td>{{ orders.totalCost | currency:"&#8377" }}</td>
+        </tr>
+        </tfoot>
+        <tbody>
+        <tr ng-repeat="item in orders.items">
+            <td>{{ item.name }}</td>
+            <td>&nbsp;&nbsp;
+                {{ item.quantity | number }}&nbsp;&nbsp;
+            </td>
+            <td>{{ item.price | currency:"&#8377"}}</td>
+            <td>{{ item.total | currency:"&#8377" }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+</div>
