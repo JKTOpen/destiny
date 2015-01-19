@@ -7,7 +7,6 @@ var mongoose = require('mongoose'),
 Cart = mongoose.model('Cart'),
   _ = require('lodash');
   
-  
 /**
  * Find product by id
  */
@@ -19,7 +18,6 @@ exports.cart = function(req, res, next, id) {
     next();
   });
 };  
- 
 
 /**
  * Show an cart
@@ -44,9 +42,6 @@ exports.updateCart = function(req, res) {
 
   });
 };
-
-
-
 
 /**
  * Create an cart

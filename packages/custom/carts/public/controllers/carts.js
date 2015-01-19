@@ -7,6 +7,7 @@ angular.module('mean.carts').controller('CartsController', ['$scope', '$statePar
       name: 'carts'
     };
     $scope.orderError = false;
+    $scope.errorSavingData = false;
     ngCart.setTaxRate(7.5);
     ngCart.setShipping(2.99);
     
@@ -17,11 +18,12 @@ angular.module('mean.carts').controller('CartsController', ['$scope', '$statePar
           ngCart.empty();
           $location.path('orders');
         },function(error) {
-            console.log('Could not save the data');
+          $scope.errorSavingData = true;
+            
         });
       }else{
             $scope.orderError = true ;
-           console.log('build order ');
+           
        } 
     };
   }

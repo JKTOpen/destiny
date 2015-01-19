@@ -50,10 +50,6 @@ angular.module('mean.products').config(['$stateProvider',
       .state('product by category id', {
         url: '/products/category/:categoryId',
         templateUrl: 'products/views/categorizedproduct.html'
-      })
-      /*.state('view cart', {
-        url: '/cart',
-        templateUrl: 'products/views/cart.html'
-      })*/;
+      });
   }
 ]);

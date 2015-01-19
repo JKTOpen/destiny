@@ -6,15 +6,7 @@ angular.module('mean.products').controller('ProductsController', ['$scope', '$ro
     $scope.images = [];
     $scope.productImages = null;
     $scope.quantity = 1;
-    /*ngCart.setTaxRate(7.5);
-    ngCart.setShipping(2.99);
-    // console.log(ngCart);
-    $scope.checkout = function() {
-        $scope.summary = ngCart.toObject();
-         // Post your cart to your resource
-         //$http.post('cart/', ngCart.toObject());
-    };*/
-
+   
     $scope.hasAuthorization = function(product) {
       if (!product || !product.user) return false;
       return $scope.global.isAdmin || product.user._id === $scope.global.user._id;

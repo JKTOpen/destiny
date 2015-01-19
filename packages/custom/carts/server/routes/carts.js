@@ -4,7 +4,6 @@ var carts = require('../controllers/carts');
 
 // Cart authorization helpers
 var hasAuthorization = function(req, res, next) {
-  console.log(req.user !== req.cart.user);
   if (req.user !== req.cart.user) {
     return res.send(401, 'User is not authorized');
   }
