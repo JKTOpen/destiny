@@ -1,7 +1,7 @@
 'use strict';
 
 //Setting up route
-angular.module('mean.products').config(['$stateProvider',
+angular.module('mean.orders').config(['$stateProvider',
   function($stateProvider) {
     // Check if the user is connected
     var checkLoggedin = function($q, $timeout, $http, $location) {
@@ -25,31 +25,19 @@ angular.module('mean.products').config(['$stateProvider',
 
     // states for my app
     $stateProvider
-      .state('all products', {
-        url: '/products',
-        templateUrl: 'products/views/list.html'
-      })
-      .state('create product', {
-        url: '/products/create',
-        templateUrl: 'products/views/create.html',
+      .state('all orders', {
+        url: '/orders',
+        templateUrl: 'orders/views/list.html',
         resolve: {
           loggedin: checkLoggedin
         }
       })
-      .state('edit product', {
-        url: '/products/:productId/edit',
-        templateUrl: 'products/views/edit.html',
+      .state('order by id', {
+        url: '/orders/:orderId',
+        templateUrl: 'orders/views/view.html',
         resolve: {
           loggedin: checkLoggedin
         }
-      })
-      .state('product by id', {
-        url: '/products/:productId',
-        templateUrl: 'products/views/view.html'
-      })
-      .state('product by category id', {
-        url: '/products/category/:categoryId',
-        templateUrl: 'products/views/categorizedproduct.html'
       });
   }
 ]);

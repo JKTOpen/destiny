@@ -1,0 +1,48 @@
+<div class="admin-container">
+    <div data-ng-controller="OrdersController" data-ng-init="findOne()">
+        <legend>
+            Order: {{orders._id}}
+        </legend>
+        <div class="table-responsive col-lg-12">
+            <table class="table table-striped ngCart cart">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Quantity</th>
+                        <th>Amount</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr ng-show="orders.taxRate">
+                        <td></td>
+                        <td></td>
+                        <td>Tax ({{ orders.taxRate }}%):</td>
+                        <td>{{ orders.tax | currency:"&#8377" }}</td>
+                    </tr>
+                    <tr ng-show="orders.shipping">
+                        <td></td>
+                        <td></td>
+                        <td>Shipping:</td>
+                        <td>{{ orders.shipping | currency:"&#8377" }}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>Total:</td>
+                        <td>{{ orders.totalCost | currency:"&#8377" }}</td>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr ng-repeat="item in orders.items">
+                        <td>{{ item.name }}</td>
+                        <td>&nbsp;&nbsp;
+                        {{ item.quantity | number }}&nbsp;&nbsp; </td>
+                        <td>{{ item.price | currency:"&#8377"}}</td>
+                        <td>{{ item.total | currency:"&#8377" }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div> 

@@ -1,0 +1,20 @@
+<div class="admin-container" data-ng-controller="OrdersController" data-ng-init="find()">
+    <div class="category-name">All Orders</div>
+    <table class="table table-striped ngCart cart">
+        <thead>
+            <tr>
+                <th>Order </th>
+                <th>Order Amount</th>
+                <th>Order Date</th>
+            </tr>
+        </thead>
+        <tfoot data-ng-repeat="order in orders">
+            <tr>
+                <td><a data-ng-href="#!/orders/{{order._id}}">{{order._id}}</a></td>
+                <td>{{order.totalCost | currency:"&#8377"}}</td>
+                <td>{{order.created}}</td>
+            </tr>
+        </tfoot>
+    </table> 
+</div>
+ 
