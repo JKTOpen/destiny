@@ -1,4 +1,4 @@
-<div data-ng-controller="LoginCtrl">
+<!-- <div data-ng-controller="LoginCtrl">
 
     <div class="alert alert-danger animated fadeIn" ng-show="loginerror">{{loginerror}}</div>
 
@@ -29,3 +29,65 @@
         </div>
     </form>
 </div>
+ -->
+<div class="login-page" data-ng-controller="LoginCtrl">
+    <div class="login-left">
+        <h2>New Customer!</h2>
+        <div class="login-box">
+            In Just one step, sign up and finalize your purchase: all this with
+            ease, sped and safety. <strong>Register now</strong><br /> <br /> <input
+                type="submit" ui-sref='auth.register' value="Register" />
+        </div>
+    </div>
+    <!---login left-->
+    <div class="login-right">
+        <h2>Registered Customer!</h2>
+        <div class="login-box">
+            Please login here:<br /> <br />
+            <div class="alert alert-danger animated fadeIn" ng-show="loginerror">{{loginerror}}</div>
+            <form ng-submit="login()">
+                <div class="reg-user">
+                    <div class="login-lable">
+                        <label>E-mail*</label>
+                    </div>
+                    <div class="login-input">
+                        <input required id="email_block" type="email" name="email"
+                            placeholder="Email Address" ng-model="user.email">
+                        <div class="error_message">Please enter a correct info #</div>
+                        <span class="pic email"></span>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="login-lable">
+                        <label>Password*</label>
+                    </div>
+                    <div class="login-input">
+                        <input required id="password_block" name="password"
+                            type="{{input.type}}" placeholder="{{input.placeholder}}"
+                            ng-model="user.password">
+                        <div class="error_message">Please enter a correct info #</div>
+                        <span class="pic password {{input.iconClass}}"
+                            ng-click="togglePasswordVisible()">
+                            <div class="hide_text_password">{{input.tooltipText}}</div>
+                        </span>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="login-lable"></div>
+                    <div class="login-check">
+                        <input type="checkbox" /> Remember me
+                    </div>
+                    <div class="clear"></div>
+                    <div class="forgot-pass">
+                        <a ui-sref='forgot-password'>Forgot your password?</a>
+                    </div>
+                    <div class="login-btn">
+                        <input type="submit" value="Login" /><br />
+                        <div class="required">* Required Fields</div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!---login right-->
+    <div class="clear"></div>
+</div>
+<!--detail end-->
