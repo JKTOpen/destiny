@@ -456,7 +456,7 @@ body.login, body.register,  body.forgot-password {
 }
 .login-page {
     width:1010px;
-    background:#fff url(../images/left-bg.jpg) top repeat-x;
+    background:#fff url("theme/public/assets/img/left-bg.jpg") top repeat-x;
     border-left:1px solid #e6e6e6;
     border-right:1px solid #e6e6e6;
     margin-top:10px;
@@ -560,4 +560,31 @@ body.login, body.register,  body.forgot-password {
 }
 .forgot_password-user {
     padding-top:10px;
+}
+
+.signup-form{
+    width:1010px;
+    background:#fff url("/theme/public/assets/img/right-bg.jpg") top repeat-x;
+    border-left:1px solid #e6e6e6;
+    border-right:1px solid #e6e6e6;
+    margin-top:10px;
+    padding:20px 10px 10px 10px;
+    margin-bottom:20px;
+}
+
+.signup-form h2 {
+    font:bold 16px Verdana,Geneva,sans-serif;
+    color:#000;
+    padding-bottom:10px;
+}
+
+.signup-form input[type="submit"] {
+    background:none;
+    background:#ec9112;
+    border:none;
+    padding:5px 20px;
+    font:normal 14px Verdana,Geneva,sans-serif;
+    color:#FFF;
+    cursor:pointer;
+    float:right;
 }
