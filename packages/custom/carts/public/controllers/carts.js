@@ -1,19 +1,30 @@
 'use strict';
 
-angular.module('mean.carts').controller('CartsController', ['$scope', 'Global', 'Carts','ngCart',
-  function($scope, Global, Carts,ngCart) {
+angular.module('mean.carts').controller('CartsController', ['$scope', '$stateParams', '$location','Global', 'Carts','ngCart','Orders',
+  function($scope, $stateParams, $location, Global, Carts,ngCart, Orders) {
     $scope.global = Global;
     $scope.package = {
       name: 'carts'
     };
-
+    $scope.orderError = false;
+    $scope.errorSavingData = false;
     ngCart.setTaxRate(7.5);
     ngCart.setShipping(2.99);
-    // console.log(ngCart);
+    
     $scope.checkout = function() {
-        $scope.summary = ngCart.toObject();
-         // Post your cart to your resource
-         //$http.post('cart/', ngCart.toObject());
+      if(ngCart.toObject()){
+        var order = new Orders(ngCart.toObject());  
+        order.$save({},function(response) {
+          ngCart.empty();
+          $location.path('orders');
+        },function(error) {
+          $scope.errorSavingData = true;
+            
+        });
+      }else{
+            $scope.orderError = true ;
+           
+       } 
     };
   }
 ]);
