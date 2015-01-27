@@ -561,7 +561,6 @@ body.login, body.register,  body.forgot-password {
 .forgot_password-user {
     padding-top:10px;
 }
-
 .signup-form{
     width:1010px;
     background:#fff url("/theme/public/assets/img/right-bg.jpg") top repeat-x;
@@ -571,13 +570,11 @@ body.login, body.register,  body.forgot-password {
     padding:20px 10px 10px 10px;
     margin-bottom:20px;
 }
-
 .signup-form h2 {
     font:bold 16px Verdana,Geneva,sans-serif;
     color:#000;
     padding-bottom:10px;
 }
-
 .signup-form input[type="submit"] {
     background:none;
     background:#ec9112;
@@ -587,4 +584,13 @@ body.login, body.register,  body.forgot-password {
     color:#FFF;
     cursor:pointer;
     float:right;
+}
+.signup-login {
+    width:460px;
+    float:left;
+    margin-left:300px;
+}
+.signup-log_in{
+    width:160px;
+    float:left;
 }
