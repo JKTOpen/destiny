@@ -32,7 +32,7 @@
     border:1px solid #d5d5d5;
     padding:10px;
     width:440px;
-    min-height:250px;
+    min-height:275px;
     font:normal 12px/19px Verdana,Geneva,sans-serif;
     color:#000;
 }
@@ -137,9 +137,12 @@
 .signup-login {
     width:460px;
     float:left;
-    margin-left:300px;
+    margin-left:50px;
 }
 .signup-log_in{
     width:160px;
     float:left;
+}
+.errorText{
+	margin-top :65px;
 }

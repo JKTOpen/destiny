@@ -35,13 +35,13 @@
         <h2>New Customer!</h2>
         <div class="login-box">
             In Just one step, sign up and finalize your purchase: all this with
-            ease, sped and safety. <strong>Register now</strong><br /> <br /> <input
+            ease, speed and safety. <strong>Register now</strong><br /> <br /> <input
                 type="submit" ui-sref='auth.register' value="Register" />
         </div>
     </div>
     <!---login left-->
     <div class="login-right">
-        <h2>Registered Customer!</h2>
+        <h2>Existing Customer!</h2>
         <div class="login-box">
             Please login here:<br /> <br />
             <div class="alert alert-danger animated fadeIn" ng-show="loginerror">{{loginerror}}</div>
@@ -51,7 +51,7 @@
                         <label>E-mail*</label>
                     </div>
                     <div class="login-input">
-                        <input required id="email_block" type="email" name="email"
+                        <input id="email_block" type="email" name="email"
                             placeholder="Email Address" ng-model="user.email">
                         <div class="error_message">Please enter a correct info #</div>
                         <span class="pic email"></span>
@@ -61,7 +61,7 @@
                         <label>Password*</label>
                     </div>
                     <div class="login-input">
-                        <input required id="password_block" name="password"
+                        <input id="password_block" name="password"
                             type="{{input.type}}" placeholder="{{input.placeholder}}"
                             ng-model="user.password">
                         <div class="error_message">Please enter a correct info #</div>
@@ -81,7 +81,7 @@
                     </div>
                     <div class="login-btn">
                         <input type="submit" value="Login" /><br />
-                        <div class="required">* Required Fields</div>
+                        
                     </div>
                 </div>
             </form>
