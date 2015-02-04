@@ -69,11 +69,14 @@ placeholder="{{input.placeholderConfirmPass}}" ng-model="user.confirmPassword">
 			<div class="signup-login">
 				<h2>Sign Up Here!</h2>
 				<div class="login-box">
-					<b>Please fill the details</b>
+					Please fill the details
 					<form ng-submit="register()">
 						<div class="reg-user">
 							<div class="clear"></div>
 
+              <div class="login-lable">
+                  <label>Name*</label>
+              </div>
 							<div class="login-input">
 								<input id="name" type="text" name="name" placeholder="Full Name"
 								ng-model="user.name">
@@ -82,7 +85,11 @@ placeholder="{{input.placeholderConfirmPass}}" ng-model="user.confirmPassword">
 								</div>
 								<!--<span class="pic user"></span>-->
 							</div>
+							<div class="clear"></div>
 
+              <div class="login-lable">
+                  <label>Email*</label>
+              </div>
 							<div class="login-input">
 								<input id="email_block" type="email" name="email" placeholder="Email Address"
 								ng-model="user.email">
@@ -91,6 +98,11 @@ placeholder="{{input.placeholderConfirmPass}}" ng-model="user.confirmPassword">
 								</div>
 								<!--<span class="pic email"></span>-->
 							</div>
+							<div class="clear"></div>
+
+              <div class="login-lable">
+                  <label>Username*</label>
+              </div>
 
 							<div class="login-input">
 								<input id="username" type="text" name="username" placeholder="Username"
@@ -100,7 +112,11 @@ placeholder="{{input.placeholderConfirmPass}}" ng-model="user.confirmPassword">
 								</div>
 								<!--<span class="pic username"></span>-->
 							</div>
+							<div class="clear"></div>
 
+              <div class="login-lable">
+                  <label>Password*</label>
+              </div>
 							<div class="login-input">
 								<input id="password_block" name="password" type="{{input.type}}"
 								placeholder="{{input.placeholder}}" ng-model="user.password">
@@ -113,9 +129,13 @@ placeholder="{{input.placeholderConfirmPass}}" ng-model="user.confirmPassword">
 																	<div class="hide_text_password">
 																		{{input.tooltipText}}
 																	</div> </span>-->
-								
-							</div>
 
+							</div>
+							<div class="clear"></div>
+
+              <div class="login-lable">
+                  <label>Re-password*</label>
+              </div>
 							<div class="login-input">
 								<input id="confirm_password" name="confirm_password" type="{{input.type}}"
 								placeholder="{{input.placeholderConfirmPass}}" ng-model="user.confirmPassword">
@@ -126,9 +146,9 @@ placeholder="{{input.placeholderConfirmPass}}" ng-model="user.confirmPassword">
 								<span class="pic password {{input.iconClassConfirmPass}}" ng-click="togglePasswordConfirmVisible()">
 																	<div class="hide_text_password">
 																		{{input.tooltipTextConfirmPass}}
-																	</div> 
+																	</div>
 																</span>-->
-								
+
 							</div>
 
 							<div class="clear"></div>

@@ -4,6 +4,10 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
+config = require('meanio').loadConfig(),
+  //crypto = require('crypto'),
+  nodemailer = require('nodemailer'),
+  templates = require('../template'),
   Order = mongoose.model('Order');
  /* _ = require('lodash');*/
 
@@ -19,11 +23,19 @@ exports.order = function(req, res, next, id) {
   });
 };
 
+function sendMail(mailOptions) {
+  var transport = nodemailer.createTransport(config.mailer);
+  transport.sendMail(mailOptions, function(err, response) {
+    if (err) return err;
+    return response;
+  });
+}
+
 /**
  * Create an order
  */
 exports.create = function(req, res) {
-  console.log(req.body);
+  
   var order = new Order(req.body);
   order.user = req.user;
   order.save(function(err) {
@@ -32,6 +44,15 @@ exports.create = function(req, res) {
         error: 'Cannot save the order'
       });
     }
+    
+    var mailOptions = {
+          to: req.user.email,
+          bcc:'handmadedestiny@gmail.com',
+          from: config.emailFrom
+        };
+        mailOptions = templates.order_summary_email(req.user, order, mailOptions);
+        sendMail(mailOptions);
+
     res.json(order);
   });
 };
