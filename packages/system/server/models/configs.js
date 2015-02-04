@@ -6,20 +6,18 @@ var mongoose = require('mongoose'),
 Schema = mongoose.Schema;
 
 /**
-* Product Schema
+* Config Schema
 */
 var ConfigSchema = new Schema({
-  categoryList : [{
-	  category: {
-	    type: Schema.ObjectId,
-	    ref: 'Productcategorylist'
-	  }
-  }],
-  productsPerCategory: {
-  	type: Number,
-  	required: true
+  name : {
+    type: String,
+    required: true,
+    trim: true
+  },
+  value: {
+    type: Schema.Types.Mixed,
+    required : true
   }
-
 });
 
 mongoose.model('Configs', ConfigSchema);

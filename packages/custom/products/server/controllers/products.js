@@ -26,10 +26,10 @@ exports.product = function(req, res, next, id) {
  */
 exports.create = function(req, res) {
   var product = new Product(req.body);
-    
+
   product.user = req.user;
   product.save(function(err) {
- 
+
     if (err) {
       return res.json(500, {
         error: 'Cannot save the product'
@@ -45,7 +45,7 @@ exports.create = function(req, res) {
  */
 exports.update = function(req, res) {
   var product = req.product;
-  
+
   product = _.extend(product, req.body);
   product.save(function(err) {
     if (err) {
@@ -101,8 +101,24 @@ res.json(products);
 
 
 exports.productCategory = function(req, res) {
-  Productcategorylist.find().exec(function(err, productCategoryLists) {
-    
+  var categoryList = new RegExp(req.query.categoryList);
+
+  var json;
+  if(req.query.categoryList){
+    json = {
+     _id: { $in: JSON.parse(req.query.categoryList) }
+    };
+  }else{
+    json = {};
+  }
+
+
+
+  console.log('json..........product category list');
+  console.log(json);
+
+  Productcategorylist.find(json).exec(function(err, productCategoryLists) {
+
     if (err) {
       return res.json(500, {
         error: 'Cannot list the xyz'
@@ -119,7 +135,7 @@ exports.categorizedProduct = function(req, res) {
      category: req.params.categoryId,
      title: titleString
   };
-  
+
   Product.find(json).sort('-created')
    .populate('user', 'name username')
    .populate('category', 'name')
@@ -131,4 +147,4 @@ exports.categorizedProduct = function(req, res) {
     }
       res.json(products);
    });
-}; 
+};

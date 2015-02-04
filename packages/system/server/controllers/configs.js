@@ -3,7 +3,13 @@
 var mongoose = require('mongoose'), Configs = mongoose.model('Configs');
 
 exports.getHomePageConfigsFromDB = function(req, res) {
-	Configs.find().exec(function(err, configs) {
+
+	var nameString = new RegExp(req.query.name);
+  	var json = {
+    	name: nameString
+  	};
+
+	  Configs.find(json).exec(function(err, configs) {
     	if (err) {
       		return res.json(500, {
       		error: 'Cannot load the configs'

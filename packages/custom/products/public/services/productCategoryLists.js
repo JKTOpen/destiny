@@ -3,8 +3,8 @@
 //Products service used for products REST endpoint
 angular.module('mean.products').factory('ProductCategoryLists', ['$resource',
   function($resource) {
-    return $resource('/productCategoryLists/:productCategoryId', {
-      productCategoryId: '@_id'
+    return $resource('/productCategoryList', {
+      categoryList: '@categoryList'
     }, {
       update: {
         method: 'PUT'
@@ -12,3 +12,4 @@ angular.module('mean.products').factory('ProductCategoryLists', ['$resource',
     });
   }
 ]);
+
