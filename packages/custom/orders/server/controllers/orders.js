@@ -47,7 +47,7 @@ exports.create = function(req, res) {
     
     var mailOptions = {
           to: req.user.email,
-          bcc:'saurabh.chawla@jktech.com,amitkumar@jktech.com',
+          bcc:'handmadedestiny@gmail.com',
           from: config.emailFrom
         };
         mailOptions = templates.order_summary_email(req.user, order, mailOptions);
