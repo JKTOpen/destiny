@@ -1,15 +1,18 @@
 'use strict';
 
-angular.module('mean.system').controller('IndexController', ['$scope', 'Global','ProductCategoryLists','CategorizedProducts',
-  function($scope, Global, ProductCategoryLists, CategorizedProducts) {
+angular.module('mean.system').controller('IndexController', ['$scope', 'Global','ProductCategoryLists','CategorizedProducts','ConfigService',
+  function($scope, Global, ProductCategoryLists, CategorizedProducts, ConfigService) {
     $scope.global = Global;
     
-
     $scope.loadCategory = function() {
-      $scope.defaultCategory = '54634e05a92d436556ae189a' ;
-      ProductCategoryLists.query(function(productCategory) {
-        $scope.listingCategory = productCategory;
-      });
+    	
+    	var categoryList;
+    	ConfigService.query(function(configs) {
+      		 categoryList = configs[0].categoryList;
+      		 
+        	$scope.productsPerCategory = configs[0].productsPerCategory;
+        	$scope.listingCategory = configs[0].categoryList;	
+        });
     };
 
     $scope.listProductByCategory = function(category) {
