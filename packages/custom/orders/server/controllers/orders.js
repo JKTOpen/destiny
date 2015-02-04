@@ -44,17 +44,13 @@ exports.create = function(req, res) {
         error: 'Cannot save the order'
       });
     }
-    /*var subject='Order Confirmation - Your Order with Flipkart.com [OD31108044000]has been successfully placed!';*/
-    var subject='Order Confirmation - Your Order with HMD [ '+ order._id +'] has been successfully placed !';
+    
     var mailOptions = {
           to: req.user.email,
-          bcc:'saurabh.chawla@jktech.com',
-          subject: subject,
+          bcc:'saurabh.chawla@jktech.com,amitkumar@jktech.com',
           from: config.emailFrom
         };
-        console.log('mailOptions');
-        console.log(mailOptions);
-        mailOptions = templates.forgot_password_email(req.user, req, null, mailOptions);
+        mailOptions = templates.order_summary_email(req.user, order, mailOptions);
         sendMail(mailOptions);
 
     res.json(order);
