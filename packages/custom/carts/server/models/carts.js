@@ -9,7 +9,7 @@ Schema = mongoose.Schema;
 * Cart Schema
 */
 var CartSchema = new Schema({
-  
+
   shipping: {
     type: Number,
     required: false,
@@ -25,54 +25,40 @@ var CartSchema = new Schema({
     required: false,
     trim: true
   },
-  subTotal: {
-    type: Number,
-    required: false,
-    trim: true
-  },
-  totalCost: {
-    type: Number,
-    required: false,
-    trim: true
-  },
   user: {
-    type: Schema.ObjectId,
-    ref: 'User'
+    type: String,
+    required: true,
+    trim: true
   },
   items: [
   {
-  	id : {
+  	_id : {
       type:String,
       required: true,
-      trim: true  
-    }, 
-    name: {
-      type:String,
-      required: true,
-      trim: true  
+      trim: true
     },
-    price: {
+    _name: {
+      type:String,
+      required: true,
+      trim: true
+    },
+    _price: {
       type:Number,
       required: true,
-      trim: true  
+      trim: true
     },
-    quantity: {
+    _quantity: {
       type:Number,
       required: false,
-      trim: true  
+      trim: true
     },
-    data: {
-      type: Schema.Types.Mixed, 
+    _data: {
+      type: Schema.Types.Mixed,
       required : true
-    },
-    total: {
-      type:Number,
-      required: true,
-      trim: true  
     }
   }]
 
-});
+}, { versionKey: false });
 
 /**
 * Statics
@@ -80,9 +66,8 @@ var CartSchema = new Schema({
 
 CartSchema.statics.load = function(id, cb) {
 this.findOne({
-_id: id
+user: id
 }).exec(cb);
-
 };
 
 
