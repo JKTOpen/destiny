@@ -1,15 +1,29 @@
 'use strict';
 
-angular.module('mean.system').controller('IndexController', ['$scope', 'Global','ProductCategoryLists','CategorizedProducts',
-  function($scope, Global, ProductCategoryLists, CategorizedProducts) {
+angular.module('mean.system').controller('IndexController', ['$scope', 'Global','ProductCategoryLists','CategorizedProducts','ConfigService',
+  function($scope, Global, ProductCategoryLists, CategorizedProducts, ConfigService) {
     $scope.global = Global;
-    
 
     $scope.loadCategory = function() {
-      $scope.defaultCategory = '54634e05a92d436556ae189a' ;
-      ProductCategoryLists.query(function(productCategory) {
-        $scope.listingCategory = productCategory;
-      });
+
+    	var categoryList;
+    	ConfigService.query({name: 'cat_slider'},function(configs) {
+        console.log('config..................');
+        console.log(configs);
+        categoryList = configs[0].value.categories;
+        console.log('category list..................');
+        console.log(categoryList);
+        $scope.productsPerCategory = configs[0].value.products_quantity;
+
+        var stringifiedCategoryList = angular.toJson(categoryList);
+
+        ProductCategoryLists.query({categoryList: stringifiedCategoryList}, function(productCategory) {
+          $scope.listingCategory = productCategory;
+        });
+
+        //$scope.listingCategory = configs[0].categoryList;
+        });
+
     };
 
     $scope.listProductByCategory = function(category) {

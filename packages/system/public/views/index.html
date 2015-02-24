@@ -25,14 +25,14 @@
         </div>
       </div>
     </div>
-    <div ng-repeat="category in listingCategory|limitTo:3"
+    <div ng-repeat="category in listingCategory"
       ng-init="listProductByCategory(category)">
       <div class="home-categories">
         <div class="cate-head">
           <a data-ng-href="#!/products/category/{{category._id}}">{{category.name}}</a>
         </div>
         <div class="slider">
-          <div class="sub-cate col-md-4" ng-repeat="product in category.products|limitTo:3 ">
+          <div class="sub-cate col-md-4" ng-repeat="product in category.products|limitTo:productsPerCategory ">
             <a data-ng-href="#!/products/{{product._id}}">
               <img data-ng-src="{{product.images.src}}" class="img-responsive img-thumbnail" alt=""/>
               <div class="cate-name">{{product.title}}</div>

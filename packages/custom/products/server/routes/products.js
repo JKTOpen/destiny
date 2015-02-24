@@ -20,7 +20,7 @@ module.exports = function(Products, app, auth) {
     .get(products.show)
     .put(auth.requiresLogin, hasAuthorization, products.update)
     .delete(auth.requiresLogin, hasAuthorization, products.destroy);
-  app.route('/productCategoryLists')
+  app.route('/productCategoryList')
     .get(products.productCategory);
   app.route('/products/category/:categoryId')
     .get(products.categorizedProduct);
