@@ -15,7 +15,8 @@ var hasAuthorization = function(req, res, next) {
 module.exports = function(Carts, app, auth, database) {
   app.route('/carts/:userId')
     .get(auth.requiresLogin, hasAuthorization, carts.showCart)
-    .put(auth.requiresLogin, hasAuthorization, carts.updateCart);
+    .put(auth.requiresLogin, hasAuthorization, carts.updateCart)
+    .delete(auth.requiresLogin, hasAuthorization, carts.destroy);
   app.route('/carts')
     .post(auth.requiresLogin, carts.createCart);
 
