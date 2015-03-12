@@ -88,4 +88,58 @@ angular.module('mean.system').controller('IndexController', ['$scope', 'Global',
       }
     });
   }
-]);
+])
+.controller('SliderController', function($scope) {
+    $scope.images=[{src:'/system/assets/img/img1.png',title:'Pic 1'},{src:'/system/assets/img/img2.jpg',title:'Pic 2'},{src:'/system/assets/img/img3.jpg',title:'Pic 3'},{src:'/system/assets/img/img4.png',title:'Pic 4'},{src:'/system/assets/img/img5.png',title:'Pic 5'}];
+})
+.directive('slider', function ($timeout) {
+  return {
+    restrict: 'AE',
+  replace: true,
+  scope:{
+    images: '='
+  },
+    link: function (scope, elem, attrs) {
+
+    scope.currentIndex=0;
+
+    scope.next=function(){
+      scope.currentIndex<scope.images.length-1?scope.currentIndex++:scope.currentIndex=0;
+    };
+
+    scope.prev=function(){
+      scope.currentIndex>0?scope.currentIndex--:scope.currentIndex=scope.images.length-1;
+    };
+
+    scope.$watch('currentIndex',function(){
+      scope.images.forEach(function(image){
+        image.visible=false;
+      });
+      scope.images[scope.currentIndex].visible=true;
+    });
+
+    /* Start: For Automatic slideshow*/
+
+    var timer;
+
+    var sliderFunc=function(){
+      timer=$timeout(function(){
+        scope.next();
+        timer=$timeout(sliderFunc,3000);
+      },3000);
+    };
+
+    sliderFunc();
+
+    scope.$on('$destroy',function(){
+      $timeout.cancel(timer);
+    });
+
+    /* End : For Automatic slideshow*/
+    angular.element(document.querySelectorAll('.arrow')).one('click',function(){
+      $timeout.cancel(timer);
+    });
+    },
+  templateUrl:'/system/assets/templates/templateurl.html'
+  }
+});

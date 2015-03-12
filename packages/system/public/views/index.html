@@ -1,7 +1,10 @@
 <section data-ng-controller="IndexController" data-ng-init="loadCategory()" >
 
   <div class="left-container">
-    <div class="banner">
+    <div ng-controller="SliderController" class="banner">
+      <slider images="images"/>
+    </div>
+<!--     <div class="banner">
       <div class="banner-categories">
         <div>
           <a href="#">
@@ -24,7 +27,7 @@
           </a>
         </div>
       </div>
-    </div>
+    </div> -->
     <div ng-repeat="category in listingCategory"
       ng-init="listProductByCategory(category)">
       <div class="home-categories">
